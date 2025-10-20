@@ -1,32 +1,72 @@
 /** @format */
 
 import { defineType, defineField } from "sanity";
+
 export default defineType({
   name: "project",
   title: "Project",
   type: "document",
   fields: [
-    defineField({ name: "title", type: "localeString", title: "Title" }),
-    defineField({ name: "summary", type: "localeText", title: "Summary" }),
-    // si tu veux des slugs différents par langue, remplace par un objet localeSlug custom :
     defineField({
-      name: "slugFr",
-      type: "slug",
-      options: { source: "title.fr" },
+      name: "title",
+      type: "localeString",
+      title: "Title",
+      validation: (rule) => rule.required(),
     }),
     defineField({
-      name: "slugEn",
-      type: "slug",
-      options: { source: "title.en" },
+      name: "featuredImage",
+      type: "image",
+      title: "Featured Image",
+      options: { hotspot: true },
+      validation: (rule) => rule.required(),
     }),
-    defineField({ name: "cover", type: "image", options: { hotspot: true } }),
     defineField({
-      name: "body",
+      name: "gallery",
+      title: "Gallery",
       type: "array",
-      of: [{ type: "block" }, { type: "image" }],
+      of: [{ type: "image", options: { hotspot: true } }],
     }),
-    defineField({ name: "date", type: "datetime" }),
-    defineField({ name: "tech", type: "array", of: [{ type: "string" }] }),
-    defineField({ name: "featured", type: "boolean", initialValue: false }),
+    defineField({
+      name: "content",
+      title: "Content",
+      type: "localePortableText",
+    }),
+    defineField({
+      name: "type",
+      title: "Type",
+      type: "localeString",
+    }),
+    defineField({
+      name: "status",
+      title: "Status",
+      type: "localeString",
+    }),
+    defineField({
+      name: "year",
+      title: "Year",
+      type: "string",
+    }),
+    defineField({
+      name: "tools",
+      title: "Tools",
+      type: "localeStringArray",
+    }),
+    defineField({
+      name: "website",
+      title: "Site web",
+      type: "string",
+    }),
+    defineField({
+      name: "client",
+      title: "Client",
+      type: "string",
+    }),
   ],
+  preview: {
+    select: {
+      title: "title.fr",
+      media: "featuredImage",
+      subtitle: "year",
+    },
+  },
 });

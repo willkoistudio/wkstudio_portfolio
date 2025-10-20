@@ -1,0 +1,212 @@
+// ==========================================================================
+// Typography
+// ==========================================================================
+
+// Base font
+body {
+  font-family: $font-family-sans;
+  font-size: $text-base;
+  color: var(--color-foreground);
+}
+
+// Headings
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 600;
+  line-height: $leading-tight;
+  color: var(--color-foreground);
+}
+
+h1 {
+  font-size: $text-4xl;
+
+  @include breakpoint(md) {
+    font-size: $text-5xl;
+  }
+}
+
+h2 {
+  font-size: $text-3xl;
+
+  @include breakpoint(md) {
+    font-size: $text-4xl;
+  }
+}
+
+h3 {
+  font-size: $text-2xl;
+
+  @include breakpoint(md) {
+    font-size: $text-3xl;
+  }
+}
+
+h4 {
+  font-size: $text-xl;
+
+  @include breakpoint(md) {
+    font-size: $text-2xl;
+  }
+}
+
+h5 {
+  font-size: $text-lg;
+
+  @include breakpoint(md) {
+    font-size: $text-xl;
+  }
+}
+
+h6 {
+  font-size: $text-base;
+
+  @include breakpoint(md) {
+    font-size: $text-lg;
+  }
+}
+
+// Paragraphs
+p {
+  line-height: $leading-relaxed;
+
+  &:not(:last-child) {
+    margin-bottom: $spacing-md;
+  }
+}
+
+// Links
+a {
+  color: var(--color-primary);
+  @include transition(color);
+
+  &:hover {
+    text-decoration: none;
+    opacity: 0.8;
+  }
+
+  &:focus-visible {
+    @include focus-visible;
+  }
+}
+
+// Strong & emphasis
+strong,
+b {
+  font-weight: 600;
+}
+
+em,
+i {
+  font-style: italic;
+}
+
+// Code
+code {
+  font-family: $font-family-mono;
+  font-size: 0.875em;
+  background: var(--color-muted);
+  padding: 0.125rem 0.25rem;
+  border-radius: $radius-sm;
+}
+
+pre {
+  font-family: $font-family-mono;
+  font-size: $text-sm;
+  background: var(--color-muted);
+  padding: $spacing-md;
+  border-radius: $radius-md;
+  overflow-x: auto;
+
+  code {
+    background: none;
+    padding: 0;
+  }
+}
+
+// Blockquote
+blockquote {
+  border-left: 4px solid var(--color-border);
+  padding-left: $spacing-lg;
+  margin: $spacing-lg 0;
+  font-style: italic;
+  color: var(--color-muted-foreground);
+}
+
+// Lists
+ul,
+ol {
+  margin-left: $spacing-lg;
+
+  &:not(:last-child) {
+    margin-bottom: $spacing-md;
+  }
+}
+
+ul {
+  list-style-type: disc;
+}
+
+ol {
+  list-style-type: decimal;
+}
+
+// Small text
+small {
+  font-size: $text-sm;
+}
+
+// Text utilities
+.text-xs {
+  font-size: $text-xs;
+}
+.text-sm {
+  font-size: $text-sm;
+}
+.text-base {
+  font-size: $text-base;
+}
+.text-lg {
+  font-size: $text-lg;
+}
+.text-xl {
+  font-size: $text-xl;
+}
+.text-2xl {
+  font-size: $text-2xl;
+}
+.text-3xl {
+  font-size: $text-3xl;
+}
+.text-4xl {
+  font-size: $text-4xl;
+}
+.text-5xl {
+  font-size: $text-5xl;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+.font-medium {
+  font-weight: 500;
+}
+.font-semibold {
+  font-weight: 600;
+}
+.font-bold {
+  font-weight: 700;
+}
+
+.text-center {
+  text-align: center;
+}
+.text-left {
+  text-align: left;
+}
+.text-right {
+  text-align: right;
+}

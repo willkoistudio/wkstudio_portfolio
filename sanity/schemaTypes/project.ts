@@ -34,12 +34,14 @@ export default defineType({
     defineField({
       name: "type",
       title: "Type",
-      type: "localeString",
+      type: "reference",
+      to: [{ type: "projectType" }],
     }),
     defineField({
       name: "status",
       title: "Status",
-      type: "localeString",
+      type: "reference",
+      to: [{ type: "projectStatus" }],
     }),
     defineField({
       name: "year",
@@ -49,7 +51,16 @@ export default defineType({
     defineField({
       name: "tools",
       title: "Tools",
-      type: "localeStringArray",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "projectTool" }],
+        },
+      ],
+      options: {
+        layout: "tags",
+      },
     }),
     defineField({
       name: "website",
@@ -59,14 +70,24 @@ export default defineType({
     defineField({
       name: "client",
       title: "Client",
-      type: "string",
+      type: "reference",
+      to: [{ type: "projectClient" }],
     }),
   ],
   preview: {
     select: {
       title: "title.fr",
       media: "featuredImage",
-      subtitle: "year",
+      year: "year",
+      type: "type.title.fr",
+    },
+    prepare({ title, media, year, type }) {
+      const subtitle = [type, year].filter(Boolean).join(" • ");
+      return {
+        title,
+        media,
+        subtitle,
+      };
     },
   },
 });

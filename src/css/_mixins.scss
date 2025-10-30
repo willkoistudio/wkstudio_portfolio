@@ -2,6 +2,8 @@
 // Mixins SCSS
 // ==========================================================================
 
+@use "./variables" as *;
+
 // Responsive breakpoints
 @mixin breakpoint($breakpoint) {
   @if $breakpoint == sm {

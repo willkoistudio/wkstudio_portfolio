@@ -2,6 +2,9 @@
 // Typography
 // ==========================================================================
 
+@use "../variables" as *;
+@use "../mixins" as *;
+
 // Base font
 body {
   font-family: $font-family-sans;
@@ -144,10 +147,6 @@ ol {
   &:not(:last-child) {
     margin-bottom: $spacing-md;
   }
-}
-
-ul {
-  list-style-type: disc;
 }
 
 ol {

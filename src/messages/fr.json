@@ -1,4 +1,9 @@
 {
-  "nav.projects": "Projets",
-  "cta.view": "Voir le projet"
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "services": "Services",
+    "about": "À propos",
+    "downloadResume": "Télécharger le CV"
+  }
 }

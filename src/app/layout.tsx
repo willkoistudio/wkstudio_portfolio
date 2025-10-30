@@ -1,6 +1,8 @@
 /** @format */
 import "@/css/globals.scss";
-
+import { NextIntlClientProvider } from "next-intl";
+import frMessages from "@/messages/fr.json";
+import { Header } from "@/components/app/header/header";
 export default async function RootLayout({
   children,
 }: {
@@ -8,7 +10,12 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="fr">
-      <body>{children}</body>
+      <body>
+        <NextIntlClientProvider messages={frMessages} locale="fr">
+          <Header />
+          {children}
+        </NextIntlClientProvider>
+      </body>
     </html>
   );
 }

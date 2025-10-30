@@ -1,15 +1,16 @@
 /*---break--- */
+
+// SCSS Modules
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "./base/reset";
+@use "./base/typography";
+
 @plugin "tailwindcss-animate";
 
 @import "tailwindcss";
 
 /*---break--- */
-
-// SCSS Imports
-@import "variables";
-@import "mixins";
-@import "base/reset";
-@import "base/typography";
 
 @custom-variant dark (&:is(.dark *));
 

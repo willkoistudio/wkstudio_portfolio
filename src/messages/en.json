@@ -1,4 +1,9 @@
 {
-  "nav.projects": "Projects",
-  "cta.view": "View project"
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "services": "Services",
+    "about": "About",
+    "downloadResume": "Download Resume"
+  }
 }

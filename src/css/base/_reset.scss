@@ -11,12 +11,6 @@
   box-sizing: border-box;
 }
 
-// Remove default margin/padding
-* {
-  margin: 0;
-  padding: 0;
-}
-
 // Prevent font size inflation
 html {
   -moz-text-size-adjust: none;
@@ -85,6 +79,7 @@ a {
 ul,
 ol {
   list-style: none;
+  margin-left: 0 !important ;
 }
 
 // Tables

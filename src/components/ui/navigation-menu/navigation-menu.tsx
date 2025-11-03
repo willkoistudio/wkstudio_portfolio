@@ -2,7 +2,6 @@ import * as React from "react";
 import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
 import { ChevronDown } from "lucide-react";
-
 import { cn } from "@/lib/utils";
 
 const NavigationMenu = React.forwardRef<
@@ -13,7 +12,10 @@ const NavigationMenu = React.forwardRef<
 >(({ className, children, isMobile, ...props }, ref) => (
   <NavigationMenuPrimitive.Root
     ref={ref}
-    className={cn("relative z-10 flex flex-1 w-full", className)}
+    className={cn(
+      "relative z-10 flex flex-1 w-full justify-between pr-4 pl-4",
+      className,
+    )}
     id="wkoistudio-navigation-menu"
     {...props}
   >
@@ -30,7 +32,7 @@ const NavigationMenuList = React.forwardRef<
   <NavigationMenuPrimitive.List
     ref={ref}
     className={cn(
-      "group flex flex-1 list-none items-center justify-center space-x-1",
+      "group flex flex-1 list-none items-center justify-center space-x-1 ml-0 h-full",
       className,
     )}
     {...props}

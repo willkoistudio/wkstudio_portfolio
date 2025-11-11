@@ -1,0 +1,77 @@
+#home-container {
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  height: calc(100vh - 78.82px);
+}
+
+#left-section {
+  background-color: var(--background);
+}
+
+#right-section {
+  position: relative;
+  background-image: radial-gradient(
+    ellipse at center center,
+    rgb(228, 123, 4) 0%,
+    rgb(220, 51, 51) 100%
+  );
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+#background-layers {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.background-layer {
+  position: absolute;
+  inset: -35% -20% -35% -20%;
+  background-image: url("/images/wkoistudio_bg.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  will-change: transform;
+  filter: saturate(1.1);
+}
+
+.wkoistudio-avatar-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-block: clamp(12px, 3vw, 24px);
+  padding-inline: clamp(12px, 3vw, 24px);
+  overflow: visible;
+}
+
+.wkoistudio-avatar {
+  position: relative;
+  z-index: 1;
+  display: block;
+  transform-origin: center 70%;
+  animation: wkoistudioAvatarFilter 2.5s ease-in-out infinite;
+}
+
+@keyframes wkoistudioAvatarFilter {
+  0%,
+  100% {
+    filter: drop-shadow(0 34px 45px rgba(255, 255, 255, 0.32))
+      drop-shadow(0 0 24px rgba(255, 167, 64, 0.45));
+  }
+
+  50% {
+    filter: drop-shadow(0 28px 70px rgba(255, 255, 255, 0.56))
+      drop-shadow(0 0 36px rgba(255, 167, 64, 0.72));
+  }
+}

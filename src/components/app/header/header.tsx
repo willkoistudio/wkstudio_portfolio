@@ -12,6 +12,8 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu/navigation-menu";
 import Image from "next/image";
+import styles from "./header.module.scss";
+import { cn } from "@/lib/utils";
 
 const headerMenuItems = [
   {
@@ -55,11 +57,15 @@ export function Header() {
           <NavigationMenuItem key={index}>
             <NavigationMenuLink
               asChild
-              className={navigationMenuTriggerStyle()}
+              className={cn(
+                navigationMenuTriggerStyle(),
+                item.isExternal && styles.cvButton,
+              )}
             >
               <Link
                 href={item.href}
                 target={item.isExternal ? "_blank" : "_self"}
+                className={styles.navLink}
               >
                 {t(item.label)}
               </Link>

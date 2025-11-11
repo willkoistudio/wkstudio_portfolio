@@ -3,6 +3,7 @@ import * as NavigationMenuPrimitive from "@radix-ui/react-navigation-menu";
 import { cva } from "class-variance-authority";
 import { ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import styles from "./navigation-menu.module.scss";
 
 const NavigationMenu = React.forwardRef<
   React.ElementRef<typeof NavigationMenuPrimitive.Root>,
@@ -16,7 +17,7 @@ const NavigationMenu = React.forwardRef<
       "relative z-10 flex flex-1 w-full justify-between pr-4 pl-4",
       className,
     )}
-    id="wkoistudio-navigation-menu"
+    id={styles["wkoistudio-navigation-menu"]}
     {...props}
   >
     {children}
@@ -52,7 +53,7 @@ const NavigationMenuTrigger = React.forwardRef<
 >(({ className, children, ...props }, ref) => (
   <NavigationMenuPrimitive.Trigger
     ref={ref}
-    className={cn(navigationMenuTriggerStyle(), "group", className)}
+    className={cn(navigationMenuTriggerStyle(), styles.cvButton)}
     {...props}
   >
     {children}{" "}

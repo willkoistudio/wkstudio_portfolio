@@ -1,2 +1,10 @@
 #wkoistudio-navigation-menu {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+  padding-top: 10px;
+  position: sticky;
+
+  top: 0;
+  background-color: var(--background);
+  z-index: 100;
 }

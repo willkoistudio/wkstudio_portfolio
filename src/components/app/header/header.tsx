@@ -1,7 +1,7 @@
 /** @format */
 
 "use client";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
@@ -14,6 +14,8 @@ import {
 import Image from "next/image";
 import styles from "./header.module.scss";
 import { cn } from "@/lib/utils";
+import { useLocaleContext } from "@/contexts/locale-context";
+import { Globe } from "lucide-react";
 
 const headerMenuItems = [
   {
@@ -42,7 +44,15 @@ const headerMenuItems = [
 
 export function Header() {
   const t = useTranslations();
+  const locale = useLocale();
   const isMobile = useIsMobile();
+  const { setLocale } = useLocaleContext();
+
+  const handleLangChange = () => {
+    const newLocale = locale === "en" ? "fr" : "en";
+    setLocale(newLocale);
+  };
+
   return (
     <NavigationMenu isMobile={isMobile}>
       <Image
@@ -53,6 +63,14 @@ export function Header() {
         id="wkoistudio-logo"
       />
       <NavigationMenuList className="flex-wrap">
+        <span
+          id="lang-selector"
+          className="font-bold cursor-pointer pr-3 flex gap-1 text-primary hover:text-primary-foreground transition-colors"
+          onClick={handleLangChange}
+        >
+          <Globe size={16} className="relative top-1 " />
+          {locale === "fr" ? "EN" : "FR"}
+        </span>
         {headerMenuItems.map((item, index) => (
           <NavigationMenuItem key={index}>
             <NavigationMenuLink

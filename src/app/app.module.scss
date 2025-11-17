@@ -5,7 +5,28 @@
 }
 
 #left-section {
-  background-color: var(--background);
+  .left-section-content {
+    padding: 2rem;
+
+    .home-title {
+      font-size: 4rem;
+    }
+    .home-description {
+      font-size: 1.2rem;
+    }
+
+    .skills-list-item {
+      background-color: var(--primary);
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-size: 0.8rem;
+    }
+  }
+
+  .home-footer {
+    padding: 2rem;
+    background-color: var(--footer-background);
+  }
 }
 
 #right-section {

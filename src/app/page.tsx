@@ -1,17 +1,112 @@
 "use client";
 /** @format */
 
-// import Link from "next/link";
-
+import Link from "next/link";
 import styles from "./app.module.scss";
-
 import Image from "next/image";
 import { useEffect, useRef } from "react";
+import { ArrowDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faLinkedin,
+  faDribbble,
+  faInstagram,
+  faBehance,
+  faCodepen,
+  faPinterest,
+  faDeviantart,
+} from "@fortawesome/free-brands-svg-icons";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
+import { useTranslations } from "next-intl";
 
 export default function Home() {
+  const t = useTranslations();
   const backgroundWrapperRef = useRef<HTMLDivElement | null>(null);
   const primaryLayerRef = useRef<HTMLDivElement | null>(null);
   const secondaryLayerRef = useRef<HTMLDivElement | null>(null);
+  const skillsList: string[] = [
+    "Nuxt.js / Next.js",
+    "Vuetify",
+    "Webflow",
+    "Wordpress",
+    "Vue.js",
+    "Angular",
+    "React",
+    "Versionning Git",
+    "Javascript",
+    "Node.js",
+    "HTML5 / SCSS",
+    "Typescript",
+    "Supabase",
+    "PostgreSQL",
+    "MySQL",
+    "MongoDB",
+    "D3.js",
+    "Stripe",
+    "Sanity",
+    "Mappedin",
+    "Notion",
+    "Figma",
+    "Adobe Suite / Affinity Suite",
+    "Webdesign",
+    "UX / UI Design",
+    "AI Tools",
+  ];
+
+  const socialMediaLinks: Array<{
+    name: string;
+    url: string;
+    icon?: IconProp; // icône FontAwesome
+    customIcon?: string; // chemin vers SVG personnalisé
+  }> = [
+    {
+      name: "Linkedin",
+      url: "https://www.linkedin.com/in/williamkoi/",
+      icon: faLinkedin,
+    },
+    {
+      name: "GitHub",
+      url: "https://github.com/willkoistudio",
+      icon: faGithub,
+    },
+    {
+      name: "Dribbble",
+      url: "https://dribbble.com/wkoistudio",
+      icon: faDribbble,
+    },
+    {
+      name: "Instagram",
+      url: "https://www.instagram.com/wkoistudio/",
+      icon: faInstagram,
+    },
+    {
+      name: "Bēhance",
+      url: "https://www.behance.net/wkoistudio",
+      icon: faBehance,
+    },
+    {
+      name: "Codepen",
+      url: "https://codepen.io/willkoistudio",
+      icon: faCodepen,
+    },
+    {
+      name: "Pinterest",
+      url: "https://www.pinterest.com/wkoistudio/",
+      icon: faPinterest,
+    },
+    {
+      name: "DeviantART",
+      url: "https://www.deviantart.com/willkoi91",
+      icon: faDeviantart,
+    },
+    {
+      name: "Malt",
+      url: "https://www.malt.fr/profile/williamkoi",
+      customIcon: "/images/brands/Malt_logo_white.svg",
+    },
+  ];
 
   useEffect(() => {
     const wrapper = backgroundWrapperRef.current;
@@ -78,7 +173,74 @@ export default function Home() {
 
   return (
     <main className="grid grid-cols-2" id={styles["home-container"]}>
-      <section id={styles["left-section"]}></section>
+      <section
+        id={styles["left-section"]}
+        className={"flex flex-col justify-space-between h-full"}
+      >
+        <div className={styles["left-section-content"]}>
+          <h1
+            className={`${styles["home-title"]} text-center font-black mb-8`}
+            dangerouslySetInnerHTML={{ __html: t.raw("home.title") }}
+          />
+          <p
+            className={`${styles["home-description"]} text-center`}
+            dangerouslySetInnerHTML={{ __html: t.raw("home.description") }}
+          />
+
+          <ArrowDown
+            size={28}
+            className="animate-bounce stroke-primary mx-auto my-8"
+          />
+          <ul className="list-disc flex flex-wrap gap-2 justify-center text-white">
+            {skillsList.map((skill, index) => (
+              <li
+                key={index}
+                className={`${styles["skills-list-item"]} font-semibold`}
+              >
+                {skill}
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div
+          className={`${styles["home-footer"]} grid grid-cols-2 gap-8 mt-auto text-white`}
+        >
+          <div>
+            <p
+              className="font-medium"
+              dangerouslySetInnerHTML={{ __html: t.raw("home.footer.title") }}
+            />
+            <p className="font-bold">{t("home.footer.description")}</p>
+            <Button className="text-white rounded-2xl">
+              {t("home.footer.projects")}
+            </Button>
+            <span className="px-2">{t("home.footer.or")}</span>
+            <Button className="text-white rounded-2xl">
+              {t("home.footer.services")}
+            </Button>
+          </div>
+          <div>
+            <p className="font-medium">{t("home.footer.socialMedia")}</p>
+            <div className="grid grid-cols-6 gap-3">
+              {socialMediaLinks.map((link) => (
+                <Link key={link.name} href={link.url} target="_blank">
+                  {link.icon ? (
+                    <FontAwesomeIcon
+                      icon={link.icon}
+                      size="2xl"
+                      color="white"
+                    />
+                  ) : (
+                    <span className="inline-flex items-center justify-center w-8 h-8">
+                      <img src={link.customIcon || ""} alt={link.name} />
+                    </span>
+                  )}
+                </Link>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
       <section id={styles["right-section"]}>
         <div
           id={styles["background-layers"]}

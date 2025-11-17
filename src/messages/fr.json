@@ -5,5 +5,41 @@
     "services": "Services",
     "about": "À propos",
     "downloadResume": "Télécharger le CV"
+  },
+  "home": {
+    "title": "Bonjour ! Je suis William KOÏ.",
+    "description": "<strong>Développeur Front-End Senior</strong> compétent en <strong>Javascript, HTML, et CSS,</strong> avec une expertise particulière en <strong>Vue.js et React</strong>. Mon parcours professionnel s'est solidifié en accumulant <strong>10 ans</strong> d'expertise en développement et <strong>13 ans</strong> d'expérience en <strong>design graphique</strong>.",
+    "skills": [
+      "Nuxt.js / Next.js",
+      "Vuetify",
+      "Webflow",
+      "Wordpress",
+      "Vue.js",
+      "Angular",
+      "React",
+      "Versionnage Git",
+      "Javascript",
+      "Node.js",
+      "HTML5 / SCSS",
+      "Typescript",
+      "Supabase",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Notion",
+      "Figma",
+      "Suite Adobe / Suite Affinity",
+      "Webdesign",
+      "Design UX / UI",
+      "Outils IA"
+    ],
+    "footer": {
+      "title": "Travaillons ensemble et donnons vie<br /> à votre vision !",
+      "description": "N'hésitez pas à explorer :",
+      "projects": "Mes projets",
+      "or": "ou",
+      "services": "Mes services",
+      "socialMedia": "Retrouvez aussi mon travail ici :"
+    }
   }
 }

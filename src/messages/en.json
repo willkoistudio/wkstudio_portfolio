@@ -5,5 +5,41 @@
     "services": "Services",
     "about": "About",
     "downloadResume": "Download Resume"
+  },
+  "home": {
+    "title": "Hi! I am <br/>William KOÏ.",
+    "description": "<strong>Senior Front-End Developer</strong> proficient in <strong>Javascript, HTML, and CSS,</strong> with a particular expertise in <strong>Vue.js and React</strong>. My professional career has been solidified by accumulating <strong>10 years</strong> of expertise in development and <strong>13 years</strong> of experience in <strong>graphic design</strong>.",
+    "skills": [
+      "Nuxt.js / Next.js",
+      "Vuetify",
+      "Webflow",
+      "Wordpress",
+      "Vue.js",
+      "Angular",
+      "React",
+      "Git Versioning",
+      "Javascript",
+      "Node.js",
+      "HTML5 / SCSS",
+      "Typescript",
+      "Supabase",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Notion",
+      "Figma",
+      "Adobe Suite / Affinity Suite",
+      "Webdesign",
+      "Design UX / UI",
+      "AI Tools"
+    ],
+    "footer": {
+      "title": "Let's work together and give life<br /> to your vision!",
+      "description": "Don't hesitate to explore :",
+      "projects": "My projects",
+      "or": "or",
+      "services": "My services",
+      "socialMedia": "Find also my work here :"
+    }
   }
 }

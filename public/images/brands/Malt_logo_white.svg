@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 38 39" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g id="Plan-de-travail1" serif:id="Plan de travail1" transform="matrix(1,0,0,0.888335,0,0)">
+        <rect x="0" y="0" width="37.988" height="43" style="fill:none;"/>
+        <g transform="matrix(1,0,0,1.1257,0,-5.40514)">
+            <path d="M32.199,10.536C29.359,7.696 26.325,9.534 24.427,11.432L6.49,29.369C4.591,31.268 2.604,34.153 5.593,37.141C8.583,40.131 11.467,38.144 13.366,36.245L31.302,18.308C33.201,16.41 35.039,13.376 32.199,10.536Z" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1.1257,0,-5.40514)">
+            <path d="M15.063,9.801L18.861,13.599L22.727,9.733C22.989,9.47 23.256,9.226 23.524,8.996C23.119,6.953 21.954,5.106 18.859,5.106C15.759,5.106 14.595,6.96 14.192,9.007C14.482,9.258 14.771,9.509 15.063,9.801Z" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1.1257,0,-5.40514)">
+            <path d="M22.725,38.012L18.861,34.149L15.065,37.944C14.777,38.233 14.49,38.496 14.205,38.744C14.64,40.826 15.872,42.733 18.86,42.733C21.855,42.733 23.086,40.816 23.518,38.727C23.253,38.498 22.987,38.274 22.725,38.012Z" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1.1257,0,-5.40514)">
+            <path d="M13.452,19.008L6.13,19.008C3.445,19.008 0,19.854 0,23.87C0,26.867 1.918,28.097 4.007,28.529C4.255,28.244 13.452,19.008 13.452,19.008Z" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1.1257,0,-5.40514)">
+            <path d="M33.727,19.203C33.495,19.472 24.278,28.732 24.278,28.732L31.496,28.732C34.181,28.732 37.627,28.097 37.627,23.87C37.627,20.77 35.773,19.605 33.727,19.203Z" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1.1257,0,-5.40514)">
+            <path d="M15.851,16.604L17.159,15.296L13.364,11.5C11.465,9.602 8.581,7.614 5.591,10.603C3.399,12.795 3.886,14.929 5.049,16.661C5.403,16.635 15.851,16.604 15.851,16.604Z" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+        <g transform="matrix(1,0,0,1.1257,0,-5.40514)">
+            <path d="M21.87,31.135L20.558,32.447L24.424,36.313C26.323,38.212 29.357,40.049 32.197,37.21C34.316,35.09 33.83,32.864 32.658,31.081C32.281,31.109 21.87,31.135 21.87,31.135Z" style="fill:white;fill-rule:nonzero;"/>
+        </g>
+    </g>
+</svg>

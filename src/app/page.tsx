@@ -78,6 +78,11 @@ export default function Home() {
       url: "https://www.malt.fr/profile/williamkoi",
       customIcon: "/images/brands/Malt_logo_white.svg",
     },
+    {
+      name: "Upwork",
+      url: "https://www.upwork.com/freelancers/~016936fb5c576b2120",
+      customIcon: "/images/brands/Upwork-logo.svg",
+    },
   ];
 
   useEffect(() => {

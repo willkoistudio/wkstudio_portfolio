@@ -1,9 +1,10 @@
 /** @format */
 import "@/css/globals.scss";
-import { Header } from "@/components/app/header/header";
+import { HeaderWrapper } from "@/components/app/header/header-wrapper";
 import { Work_Sans } from "next/font/google";
 import "@/lib/fontawesome";
 import { LocaleProvider } from "@/contexts/locale-context";
+import { FooterWrapper } from "@/components/app/footer/footer-wrapper";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -22,8 +23,9 @@ export default async function RootLayout({
     <html lang="fr" className={workSans.variable}>
       <body>
         <LocaleProvider>
-          <Header />
+          <HeaderWrapper />
           {children}
+          <FooterWrapper />
         </LocaleProvider>
       </body>
     </html>

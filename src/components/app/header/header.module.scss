@@ -1,11 +1,6 @@
 .navLink {
   color: var(--text-base);
   transition: color 0.2s ease-in-out;
-
-  &:hover {
-    color: var(--color-primary);
-  }
-
   &.active {
     font-weight: 600;
   }

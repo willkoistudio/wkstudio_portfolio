@@ -172,7 +172,7 @@ export default function Home() {
             {t.raw("home.skills").map((skill: string, index: number) => (
               <li
                 key={index}
-                className={`${styles["skills-list-item"]} font-semibold`}
+                className={`${styles["skills-list-item"]} bg-primary font-semibold hover:bg-primary-foreground rounded-md px-2 py-1 transition-colors`}
               >
                 {skill}
               </li>

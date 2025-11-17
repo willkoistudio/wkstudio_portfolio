@@ -193,7 +193,7 @@ export default function Home() {
           </div>
           <div>
             <p className="font-medium">{t("home.footer.socialMedia")}</p>
-            <div className="grid grid-cols-6 gap-3">
+            <div className="flex flex-wrap gap-5">
               {socialMediaLinks.map((link) => (
                 <Link key={link.name} href={link.url} target="_blank">
                   {link.icon ? (

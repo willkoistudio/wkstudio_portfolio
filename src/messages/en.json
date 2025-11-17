@@ -41,5 +41,12 @@
       "services": "My services",
       "socialMedia": "Find also my work here :"
     }
+  },
+  "projects": {
+    "title": "Check out a few recently projects !",
+    "description": "Here are a selection of personnal projects I’ve worked on in recent years. Feel free to filter projects by category with the selector below.",
+    "filters": {
+      "all": "All"
+    }
   }
 }

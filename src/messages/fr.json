@@ -41,5 +41,12 @@
       "services": "Mes services",
       "socialMedia": "Retrouvez aussi mon travail ici :"
     }
+  },
+  "projects": {
+    "title": "Découvrez quelques projets récents !",
+    "description": "Voici une sélection de projets sur lesquels j'ai travaillé ces dernières années. N'hésitez pas à filtrer les projets par catégorie avec le sélecteur ci-dessous.",
+    "filters": {
+      "all": "Tous"
+    }
   }
 }

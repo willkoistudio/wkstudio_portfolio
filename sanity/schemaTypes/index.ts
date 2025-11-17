@@ -9,6 +9,7 @@ import localeString from "./types/localeString";
 import localeText from "./types/localeText";
 import localePortableText from "./types/localePortableText";
 import localeStringArray from "./types/localeStringArray";
+import projectFilter from "./projectFilter";
 
 export const schemaTypes = [
   project,
@@ -20,4 +21,5 @@ export const schemaTypes = [
   localeText,
   localePortableText,
   localeStringArray,
+  projectFilter,
 ];

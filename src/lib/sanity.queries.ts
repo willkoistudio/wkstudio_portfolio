@@ -13,3 +13,9 @@ export const allProjectsQuery = `
   _id, title, summary, date, cover,
   "slugFr": slugFr.current, "slugEn": slugEn.current
 }`;
+
+export const projectFiltersQuery = `
+*[_type=="projectFilter"] | order(_createdAt asc){
+  _id,
+  title
+}`;

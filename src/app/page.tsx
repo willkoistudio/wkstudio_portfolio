@@ -26,34 +26,6 @@ export default function Home() {
   const backgroundWrapperRef = useRef<HTMLDivElement | null>(null);
   const primaryLayerRef = useRef<HTMLDivElement | null>(null);
   const secondaryLayerRef = useRef<HTMLDivElement | null>(null);
-  const skillsList: string[] = [
-    "Nuxt.js / Next.js",
-    "Vuetify",
-    "Webflow",
-    "Wordpress",
-    "Vue.js",
-    "Angular",
-    "React",
-    "Versionning Git",
-    "Javascript",
-    "Node.js",
-    "HTML5 / SCSS",
-    "Typescript",
-    "Supabase",
-    "PostgreSQL",
-    "MySQL",
-    "MongoDB",
-    "D3.js",
-    "Stripe",
-    "Sanity",
-    "Mappedin",
-    "Notion",
-    "Figma",
-    "Adobe Suite / Affinity Suite",
-    "Webdesign",
-    "UX / UI Design",
-    "AI Tools",
-  ];
 
   const socialMediaLinks: Array<{
     name: string;
@@ -192,7 +164,7 @@ export default function Home() {
             className="animate-bounce stroke-primary mx-auto my-8"
           />
           <ul className="list-disc flex flex-wrap gap-2 justify-center text-white">
-            {skillsList.map((skill, index) => (
+            {t.raw("home.skills").map((skill: string, index: number) => (
               <li
                 key={index}
                 className={`${styles["skills-list-item"]} font-semibold`}
@@ -214,7 +186,7 @@ export default function Home() {
             <Button className="text-white rounded-2xl">
               {t("home.footer.projects")}
             </Button>
-            <span className="px-2">{t("home.footer.or")}</span>
+            <span className="px-2 font-bold">{t("home.footer.or")}</span>
             <Button className="text-white rounded-2xl">
               {t("home.footer.services")}
             </Button>

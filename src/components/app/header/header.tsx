@@ -3,6 +3,7 @@
 "use client";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useIsMobile } from "@/hooks/use-mobile";
 import {
   NavigationMenu,
@@ -45,12 +46,20 @@ const headerMenuItems = [
 export function Header() {
   const t = useTranslations();
   const locale = useLocale();
+  const pathname = usePathname();
   const isMobile = useIsMobile();
   const { setLocale } = useLocaleContext();
 
   const handleLangChange = () => {
     const newLocale = locale === "en" ? "fr" : "en";
     setLocale(newLocale);
+  };
+
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(href);
   };
 
   return (
@@ -71,25 +80,29 @@ export function Header() {
           <Globe size={16} className="relative top-1 " />
           {locale === "fr" ? "EN" : "FR"}
         </span>
-        {headerMenuItems.map((item, index) => (
-          <NavigationMenuItem key={index}>
-            <NavigationMenuLink
-              asChild
-              className={cn(
-                navigationMenuTriggerStyle(),
-                item.isExternal && styles.cvButton,
-              )}
-            >
-              <Link
-                href={item.href}
-                target={item.isExternal ? "_blank" : "_self"}
-                className={styles.navLink}
+        {headerMenuItems.map((item, index) => {
+          const active = !item.isExternal && isActive(item.href);
+          return (
+            <NavigationMenuItem key={index}>
+              <NavigationMenuLink
+                asChild
+                className={cn(
+                  navigationMenuTriggerStyle(),
+                  item.isExternal && styles.cvButton,
+                  active && "bg-accent",
+                )}
               >
-                {t(item.label)}
-              </Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-        ))}
+                <Link
+                  href={item.href}
+                  target={item.isExternal ? "_blank" : "_self"}
+                  className={cn(styles.navLink, active && styles.active)}
+                >
+                  {t(item.label)}
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          );
+        })}
       </NavigationMenuList>
     </NavigationMenu>
   );

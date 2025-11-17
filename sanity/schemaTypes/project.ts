@@ -73,6 +73,24 @@ export default defineType({
       type: "reference",
       to: [{ type: "projectClient" }],
     }),
+    defineField({
+      name: "slugFr",
+      title: "Slug FR",
+      type: "slug",
+      options: { source: "title.fr" },
+    }),
+    defineField({
+      name: "slugEn",
+      title: "Slug EN",
+      type: "slug",
+      options: { source: "title.en" },
+    }),
+    defineField({
+      name: "projectFilterType",
+      title: "Project Filter Type",
+      type: "reference",
+      to: [{ type: "projectFilter" }],
+    }),
   ],
   preview: {
     select: {

@@ -9,13 +9,46 @@ export const projectBySlugQuery = `
 }`;
 
 export const allProjectsQuery = `
-*[_type=="project"] | order(date desc){
-  _id, title, summary, date, cover,
-  "slugFr": slugFr.current, "slugEn": slugEn.current
-}`;
+  *[_type=="project"] | order(date desc){
+    _id,
+    title,
+    "featuredImage": featuredImage.asset->url,
+    "featuredImageWidth": featuredImage.asset->metadata.dimensions.width,
+    "featuredImageHeight": featuredImage.asset->metadata.dimensions.height,
+    "gallery": gallery[].asset->url,
+    content,
+    "type": type->{
+      _id,
+      title
+    },
+    "status": status->{
+      _id,
+      title
+    },
+    year,
+    "tools": tools[]->{
+      _id,
+      title
+    },
+    website,
+    "client": client->{
+      _id,
+      title
+    },
+    "slugFr": slugFr.current,
+    "slugEn": slugEn.current,
+    "projectFilterType": projectFilterType->{
+      _id,
+      title,
+      color,
+      className
+    }
+  }`;
 
 export const projectFiltersQuery = `
 *[_type=="projectFilter"] | order(_createdAt asc){
   _id,
-  title
+  title,
+  color,
+  className
 }`;

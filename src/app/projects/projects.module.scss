@@ -33,6 +33,213 @@
   }
 }
 
+.filterButton {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  font-weight: 600;
+  z-index: 1; // S'assurer que le bouton est au-dessus du :before
+  color: inherit; // Hériter de la couleur par défaut
+
+  // Pseudo-élément pour l'animation de remplissage
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-in-out;
+    z-index: -1; // Derrière le contenu du bouton
+  }
+
+  // Le contenu du bouton doit être au-dessus du :before
+  > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  // Couleurs de base (30% opacity)
+  &:global(.all) {
+    background-color: color-mix(in srgb, var(--primary) 30%, transparent);
+    span {
+      display: block;
+      height: 25px;
+    }
+    &::before {
+      background-color: var(--primary);
+    }
+  }
+
+  &:global(.ux) {
+    background-color: color-mix(in srgb, var(--ux) 30%, transparent);
+
+    &::before {
+      background-color: var(--ux);
+    }
+  }
+
+  &:global(.web) {
+    background-color: color-mix(in srgb, var(--web) 30%, transparent);
+
+    &::before {
+      background-color: var(--web);
+    }
+  }
+
+  &:global(.design) {
+    background-color: color-mix(in srgb, var(--design) 30%, transparent);
+
+    &::before {
+      background-color: var(--design);
+    }
+  }
+
+  // Animation au hover
+  &:hover {
+    &::before {
+      transform: scaleX(1);
+    }
+
+    // Changer la couleur du texte au hover
+    &:global(.all),
+    &:global(.ux),
+    &:global(.web) {
+      color: white !important;
+      svg {
+        stroke: white !important;
+      }
+    }
+
+    &:global(.design) {
+      color: var(--text-base) !important;
+      svg {
+        stroke: var(--text-base) !important;
+      }
+    }
+  }
+
+  // Styles pour l'état actif avec les différentes variantes
+  &:global(.active) {
+    &:global(.all) {
+      color: white !important;
+    }
+    &:global(.ux) {
+      color: white !important;
+    }
+    &:global(.web) {
+      color: white !important;
+    }
+    &:global(.design) {
+      color: var(--text-base) !important;
+    }
+
+    // Le :before doit être visible quand actif
+    &::before {
+      transform: scaleX(1);
+    }
+  }
+}
+
+// Masonry grid pour les projets
+.projectsGrid {
+  display: flex;
+  width: auto;
+  margin-left: -1rem; // Espacement négatif pour compenser le padding
+
+  @media (min-width: 768px) {
+    margin-left: -1.5rem;
+  }
+}
+
+.projectsGridColumn {
+  padding-left: 1rem; // Espacement entre les colonnes
+  background-clip: padding-box;
+
+  @media (min-width: 768px) {
+    padding-left: 1.5rem;
+  }
+}
+
+.projectCard {
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 0.5rem;
+
+  @media (min-width: 768px) {
+    margin-bottom: 1.5rem;
+  }
+
+  a {
+    display: block;
+    transition: transform 0.3s ease-in-out;
+    background-color: var(--card);
+
+    &:hover {
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: var(--muted);
+
+  // Laisser l'image déterminer sa propre hauteur
+  img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+}
+
+.projectImage {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+
+  .projectCard:hover & {
+    transform: scale(1.05);
+  }
+}
+
+.projectInfo {
+  padding: 1rem;
+  &:global(.ux) {
+    opacity: 0;
+    &:hover {
+      opacity: 1;
+      background-color: color-mix(in srgb, var(--ux) 80%, transparent);
+      transition: background-color 0.3s ease-in-out;
+    }
+  }
+  &:global(.web) {
+    opacity: 0;
+    &:hover {
+      opacity: 1;
+      background-color: color-mix(in srgb, var(--web) 80%, transparent);
+      transition: background-color 0.3s ease-in-out;
+    }
+  }
+  &:global(.design) {
+    opacity: 0;
+    &:hover {
+      opacity: 1;
+      background-color: color-mix(in srgb, var(--design) 80%, transparent);
+      transition: background-color 0.3s ease-in-out;
+    }
+  }
+
+  .projectTitle {
+    font-size: 1.5rem;
+  }
+}
+
 @keyframes slideLight {
   0% {
     opacity: 0;

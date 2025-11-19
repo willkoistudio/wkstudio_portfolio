@@ -39,7 +39,11 @@
   transition: all 0.3s ease-in-out;
   font-weight: 600;
   z-index: 1; // S'assurer que le bouton est au-dessus du :before
-  color: inherit; // Hériter de la couleur par défaut
+  color: color-mix(
+    in srgb,
+    var(--text-base) 65%,
+    transparent
+  ); // Hériter de la couleur par défaut
 
   // Pseudo-élément pour l'animation de remplissage
   &::before {
@@ -61,9 +65,15 @@
     z-index: 1;
   }
 
+  &:global(.all),
+  &:global(.ux),
+  &:global(.web),
+  &:global(.design) {
+    background-color: var(--grey-light);
+  }
+
   // Couleurs de base (30% opacity)
   &:global(.all) {
-    background-color: color-mix(in srgb, var(--primary) 30%, transparent);
     span {
       display: block;
       height: 25px;
@@ -74,24 +84,18 @@
   }
 
   &:global(.ux) {
-    background-color: color-mix(in srgb, var(--ux) 30%, transparent);
-
     &::before {
       background-color: var(--ux);
     }
   }
 
   &:global(.web) {
-    background-color: color-mix(in srgb, var(--web) 30%, transparent);
-
     &::before {
       background-color: var(--web);
     }
   }
 
   &:global(.design) {
-    background-color: color-mix(in srgb, var(--design) 30%, transparent);
-
     &::before {
       background-color: var(--design);
     }
@@ -214,7 +218,7 @@
     opacity: 0;
     &:hover {
       opacity: 1;
-      background-color: color-mix(in srgb, var(--ux) 80%, transparent);
+      background-color: color-mix(in srgb, var(--ux) 90%, transparent);
       transition: background-color 0.3s ease-in-out;
     }
   }
@@ -222,7 +226,7 @@
     opacity: 0;
     &:hover {
       opacity: 1;
-      background-color: color-mix(in srgb, var(--web) 80%, transparent);
+      background-color: color-mix(in srgb, var(--web) 90%, transparent);
       transition: background-color 0.3s ease-in-out;
     }
   }
@@ -230,7 +234,7 @@
     opacity: 0;
     &:hover {
       opacity: 1;
-      background-color: color-mix(in srgb, var(--design) 80%, transparent);
+      background-color: color-mix(in srgb, var(--design) 90%, transparent);
       transition: background-color 0.3s ease-in-out;
     }
   }
@@ -259,5 +263,34 @@
     opacity: 0;
     background-position: -50% 100%;
     /* Scroll to the bottom */
+  }
+}
+
+// Animation pour les cartes de projet au scroll
+:global(.animation-slide-y) {
+  animation: slideY 1.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes slideY {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Style pour les filtres sticky avec ombre
+.filtersSticky {
+  transition: box-shadow 0.3s ease-in-out;
+
+  &.isSticky {
+    box-shadow:
+      0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 }

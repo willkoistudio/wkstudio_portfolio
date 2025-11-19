@@ -3,14 +3,14 @@
 import { useTranslations, useLocale } from "next-intl";
 import styles from "./projects.module.scss";
 import { ChevronsDown, AppWindow, Wallpaper, Code } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { sanity } from "@/lib/sanity.client";
 import { allProjectsQuery, projectFiltersQuery } from "@/lib/sanity.queries";
 import { cn } from "@/lib/utils";
 import { Project, ProjectFilter } from "@/models/projects";
-import Link from "next/link";
-import Image from "next/image";
 import Masonry from "react-masonry-css";
+import { ProjectCard } from "@/components/app/projects/project-card";
+import { useSticky } from "@/hooks/use-sticky";
 
 export default function Projects() {
   const t = useTranslations();
@@ -19,6 +19,8 @@ export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [loading, setLoading] = useState<boolean>(true);
+  const filtersRef = useRef<HTMLDivElement>(null);
+  const isSticky = useSticky(filtersRef);
 
   useEffect(() => {
     const fetchFilters = async () => {
@@ -36,7 +38,6 @@ export default function Projects() {
       try {
         const data = await sanity.fetch<Project[]>(allProjectsQuery);
         setProjects(data);
-        console.log(data);
       } catch (error) {
         console.error("Error fetching projects:", error);
       } finally {
@@ -55,6 +56,22 @@ export default function Projects() {
       : projects.filter(
           (project) => project.projectFilterType?._id === activeFilter,
         );
+
+  const scrollToMainContent = () => {
+    const projectsList = document.getElementById("projects-list");
+    if (projectsList) {
+      projectsList.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+  };
+
+  const updateFilters = (filterId: string) => {
+    scrollToMainContent();
+
+    setActiveFilter(filterId);
+  };
 
   return (
     <main id="projects">
@@ -76,79 +93,91 @@ export default function Projects() {
             className="text-white animate-bounce mx-auto mt-10 cursor-pointer"
             size={32}
             color="white"
-            onClick={() => {
-              window.scrollTo({
-                top: window.innerHeight,
-                behavior: "smooth",
-              });
-            }}
+            onClick={scrollToMainContent}
           />
         </div>
       </header>
-      <section id="projects-list">
-        <div id="projects-list-header" className="flex w-full mb-6">
-          <ul id="projects-list-header-filters" className="flex w-full">
-            <li className="flex-1">
-              <button
-                onClick={() => setActiveFilter("all")}
-                className={cn(
-                  styles.filterButton,
-                  "all",
-                  activeFilter === "all" ? "active" : "",
-                  "transition-colors uppercase w-full whitespace-nowrap py-6",
-                )}
-              >
-                <span>{t("projects.filters.all")}</span>
-              </button>
-            </li>
-            {!loading &&
-              filters.map((filter) => (
-                <li key={filter._id} className="flex-1">
-                  <button
-                    onClick={() => setActiveFilter(filter._id)}
-                    className={cn(
-                      styles.filterButton,
-                      filter.className,
-                      activeFilter === filter._id ? "active" : "",
-                      "transition-colors uppercase w-full whitespace-nowrap py-6",
-                    )}
-                  >
-                    <span>
-                      {filter.className === "ux" ? (
-                        <AppWindow
-                          size={24}
-                          color={
-                            activeFilter === filter._id ? "white" : filter.color
-                          }
-                          className="mr-2 inline-block relative bottom-[2px]"
-                        />
-                      ) : filter.className === "web" ? (
-                        <Code
-                          size={24}
-                          color={
-                            activeFilter === filter._id ? "white" : filter.color
-                          }
-                          className="mr-2 inline-block relative bottom-[2px]"
-                        />
-                      ) : filter.className === "design" ? (
-                        <Wallpaper
-                          size={24}
-                          color={
-                            activeFilter === filter._id
-                              ? "var(--text-base)"
-                              : filter.color
-                          }
-                          className="mr-2 inline-block relative bottom-[2px]"
-                        />
-                      ) : null}
-                      {locale === "en" ? filter.title.en : filter.title.fr}
-                    </span>
-                  </button>
-                </li>
-              ))}
-          </ul>
-        </div>
+      <section id="projects-list" className="pt-16">
         <div className="container">
+          {/* Filters */}
+          <div
+            ref={filtersRef}
+            className={cn(
+              "flex mb-6 rounded-lg overflow-hidden sticky top-25 z-10",
+              styles.filtersSticky,
+              isSticky && styles.isSticky,
+            )}
+          >
+            <ul
+              id="projects-list-header-filters"
+              className="flex !mx-auto w-full"
+            >
+              <li className="flex-1">
+                <button
+                  onClick={() => updateFilters("all")}
+                  className={cn(
+                    styles.filterButton,
+                    "all",
+                    activeFilter === "all" ? "active" : "",
+                    "transition-colors uppercase w-full whitespace-nowrap py-6 px-10",
+                  )}
+                >
+                  <span>{t("projects.filters.all")}</span>
+                </button>
+              </li>
+              {!loading &&
+                filters.map((filter) => (
+                  <li key={filter._id} className="flex-1">
+                    <button
+                      onClick={() => updateFilters(filter._id)}
+                      className={cn(
+                        styles.filterButton,
+                        filter.className,
+                        activeFilter === filter._id ? "active" : "",
+                        "transition-colors uppercase w-full whitespace-nowrap py-6 px-10",
+                      )}
+                    >
+                      <span>
+                        {filter.className === "ux" ? (
+                          <AppWindow
+                            size={24}
+                            color={
+                              activeFilter === filter._id
+                                ? "white"
+                                : filter.color
+                            }
+                            className="mr-2 inline-block relative bottom-[2px]"
+                          />
+                        ) : filter.className === "web" ? (
+                          <Code
+                            size={24}
+                            color={
+                              activeFilter === filter._id
+                                ? "white"
+                                : filter.color
+                            }
+                            className="mr-2 inline-block relative bottom-[2px]"
+                          />
+                        ) : filter.className === "design" ? (
+                          <Wallpaper
+                            size={24}
+                            color={
+                              activeFilter === filter._id
+                                ? "var(--text-base)"
+                                : filter.color
+                            }
+                            className="mr-2 inline-block relative bottom-[2px]"
+                          />
+                        ) : null}
+                        {locale === "en" ? filter.title.en : filter.title.fr}
+                      </span>
+                    </button>
+                  </li>
+                ))}
+            </ul>
+          </div>
+
+          {/* Projects */}
           <Masonry
             breakpointCols={{
               default: 3,
@@ -159,38 +188,7 @@ export default function Projects() {
             columnClassName={styles.projectsGridColumn}
           >
             {filteredProjects.map((project) => (
-              <article
-                key={project._id}
-                className={cn(styles.projectCard, "relative")}
-              >
-                <Link href={`/projects/${project.slugFr || project.slugEn}`}>
-                  <div className={styles.imageWrapper}>
-                    <Image
-                      src={project.featuredImage}
-                      alt={project.title.fr || project.title.en || ""}
-                      width={project.featuredImageWidth || 600}
-                      height={project.featuredImageHeight || 800}
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      className={styles.projectImage}
-                    />
-                  </div>
-                  <div
-                    className={cn(
-                      styles.projectInfo,
-                      `absolute top-0 left-0 w-full h-full flex items-center justify-center transition-opacity duration-300 ${project.projectFilterType?.className}`,
-                    )}
-                  >
-                    <h3
-                      className={cn(
-                        styles.projectTitle,
-                        "text-white font-bold text-center",
-                      )}
-                    >
-                      {locale === "en" ? project.title.en : project.title.fr}
-                    </h3>
-                  </div>
-                </Link>
-              </article>
+              <ProjectCard key={project._id} project={project} />
             ))}
           </Masonry>
         </div>

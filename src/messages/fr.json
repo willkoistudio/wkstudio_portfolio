@@ -8,10 +8,11 @@
   },
   "home": {
     "title": "Bonjour ! Je suis <br/>William KOÏ.",
-    "description": "<strong>Développeur Front-End Senior</strong> compétent en <strong>Javascript, HTML, et CSS,</strong> avec une expertise particulière en <strong>Vue.js et React</strong>. Mon parcours professionnel s'est solidifié en accumulant <strong>10 ans</strong> d'expertise en développement et <strong>13 ans</strong> d'expérience en <strong>design graphique</strong>.",
+    "description": "<strong>Développeur Front-End Senior</strong> spécialisé en <strong>Javascript, HTML et CSS</strong>, avec une maîtrise avancée de <strong>Vue.js et React</strong>. Fort de <strong>plus de 10 ans</strong> d’expérience en <strong>développement web</strong> et <strong>design graphique</strong>, je conçois des projets web sur-mesure alliant <strong>technique et créativité</strong>.",
     "skills": [
       "Nuxt.js / Next.js",
-      "Vuetify",
+      "Frameworks UI (Vuetify, Tailwind CSS, etc.)",
+      "D3.js",
       "Webflow",
       "Wordpress",
       "Vue.js",
@@ -22,6 +23,7 @@
       "Node.js",
       "HTML5 / SCSS",
       "Typescript",
+      "Postman",
       "Express.js / Nest.js",
       "PostgreSQL",
       "Prisma",
@@ -31,10 +33,10 @@
       "Suite Adobe / Suite Affinity",
       "Webdesign",
       "Design UX / UI",
-      "Outils IA"
+      "Outils IA (Claude, Gemini, ChatGPT, etc.)"
     ],
     "footer": {
-      "title": "Travaillons ensemble et donnons vie<br /> à votre vision !",
+      "title": "Transformons votre vision<br /> en une expérience web unique !",
       "description": "N'hésitez pas à explorer :",
       "projects": "Mes projets",
       "or": "ou",

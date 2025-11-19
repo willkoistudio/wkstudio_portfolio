@@ -10,7 +10,10 @@ import { Button } from "@/components/ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTranslations } from "next-intl";
 import { socialMediaLinks } from "@/utils/social";
+import { useRouter } from "next/navigation";
+
 export default function Home() {
+  const router = useRouter();
   const t = useTranslations();
   const backgroundWrapperRef = useRef<HTMLDivElement | null>(null);
   const primaryLayerRef = useRef<HTMLDivElement | null>(null);
@@ -119,11 +122,17 @@ export default function Home() {
               dangerouslySetInnerHTML={{ __html: t.raw("home.footer.title") }}
             />
             <p className="font-bold">{t("home.footer.description")}</p>
-            <Button className="text-white rounded-2xl">
+            <Button
+              className="text-white rounded-2xl"
+              onClick={() => router.push("/projects")}
+            >
               {t("home.footer.projects")}
             </Button>
-            <span className="px-2 font-bold">{t("home.footer.or")}</span>
-            <Button className="text-white rounded-2xl">
+            <span className="px-3 font-bold">{t("home.footer.or")}</span>
+            <Button
+              className="text-white rounded-2xl"
+              onClick={() => router.push("/services")}
+            >
               {t("home.footer.services")}
             </Button>
           </div>

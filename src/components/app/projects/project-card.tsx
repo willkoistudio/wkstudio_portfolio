@@ -72,7 +72,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
           <h3
             className={cn(
               styles.projectTitle,
-              "text-white font-bold text-center",
+              "font-bold text-center",
+              `${project.projectFilterType?.className !== "design" ? "text-white" : "text-black"}`,
             )}
           >
             {locale === "en" ? project.title.en : project.title.fr}

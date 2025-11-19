@@ -123,7 +123,7 @@ export default function Projects() {
           />
         </div>
       </header>
-      <section id="projects-list" className="pt-16">
+      <section id="projects-list" className="pt-16 pb-12">
         <div className="container">
           {/* Filters */}
           <div

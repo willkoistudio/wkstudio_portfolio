@@ -13,6 +13,10 @@ export function Footer() {
   const t = useTranslations();
   // const isMobile = useIsMobile();
 
+  // TODO: changer la couleur du texte des liens,
+  // TODO: mettre les phrases en gris,
+  // TODO: traduire les phrases,
+
   return (
     <footer id={styles["wkoistudio-footer"]} className="py-12">
       <div className="container">

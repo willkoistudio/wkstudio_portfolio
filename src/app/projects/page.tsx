@@ -2,7 +2,13 @@
 /** @format */
 import { useTranslations, useLocale } from "next-intl";
 import styles from "./projects.module.scss";
-import { ChevronsDown, AppWindow, Wallpaper, Code } from "lucide-react";
+import {
+  ChevronsDown,
+  AppWindow,
+  Wallpaper,
+  Code,
+  ArrowUp,
+} from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { sanity } from "@/lib/sanity.client";
 import { allProjectsQuery, projectFiltersQuery } from "@/lib/sanity.queries";
@@ -19,8 +25,13 @@ export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [loading, setLoading] = useState<boolean>(true);
+  const [showScrollToTop, setShowScrollToTop] = useState<boolean>(false);
   const filtersRef = useRef<HTMLDivElement>(null);
   const isSticky = useSticky(filtersRef);
+
+  // TODO: faire un component pour le header
+  // TODO: Deplacer le bouton de scroll to top dans le component principal
+  // TODO: creer les pages de details des projets
 
   useEffect(() => {
     const fetchFilters = async () => {
@@ -47,6 +58,21 @@ export default function Projects() {
 
     fetchFilters();
     fetchProjects();
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Afficher le bouton quand on a scrollé 20% de la hauteur de l'écran
+      const scrollThreshold = window.innerHeight * 0.2;
+      setShowScrollToTop(window.scrollY >= scrollThreshold);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll(); // Vérifier au chargement initial
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
   }, []);
 
   // Filtrer les projets en fonction du filtre actif
@@ -193,6 +219,18 @@ export default function Projects() {
           </Masonry>
         </div>
       </section>
+      <button
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        className={cn(
+          "fixed bottom-4 right-4 px-4 py-4 rounded-full bg-primary hover:bg-primary-foreground transition-opacity duration-400 ease-in-out",
+          showScrollToTop
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none",
+        )}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp size={24} color="white" />
+      </button>
     </main>
   );
 }

@@ -49,6 +49,16 @@
     "description": "Here are a selection of personnal projects I’ve worked on in recent years. Feel free to filter projects by category with the selector below.",
     "filters": {
       "all": "All"
+    },
+    "details": {
+      "year": "Year",
+      "type": "Type",
+      "status": "Status",
+      "client": "Client",
+      "tools": "Tools",
+      "visitWebsite": "Visit website",
+      "gallery": "Gallery",
+      "image": "Image"
     }
   }
 }

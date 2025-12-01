@@ -5,10 +5,9 @@
 @use "./mixins" as *;
 @use "./base/reset";
 @use "./base/typography";
+@use "tailwindcss" as *;
 
 @plugin "tailwindcss-animate";
-
-@import "tailwindcss";
 
 /*---break--- */
 

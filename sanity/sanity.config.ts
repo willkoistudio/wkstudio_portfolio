@@ -3,6 +3,7 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { schemaTypes } from "./schemaTypes";
+import { createUnpublishAction } from "./plugins/revertToDraftAction";
 
 export default defineConfig({
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID!,
@@ -11,4 +12,10 @@ export default defineConfig({
   basePath: "/studio",
   plugins: [structureTool()],
   schema: { types: schemaTypes },
+  document: {
+    actions: (prev, context) => {
+      const unpublish = createUnpublishAction(context);
+      return [...prev, unpublish];
+    },
+  },
 });

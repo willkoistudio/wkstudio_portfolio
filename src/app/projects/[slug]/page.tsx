@@ -5,11 +5,12 @@ import { projectBySlugQuery } from "@/lib/sanity.queries";
 import { Project } from "@/models/projects";
 import { getActiveLocale } from "@/lib/locale";
 import { notFound } from "next/navigation";
-import Image from "next/image";
+import { ProjectGalleryLightbox } from "../project-gallery-lightbox/page";
 import { PortableText } from "@portabletext/react";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import type { PortableTextBlock } from "@portabletext/types";
+import { Badge } from "@/components/ui/badge";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -64,6 +65,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     slug,
   });
 
+  console.log(project);
+
   // Si le projet n'existe pas, afficher la page 404
   if (!project) {
     notFound();
@@ -77,39 +80,30 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   // en mode md et en dessous, photo et gallerie en haut, contenu en bas. (voir page detail de dribbble),
   // Chaque image principal devrait etre un gif ou une video.
   return (
-    <main className="p-12 grid grid-cols-2 gap-12">
-      <section className="flex gap-4">
-        {" "}
-        {/* Image principale */}
-        {project.featuredImage && (
-          <div>
-            <img
-              src={project.featuredImage}
-              alt={title || ""}
-              height="auto"
-              className="w-full h-auto rounded-lg"
-            />
-          </div>
-        )}
-        {/* Galerie d'images */}
-        {project.gallery && project.gallery.length > 0 && (
-          <section>
-            <div className="flex flex-col gap-4">
-              {project.gallery.map((imageUrl, index) => (
-                <div key={index} className="rounded-lg overflow-hidden">
-                  <img
-                    src={imageUrl}
-                    alt={`${title} - ${t("projects.details.image")} ${index + 1}`}
-                    width={400}
-                    height={400}
-                  />
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-      </section>
+    <main className="p-12 pt-16 grid grid-cols-2 gap-12">
+      <ProjectGalleryLightbox
+        featuredImage={project.featuredImage}
+        gallery={project.gallery}
+        title={title}
+        imageLabel={t("projects.details.image")}
+      />
       <article>
+        <Badge
+          variant="default"
+          className="mb-3"
+          color={
+            project.projectFilterType?.className
+              ? `var(--${project.projectFilterType.className})`
+              : undefined
+          }
+          textColor={
+            project.projectFilterType?.className === "design"
+              ? "black"
+              : "white"
+          }
+        >
+          {project.projectFilterType.title[locale]}
+        </Badge>
         {/* En-tête du projet */}
         <h1 className="text-4xl font-black mb-4">{title}</h1>
         {/* Contenu principal */}

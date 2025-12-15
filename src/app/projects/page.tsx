@@ -2,13 +2,7 @@
 /** @format */
 import { useTranslations, useLocale } from "next-intl";
 import styles from "./projects.module.scss";
-import {
-  ChevronsDown,
-  AppWindow,
-  Wallpaper,
-  Code,
-  ArrowUp,
-} from "lucide-react";
+import { ChevronsDown, AppWindow, Wallpaper, Code, ArrowUp } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { sanity } from "@/lib/sanity.client";
 import { allProjectsQuery, projectFiltersQuery } from "@/lib/sanity.queries";
@@ -17,6 +11,7 @@ import { Project, ProjectFilter } from "@/models/projects";
 import Masonry from "react-masonry-css";
 import { ProjectCard } from "@/components/app/projects/project-card";
 import { useSticky } from "@/hooks/use-sticky";
+import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 
 export default function Projects() {
   const t = useTranslations();
@@ -25,12 +20,10 @@ export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [loading, setLoading] = useState<boolean>(true);
-  const [showScrollToTop, setShowScrollToTop] = useState<boolean>(false);
   const filtersRef = useRef<HTMLDivElement>(null);
   const isSticky = useSticky(filtersRef);
+  const { isVisible: showScrollToTop, scrollToTop } = useScrollToTop();
 
-  // TODO: faire un component pour le header
-  // TODO: Deplacer le bouton de scroll to top dans le component principal
   // TODO: creer les pages de details des projets
 
   useEffect(() => {
@@ -58,21 +51,6 @@ export default function Projects() {
 
     fetchFilters();
     fetchProjects();
-  }, []);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      // Afficher le bouton quand on a scrollé 20% de la hauteur de l'écran
-      const scrollThreshold = window.innerHeight * 0.2;
-      setShowScrollToTop(window.scrollY >= scrollThreshold);
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll(); // Vérifier au chargement initial
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
   }, []);
 
   // Filtrer les projets en fonction du filtre actif
@@ -220,7 +198,7 @@ export default function Projects() {
         </div>
       </section>
       <button
-        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        onClick={scrollToTop}
         className={cn(
           "fixed bottom-4 right-4 px-4 py-4 rounded-full bg-primary hover:bg-primary-foreground transition-opacity duration-400 ease-in-out",
           showScrollToTop

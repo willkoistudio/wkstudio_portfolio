@@ -1,0 +1,26 @@
+.services-header {
+  background-image: radial-gradient(
+    ellipse at center center,
+    rgb(227, 82, 6) 0%,
+    rgb(211, 0, 0) 100%
+  );
+  height: calc(100vh - 78.82px);
+
+  .services-title {
+    font-size: 6rem;
+  }
+  .services-description {
+    font-size: 1.2rem;
+    width: 80%;
+  }
+}
+
+.services-bg-content {
+  height: 100vh;
+  &.dev-bg-content {
+    background-image: url("/images/wkoistudio_dev.png");
+  }
+  &.design-bg-content {
+    background-image: url("/images/wkoistudio_design.png");
+  }
+}

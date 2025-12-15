@@ -55,10 +55,45 @@
       "type": "Type",
       "status": "Status",
       "client": "Client",
-      "tools": "Tools",
+      "tools": "Skills used",
       "visitWebsite": "Visit website",
       "gallery": "Gallery",
       "image": "Image"
     }
+  },
+  "services": {
+    "title": "My services",
+    "description": "I offer a wide range of <strong>Web Development</strong> and <strong>Web Design</strong> services, including <strong>simple showcase websites, e-commerce solutions, web applications, web design, UI, UX, icons, illustrations,</strong> <strong>social media visuals</strong> and <strong>print design</strong>. Here is an overview of the process :",
+    "inquiry": "1. Inquiry",
+    "inquiryDescription": "Please fill out the inquiry form just below. I will respond promptly with a questionnaire to better understand your project.",
+    "consultation": "2. Consultation",
+    "consultationDescription": "If we determine that we are a good fit, we can schedule a call to discuss your project further ! I will provide you with a client portal containing the invoice, contract, and a detailed development plan.",
+    "webDevelopment": {
+      "title": "Web Development",
+      "contract": "Contract and Deposit :",
+      "contractDescription": "After signing the contract and submitting a 50% deposit, I will begin coding the website based on the agreed vision and details, including fonts, colors, and more.",
+      "development": "Development :",
+      "developmentDescription": "I will start coding the website according to the specifications and scope defined. The client portal will be regularly updated so that you can track the progress of the project. After delivering the first version, you can provide feedback as quality assurance (QA).",
+      "finalApproval": "Final Approval :",
+      "finalApprovalDescription": "Once you give your final approval and the website is ready to go live, I will send a reminder/invoice for the final payment. When the payment is received, I will deploy the website to the production server.",
+      "feedback": "Feedback and Continued Work :",
+      "feedbackDescription": "I will send you a final Google form to provide feedback on your experience. As a gesture of appreciation, I offer a discount for any future work and referrals."
+    },
+    "webDesign": {
+      "title": "Web Design",
+      "contract": "Contract and Deposit :",
+      "contractDescription": "After signing the contract and submitting a 50% deposit, we will begin the creative process by creating mood boards. It will allow us to explore and discuss the vision and details of your brand / project. This collaborative process sets the foundation for the design phase.",
+      "design": "Design :",
+      "designDescription": "I will start creating design variations, icons, mockups, and other elements. The client portal will be regularly updated so you can provide feedback and track the project timeline. You will have two revisions included in the process, with additional revisions or directions incurring an extra cost.",
+      "finalApproval": "Final Approval :",
+      "finalApprovalDescription": "After receiving your final approval, I will send a reminder/invoice for the final payment. Once payment is received, I will organize all files into a Google Drive folder. File formats provided include PNG, JPG, and SVG. If you require additional file formats, feel free to let me know.",
+      "feedback": "Feedback and Continued Work :",
+      "feedbackDescription": "I will send you a final Google form to provide feedback on your experience. As a gesture of appreciation, I offer a discount for any future work and referrals."
+    },
+    "fillInquiryForm": "Fill inquiry form"
+  },
+  "about": {
+    "title": "About me.",
+    "description": "Hey there ! I’m a creative professional, originally from&nbsp;<strong>Benin 🇧🇯</strong>, born and raised in&nbsp;<strong>France 🇫🇷&nbsp;</strong>, with a deep passion for&nbsp;<strong>Graphic Design</strong>&nbsp;and&nbsp;<strong>Web Development</strong>. My journey began as a graphic designer, exploring the limitless of visual expression. Along the way, I ventured into the captivating world of web development, where I found a perfect fusion of creativity and technical expertise.<br><br>In&nbsp;<strong>2018</strong>, I arrived in&nbsp;<strong>Canada 🇨🇦</strong>&nbsp;as a temporary worker, driven by an adventurous spirit. Over time, I have become a permanent resident, fully embracing the vibrant tech scene of the city of <strong>Montreal</strong>.<br><br>Throughout my career, I have collaborated with diverse companies as a&nbsp;<strong>freelancer</strong>,&nbsp;<strong>contractor</strong>, and&nbsp;<strong>employee</strong>, acquiring invaluable insights into various project requirements and organizational dynamics. This experience has honed my adaptability and collaboration skills, enabling me to seamlessly integrate into teams and contribute to their success.<br><br>I’m genuinely thrilled about the opportunity to collaborate with new clients and bring their vision to life. If you’re in search of a versatile and experienced&nbsp;<strong>Senior Front-End Developer</strong>&nbsp;with a creative flair, I’m here to work closely with you and make your projects shine. Feel free to reach out, and let’s embark on an exciting journey together !<br><br><strong>– William</strong>"
   }
 }

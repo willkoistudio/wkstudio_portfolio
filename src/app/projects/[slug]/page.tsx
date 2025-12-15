@@ -11,6 +11,14 @@ import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";
 import type { PortableTextBlock } from "@portabletext/types";
 import { Badge } from "@/components/ui/badge";
+import {
+  CalendarDays,
+  SquareChartGantt,
+  SquareCheckBig,
+  BicepsFlexed,
+} from "lucide-react";
+import styles from "./project-detail.module.scss";
+import { cn } from "@/lib/utils";
 
 interface ProjectPageProps {
   params: Promise<{
@@ -65,8 +73,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     slug,
   });
 
-  console.log(project);
-
   // Si le projet n'existe pas, afficher la page 404
   if (!project) {
     notFound();
@@ -108,33 +114,51 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         <h1 className="text-4xl font-black mb-4">{title}</h1>
         {/* Contenu principal */}
         {content && (
-          <div className="prose prose-lg dark:prose-invert max-w-none">
+          <div
+            className={cn(
+              "prose prose-lg dark:prose-invert max-w-none",
+              styles.textContent,
+            )}
+          >
             <PortableText value={content} />
           </div>
         )}
+        <hr className={cn("mb-10 mt-16", styles.separator)} />
         {/* Métadonnées */}
-        <div className="flex flex-wrap gap-4 text-sm text-gray-600 dark:text-gray-400">
+        <div>
           {project.year && (
-            <span>
-              <strong>{t("projects.details.year")}:</strong> {project.year}
-            </span>
+            <p className="flex items-center gap-2">
+              <CalendarDays className="w-4 h-4" color="var(--primary)" />
+              <strong>{t("projects.details.year")} :</strong>{" "}
+              <span className="text-gray-600 dark:text-gray-400">
+                {project.year}
+              </span>
+            </p>
           )}
           {project.type && (
-            <span>
-              <strong>{t("projects.details.type")}:</strong>{" "}
-              {locale === "en" ? project.type.title.en : project.type.title.fr}
-            </span>
+            <p className="flex items-center gap-2">
+              <SquareChartGantt className="w-4 h-4" color="var(--primary)" />
+              <strong>{t("projects.details.type")} :</strong>{" "}
+              <span className="text-gray-600 dark:text-gray-400">
+                {locale === "en"
+                  ? project.type.title.en
+                  : project.type.title.fr}
+              </span>
+            </p>
           )}
           {project.status && (
-            <span>
-              <strong>{t("projects.details.status")}:</strong>{" "}
-              {locale === "en"
-                ? project.status.title.en
-                : project.status.title.fr}
-            </span>
+            <p className="flex items-center gap-2">
+              <SquareCheckBig className="w-4 h-4" color="var(--primary)" />
+              <strong>{t("projects.details.status")} :</strong>{" "}
+              <span className="text-gray-600 dark:text-gray-400">
+                {locale === "en"
+                  ? project.status.title.en
+                  : project.status.title.fr}
+              </span>
+            </p>
           )}
           {project.client && (
-            <span>
+            <span className="flex items-center gap-2">
               <strong>{t("projects.details.client")}:</strong>{" "}
               {locale === "en"
                 ? project.client.title.en
@@ -145,9 +169,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Outils */}
         {project.tools && project.tools.length > 0 && (
-          <div className="mt-4">
-            <strong className="text-sm">{t("projects.details.tools")}:</strong>
-            <div className="flex flex-wrap gap-2 mt-2">
+          <div className="mt-3 flex items-center gap-2">
+            <strong className="flex items-center gap-2">
+              <BicepsFlexed className="w-4 h-4" color="var(--primary)" />
+              {t("projects.details.tools")} :{" "}
+            </strong>
+            <div className="flex flex-wrap gap-2 mt-3 relative bottom-1.5">
               {project.tools.map((tool) => (
                 <span
                   key={tool._id}

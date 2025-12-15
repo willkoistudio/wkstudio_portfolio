@@ -28,12 +28,14 @@ export function ProjectGalleryLightbox({
   const [open, setOpen] = useState(false);
   const [index, setIndex] = useState(0);
 
+  const useMasonryLayout = slides.length > 3;
+
   if (!slides.length) return null;
 
   return (
     <>
-      <section className="flex gap-4">
-        <div>
+      <section className="flex flex-col gap-4">
+        <div className={styles.mainImage}>
           <img
             src={slides[0].src}
             alt={slides[0].alt}
@@ -45,13 +47,19 @@ export function ProjectGalleryLightbox({
           />
         </div>
         {slides.length > 1 && (
-          <div className="flex flex-col gap-4 ">
+          <div
+            className={cn(
+              "gap-4",
+              useMasonryLayout ? styles.masonry : "flex flex-col",
+            )}
+          >
             {slides.slice(1).map((s, i) => (
               <div
                 key={s.src}
                 className={cn(
                   styles.galleryItem,
                   "rounded-lg overflow-hidden cursor-pointer",
+                  useMasonryLayout && styles.masonryItem,
                 )}
                 onClick={() => {
                   setIndex(i + 1);

@@ -266,24 +266,6 @@
   }
 }
 
-// Animation pour les cartes de projet au scroll
-:global(.animation-slide-y) {
-  animation: slideY 1.5s ease-out forwards;
-  opacity: 0;
-}
-
-@keyframes slideY {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 // Style pour les filtres sticky avec ombre
 .filtersSticky {
   transition: box-shadow 0.3s ease-in-out;

@@ -55,10 +55,45 @@
       "type": "Type",
       "status": "Statut",
       "client": "Client",
-      "tools": "Outils",
+      "tools": "Compétences utilisées",
       "visitWebsite": "Visiter le site web",
       "gallery": "Galerie",
       "image": "Image"
     }
+  },
+  "services": {
+    "title": "Mes services",
+    "description": "Je propose une large gamme de services de <strong>Développement Web</strong> et de <strong>Design Web</strong>, y compris <strong>sites web de présentation simples, solutions e-commerce, applications web, design web, UI, UX, icônes, illustrations,</strong> <strong>visuels pour les médias sociaux</strong> et <strong>design print</strong>. Voici un aperçu du processus :",
+    "inquiry": "1. Renseignements",
+    "inquiryDescription": "Veuillez remplir le formulaire ci-dessous et je répondrai rapidement par un questionnaire pour mieux comprendre votre projet.",
+    "consultation": "2. Consultation",
+    "consultationDescription": "Si nous déterminons que nous sommes compatibles, nous pouvons planifier un appel pour discuter davantage de votre projet. Je vous fournirai un portail client contenant la facture, le contrat et un plan de développement détaillé.",
+    "webDevelopment": {
+      "title": "Développement Web",
+      "contract": "Contrat et Avancement :",
+      "contractDescription": "Après la signature du contrat et le paiement d'un acompte de 50%, je commencerai le codage du site web en fonction de la vision et des détails convenus, y compris les polices de caractères, les couleurs et plus encore.",
+      "development": "Développement :",
+      "developmentDescription": "Je commencerai le codage du site web en fonction des spécifications et de la portée définies. Le portail client sera mis à jour régulièrement afin que vous puissiez suivre l'avancement du projet. Après la livraison de la première version, vous pouvez fournir des commentaires comme contrôle de qualité (QA).",
+      "finalApproval": "Final Approval :",
+      "finalApprovalDescription": "Une fois que vous aurez donné votre approbation finale et que le site web est prêt à être mis en ligne, je vous enverrai un rappel/facture pour le paiement final. Une fois le paiement reçu, je déploierai le site web sur le serveur de production.",
+      "feedback": "Feedback et Travail Continu :",
+      "feedbackDescription": "Je vous enverrai un formulaire Google final pour vous permettre de fournir des commentaires sur votre expérience. En guise de gratitude, je vous offre un rabais pour tout travail futur et pour toute recommandation."
+    },
+    "webDesign": {
+      "title": "Design Web",
+      "contract": "Contrat et Avancement :",
+      "contractDescription": "Après la signature du contrat et le paiement d'un acompte de 50%, nous commencerons le processus créatif en créant des tableaux de méditation. Cela nous permettra d'explorer et de discuter de la vision et des détails de votre marque / projet. Ce processus collaboratif constitue la base pour la phase de design.",
+      "design": "Design :",
+      "designDescription": "Je commencerai à créer des variations de design, des icônes, des maquettes et d'autres éléments. Le portail client sera mis à jour régulièrement afin que vous puissiez fournir des commentaires et suivre l'avancement du projet. Vous aurez deux révisions incluses dans le processus, avec des révisions ou des directions supplémentaires entraînant un coût supplémentaire.",
+      "finalApproval": "Final Approval :",
+      "finalApprovalDescription": "Une fois que vous aurez donné votre approbation finale, je vous enverrai un rappel/facture pour le paiement final. Une fois le paiement reçu, je organiserai tous les fichiers dans un dossier Google Drive. Les formats de fichiers fournis incluent PNG, JPG et SVG. Si vous avez besoin de formats de fichiers supplémentaires, n'hésitez pas à me le faire savoir.",
+      "feedback": "Feedback et Travail Continu :",
+      "feedbackDescription": "Je vous enverrai un formulaire Google final pour vous permettre de fournir des commentaires sur votre expérience. En guise de gratitude, je vous offre un rabais pour tout travail futur et pour toute recommandation."
+    },
+    "fillInquiryForm": "Remplir le formulaire"
+  },
+  "about": {
+    "title": "À propos de moi.",
+    "description": "Tout d'abord, merci de vous être arrêté sur mon site ! Je suis un professionnel de la création, originaire du&nbsp;<strong>Bénin 🇧🇯</strong>, né et grandi en&nbsp;<strong>France 🇫🇷&nbsp;</strong>, avec une profonde passion pour le&nbsp;<strong>Design Graphique</strong>&nbsp;et&nbsp;<strong>Développement Web</strong>. Mon parcours a commencé en tant que designer graphique, explorant les possibilités infinies de l'expression visuelle. En chemin, j'ai plongé dans le monde captivant du développement web, où j'ai découvert une fusion parfaite entre créativité et expertise technique.<br><br>En&nbsp;<strong>2018</strong>, je suis arrivé au&nbsp;<strong>Canada 🇨🇦</strong>&nbsp;en tant que travailleur temporaire, animé par un esprit d'aventure. Avec le temps, je suis devenu un résident permanent, intégrant la scène technologique vibrante de la ville de <strong>Montréal</strong>.<br><br>Tout au long de ma carrière, j'ai collaboré avec diverses entreprises en tant que <strong>indépendant</strong>,&nbsp;<strong>contractant</strong>, et&nbsp;<strong>employé</strong>, en acquérant des informations inestimables sur les divers besoins des projets et les dynamiques organisationnelles. Cette expérience a affiné mon adaptabilité et mes compétences en collaboration, me permettant de m'intégrer parfaitement dans les équipes et de contribuer à leur succès.<br><br>Je serais vraiment ravi de collaborer avec vous et de donner vie à votre vision. Si vous êtes à la recherche d'un&nbsp;<strong>Développeur Front-End Senior</strong>&nbsp;polyvalent et expérimenté avec une touche de créativité, je suis là pour travailler en étroite collaboration avec vous et faire briller vos projets. N'hésitez pas à me contacter pour que nous puissions collaborer ensemble !<br><br><strong>– William</strong>"
   }
 }

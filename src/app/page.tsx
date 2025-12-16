@@ -100,7 +100,7 @@ export default function Home() {
 
           <ArrowDown
             size={28}
-            className="animate-bounce stroke-primary mx-auto my-8"
+            className="animate-bounce stroke-primary mx-auto 2xl:my-8 xl:my-6 md:my-4"
           />
           <ul className="list-disc flex flex-wrap gap-2 justify-center text-white">
             {t.raw("home.skills").map((skill: string, index: number) => (

@@ -92,7 +92,7 @@ export default function Services() {
               styles["dev-bg-content"],
             )}
           ></div>
-          <div className="p-14">
+          <div className="2xl:p-14 xl:p-12">
             <h2 className="text-primary font-bold text-3xl mb-8">
               {t("services.webDevelopment.title")}
             </h2>
@@ -124,7 +124,7 @@ export default function Services() {
 
         {/* Design */}
         <div className="grid grid-cols-2">
-          <div className="p-14">
+          <div className="2xl:p-14 xl:p-12">
             <h2 className="text-primary font-bold text-3xl mb-8">
               {t("services.webDesign.title")}
             </h2>

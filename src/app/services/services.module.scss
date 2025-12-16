@@ -1,3 +1,6 @@
+@use "../../css/mixins" as *;
+@use "../../css/variables" as *;
+
 .services-header {
   background-image: radial-gradient(
     ellipse at center center,
@@ -7,7 +10,13 @@
   height: calc(100vh - 78.82px);
 
   .services-title {
-    font-size: 6rem;
+    font-size: 4rem;
+    @include breakpoint(xl) {
+      font-size: 5rem;
+    }
+    @include breakpoint(2xl) {
+      font-size: 6rem;
+    }
   }
   .services-description {
     font-size: 1.2rem;
@@ -16,11 +25,18 @@
 }
 
 .services-bg-content {
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
   &.dev-bg-content {
     background-image: url("/images/wkoistudio_dev.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
   &.design-bg-content {
     background-image: url("/images/wkoistudio_design.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 }

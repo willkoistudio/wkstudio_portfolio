@@ -7,19 +7,19 @@
 // Responsive breakpoints
 @mixin breakpoint($breakpoint) {
   @if $breakpoint == sm {
-    @media (min-width: $breakpoint-sm) {
+    @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
       @content;
     }
   } @else if $breakpoint == md {
-    @media (min-width: $breakpoint-md) {
+    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
       @content;
     }
   } @else if $breakpoint == lg {
-    @media (min-width: $breakpoint-lg) {
+    @media (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl) {
       @content;
     }
   } @else if $breakpoint == xl {
-    @media (min-width: $breakpoint-xl) {
+    @media (min-width: $breakpoint-xl) and (max-width: $breakpoint-2xl) {
       @content;
     }
   } @else if $breakpoint == 2xl {

@@ -1,3 +1,6 @@
+@use "../css/mixins" as *;
+@use "../css/variables" as *;
+
 #home-container {
   grid-template-columns: 1fr 1fr;
   width: 100%;
@@ -8,6 +11,7 @@
   .left-section-content {
     padding: 2rem;
 
+    // Styles de base (mobile-first)
     .home-title {
       font-size: 4rem;
     }
@@ -20,11 +24,55 @@
       border-radius: 0.5rem;
       font-size: 0.8rem;
     }
+
+    // Breakpoints - écrasent les styles de base
+    @include breakpoint(xl) {
+      padding: 1.8rem;
+      .home-title {
+        font-size: 3rem;
+      }
+      .home-description {
+        font-size: 1rem;
+      }
+
+      .skills-list-item {
+        padding: 0.3rem 0.8rem;
+        border-radius: 0.5rem;
+        font-size: 0.7rem;
+      }
+    }
+
+    @include breakpoint(2xl) {
+      padding: 2rem;
+
+      .home-title {
+        font-size: 4rem;
+      }
+
+      .home-description {
+        font-size: 1.2rem;
+      }
+
+      .skills-list-item {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 0.8rem;
+      }
+    }
   }
 
   .home-footer {
     padding: 2rem;
     background-color: var(--footer-background);
+
+    // Breakpoints pour home-footer
+    @include breakpoint(xl) {
+      padding: 1.5rem;
+    }
+
+    @include breakpoint(2xl) {
+      padding: 2rem;
+    }
   }
 }
 
@@ -49,15 +97,15 @@
 #background-layers {
   position: absolute;
   inset: 0;
-  overflow: hidden;
+  overflow: visible;
   opacity: 0;
   transition: opacity 1.5s ease;
 }
 
 .background-layer {
   position: absolute;
-  inset: -35% -20% -35% -20%;
-  background-image: url("/images/wkoistudio_bg.webp");
+  inset: -45% -20% -35% -20%;
+  background-image: url("/images/wkoistudio_bg-skills.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

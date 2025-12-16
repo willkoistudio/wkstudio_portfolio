@@ -188,7 +188,12 @@ export default function About() {
         </Button>
       </section>
       {/* Form section */}
-      <section className={"bg-muted p-18 grid grid-cols-2 gap-18"}>
+      <section
+        className={cn(
+          styles["about-form-section"],
+          "bg-muted p-18 grid grid-cols-2 gap-18",
+        )}
+      >
         <form id="contact-form" onSubmit={form.handleSubmit(onSubmit)}>
           <FieldGroup>
             <div className="grid grid-cols-2 gap-6">

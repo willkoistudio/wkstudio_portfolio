@@ -19,6 +19,25 @@
 
 .about-highlited-experience-item {
   border-bottom: 1px solid var(--muted-foreground);
+  --slide-offset: 0px;
+  opacity: 0;
+  transform: translate3d(var(--slide-offset, 0px), 0, 0);
+  transition:
+    opacity 0.8s ease,
+    transform 0.8s ease;
+}
+
+.about-highlited-experience-itemSlideLeft {
+  --slide-offset: -80px;
+}
+
+.about-highlited-experience-itemSlideRight {
+  --slide-offset: 80px;
+}
+
+.about-highlited-experience-itemVisible {
+  opacity: 1;
+  --slide-offset: 0px;
 }
 
 .about-highlited-experience-job-position {

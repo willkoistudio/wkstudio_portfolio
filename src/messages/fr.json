@@ -74,21 +74,21 @@
       "contractDescription": "Après la signature du contrat et le paiement d'un acompte de 50%, je commencerai le codage du site web en fonction de la vision et des détails convenus, y compris les polices de caractères, les couleurs et plus encore.",
       "development": "Développement :",
       "developmentDescription": "Je commencerai le codage du site web en fonction des spécifications et de la portée définies. Le portail client sera mis à jour régulièrement afin que vous puissiez suivre l'avancement du projet. Après la livraison de la première version, vous pouvez fournir des commentaires comme contrôle de qualité (QA).",
-      "finalApproval": "Final Approval :",
+      "finalApproval": "Approbation finale :",
       "finalApprovalDescription": "Une fois que vous aurez donné votre approbation finale et que le site web est prêt à être mis en ligne, je vous enverrai un rappel/facture pour le paiement final. Une fois le paiement reçu, je déploierai le site web sur le serveur de production.",
-      "feedback": "Feedback et Travail Continu :",
+      "feedback": "Retours / Commentaires et Travail continu :",
       "feedbackDescription": "Je vous enverrai un formulaire Google final pour vous permettre de fournir des commentaires sur votre expérience. En guise de gratitude, je vous offre un rabais pour tout travail futur et pour toute recommandation."
     },
     "webDesign": {
       "title": "Design Web",
       "contract": "Contrat et Avancement :",
-      "contractDescription": "Après la signature du contrat et le paiement d'un acompte de 50%, nous commencerons le processus créatif en créant des tableaux de méditation. Cela nous permettra d'explorer et de discuter de la vision et des détails de votre marque / projet. Ce processus collaboratif constitue la base pour la phase de design.",
+      "contractDescription": "Après la signature du contrat et le versement d'un dépôt de 50%, nous entamerons le processus créatif en créant des \"mood boards\" (tableaux d'ambiance). Ces tableaux nous permettent d'explorer et de discuter de la vision et des détails de votre marque/projet, notamment les polices, les couleurs et d'autres éléments. Les \"mood boards\" servent de point de référence pour notre direction de conception, garantissant ainsi que nous capturons avec précision l'essence de votre marque. Ce processus collaboratif pose les bases de la phase de conception.",
       "design": "Design :",
       "designDescription": "Je commencerai à créer des variations de design, des icônes, des maquettes et d'autres éléments. Le portail client sera mis à jour régulièrement afin que vous puissiez fournir des commentaires et suivre l'avancement du projet. Vous aurez deux révisions incluses dans le processus, avec des révisions ou des directions supplémentaires entraînant un coût supplémentaire.",
-      "finalApproval": "Final Approval :",
-      "finalApprovalDescription": "Une fois que vous aurez donné votre approbation finale, je vous enverrai un rappel/facture pour le paiement final. Une fois le paiement reçu, je organiserai tous les fichiers dans un dossier Google Drive. Les formats de fichiers fournis incluent PNG, JPG et SVG. Si vous avez besoin de formats de fichiers supplémentaires, n'hésitez pas à me le faire savoir.",
-      "feedback": "Feedback et Travail Continu :",
-      "feedbackDescription": "Je vous enverrai un formulaire Google final pour vous permettre de fournir des commentaires sur votre expérience. En guise de gratitude, je vous offre un rabais pour tout travail futur et pour toute recommandation."
+      "finalApproval": "Approbation finale :",
+      "finalApprovalDescription": "Après avoir reçu votre approbation finale, je vous enverrai un rappel de facture pour le paiement final. Une fois le paiement reçu, je vais organiser tous les fichiers dans un dossier Google Drive. Les formats de fichiers fournis incluent PNG, JPG et SVG. Si vous avez besoin de formats de fichier supplémentaires, n'hésitez pas à me le faire savoir.",
+      "feedback": "Retours / Commentaires et Travail continu :",
+      "feedbackDescription": "Je vous enverrai un dernier formulaire Google pour vous faire part de vos commentaires sur votre expérience. En guise de geste d'appréciation, j'offre une réduction pour tout travail futur et toute recommandation."
     },
     "fillInquiryForm": "Remplir le formulaire"
   },

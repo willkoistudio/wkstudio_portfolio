@@ -44,6 +44,7 @@ export default function Services() {
 
   return (
     <main id="services">
+      {/* Header */}
       <header
         className={`${styles["services-header"]} flex flex-col justify-center items-center text-center`}
       >
@@ -80,7 +81,10 @@ export default function Services() {
           />
         </div>
       </header>
+
+      {/* Content */}
       <section id="services-list">
+        {/* Web */}
         <div className="grid grid-cols-2">
           <div
             className={cn(
@@ -89,7 +93,7 @@ export default function Services() {
             )}
           ></div>
           <div className="p-14">
-            <h2 className="text-primary font-bold text-3xl mb-4">
+            <h2 className="text-primary font-bold text-3xl mb-8">
               {t("services.webDevelopment.title")}
             </h2>
             <h3 className="font-bold text-xl">
@@ -117,9 +121,11 @@ export default function Services() {
             </Button>
           </div>
         </div>
+
+        {/* Design */}
         <div className="grid grid-cols-2">
           <div className="p-14">
-            <h2 className="text-primary font-bold text-3xl mb-4">
+            <h2 className="text-primary font-bold text-3xl mb-8">
               {t("services.webDesign.title")}
             </h2>
             <h3 className="font-bold text-xl">
@@ -127,7 +133,7 @@ export default function Services() {
             </h3>
             <p>{t("services.webDesign.contractDescription")}</p>
             <h3 className="font-bold text-xl">
-              ‍👨‍💻 {t("services.webDesign.design")}
+              ‍🎨 {t("services.webDesign.design")}
             </h3>
             <p>{t("services.webDesign.designDescription")}</p>
             <h3 className="font-bold text-xl">

@@ -10,6 +10,7 @@ import localeText from "./types/localeText";
 import localePortableText from "./types/localePortableText";
 import localeStringArray from "./types/localeStringArray";
 import projectFilter from "./projectFilter";
+import highlightedExperience from "./highlightedExperience";
 
 export const schemaTypes = [
   project,
@@ -22,4 +23,5 @@ export const schemaTypes = [
   localePortableText,
   localeStringArray,
   projectFilter,
+  highlightedExperience,
 ];

@@ -81,3 +81,14 @@ export const projectFiltersQuery = `
   color,
   className
 }`;
+
+export const highlightedExperiencesQuery = `
+*[_type=="highlightedExperience"] | order(from desc){
+  _id,
+  company,
+  "logo": logo.asset->url,
+  position,
+  from,
+  "to": to.year,
+  clients
+}`;

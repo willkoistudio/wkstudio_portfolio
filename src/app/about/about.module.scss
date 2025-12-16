@@ -5,3 +5,22 @@
   background-position: center center;
   background-repeat: no-repeat;
 }
+
+.about-highlited-experience {
+  background-color: var(--footer-background);
+  color: white;
+}
+
+.about-highlited-experience-divider {
+  border-color: var(--primary);
+  width: 60px;
+  border-width: 2px;
+}
+
+.about-highlited-experience-item {
+  border-bottom: 1px solid var(--muted-foreground);
+}
+
+.about-highlited-experience-job-position {
+  line-height: normal;
+}

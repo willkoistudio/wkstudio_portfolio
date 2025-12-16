@@ -94,6 +94,25 @@
   },
   "about": {
     "title": "About me.",
-    "description": "Hey there ! I’m a creative professional, originally from&nbsp;<strong>Benin 🇧🇯</strong>, born and raised in&nbsp;<strong>France 🇫🇷&nbsp;</strong>, with a deep passion for&nbsp;<strong>Graphic Design</strong>&nbsp;and&nbsp;<strong>Web Development</strong>. My journey began as a graphic designer, exploring the limitless of visual expression. Along the way, I ventured into the captivating world of web development, where I found a perfect fusion of creativity and technical expertise.<br><br>In&nbsp;<strong>2018</strong>, I arrived in&nbsp;<strong>Canada 🇨🇦</strong>&nbsp;as a temporary worker, driven by an adventurous spirit. Over time, I have become a permanent resident, fully embracing the vibrant tech scene of the city of <strong>Montreal</strong>.<br><br>Throughout my career, I have collaborated with diverse companies as a&nbsp;<strong>freelancer</strong>,&nbsp;<strong>contractor</strong>, and&nbsp;<strong>employee</strong>, acquiring invaluable insights into various project requirements and organizational dynamics. This experience has honed my adaptability and collaboration skills, enabling me to seamlessly integrate into teams and contribute to their success.<br><br>I’m genuinely thrilled about the opportunity to collaborate with new clients and bring their vision to life. If you’re in search of a versatile and experienced&nbsp;<strong>Senior Front-End Developer</strong>&nbsp;with a creative flair, I’m here to work closely with you and make your projects shine. Feel free to reach out, and let’s embark on an exciting journey together !<br><br><strong>– William</strong>"
+    "description": "Hey there ! I’m a creative professional, originally from&nbsp;<strong>Benin 🇧🇯</strong>, born and raised in&nbsp;<strong>France 🇫🇷&nbsp;</strong>, with a deep passion for&nbsp;<strong>Graphic Design</strong>&nbsp;and&nbsp;<strong>Web Development</strong>. My journey began as a graphic designer, exploring the limitless of visual expression. Along the way, I ventured into the captivating world of web development, where I found a perfect fusion of creativity and technical expertise.<br><br>In&nbsp;<strong>2018</strong>, I arrived in&nbsp;<strong>Canada 🇨🇦</strong>&nbsp;as a temporary worker, driven by an adventurous spirit. Over time, I have become a permanent resident, fully embracing the vibrant tech scene of the city of <strong>Montreal</strong>.<br><br>Throughout my career, I have collaborated with diverse companies as a&nbsp;<strong>freelancer</strong>,&nbsp;<strong>contractor</strong>, and&nbsp;<strong>employee</strong>, acquiring invaluable insights into various project requirements and organizational dynamics. This experience has honed my adaptability and collaboration skills, enabling me to seamlessly integrate into teams and contribute to their success.<br><br>I’m genuinely thrilled about the opportunity to collaborate with new clients and bring their vision to life. If you’re in search of a versatile and experienced&nbsp;<strong>Senior Front-End Developer</strong>&nbsp;with a creative flair, I’m here to work closely with you and make your projects shine. Feel free to reach out, and let’s embark on an exciting journey together !<br><br><strong>– William</strong>",
+    "highlitedExperience": "Highlited Experience",
+    "since": "depuis",
+    "present": "present",
+    "seeMore": "Want to see more about my experience ?",
+    "downloadResume": "Download my resume",
+    "footer": {
+      "title": "Let's keep in touch !",
+      "description": "Stay connected with me! If you have any inquiries, collaborations, or simply want to chat, don’t hesitate to reach out through the contact form below. Looking forward to hearing from you and keeping the creative vibes flowing!",
+      "contactForm": {
+        "name": "Name",
+        "email": "E-mail",
+        "subject": {
+          "title": "Subject",
+          "options": ["Gettinng in touch", "Estimate", "Other"]
+        },
+        "message": "Message",
+        "send": "Send message"
+      }
+    }
   }
 }

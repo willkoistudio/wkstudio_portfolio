@@ -94,6 +94,25 @@
   },
   "about": {
     "title": "À propos de moi.",
-    "description": "Tout d'abord, merci de vous être arrêté sur mon site ! Je suis un professionnel de la création, originaire du&nbsp;<strong>Bénin 🇧🇯</strong>, né et grandi en&nbsp;<strong>France 🇫🇷&nbsp;</strong>, avec une profonde passion pour le&nbsp;<strong>Design Graphique</strong>&nbsp;et&nbsp;<strong>Développement Web</strong>. Mon parcours a commencé en tant que designer graphique, explorant les possibilités infinies de l'expression visuelle. En chemin, j'ai plongé dans le monde captivant du développement web, où j'ai découvert une fusion parfaite entre créativité et expertise technique.<br><br>En&nbsp;<strong>2018</strong>, je suis arrivé au&nbsp;<strong>Canada 🇨🇦</strong>&nbsp;en tant que travailleur temporaire, animé par un esprit d'aventure. Avec le temps, je suis devenu un résident permanent, intégrant la scène technologique vibrante de la ville de <strong>Montréal</strong>.<br><br>Tout au long de ma carrière, j'ai collaboré avec diverses entreprises en tant que <strong>indépendant</strong>,&nbsp;<strong>contractant</strong>, et&nbsp;<strong>employé</strong>, en acquérant des informations inestimables sur les divers besoins des projets et les dynamiques organisationnelles. Cette expérience a affiné mon adaptabilité et mes compétences en collaboration, me permettant de m'intégrer parfaitement dans les équipes et de contribuer à leur succès.<br><br>Je serais vraiment ravi de collaborer avec vous et de donner vie à votre vision. Si vous êtes à la recherche d'un&nbsp;<strong>Développeur Front-End Senior</strong>&nbsp;polyvalent et expérimenté avec une touche de créativité, je suis là pour travailler en étroite collaboration avec vous et faire briller vos projets. N'hésitez pas à me contacter pour que nous puissions collaborer ensemble !<br><br><strong>– William</strong>"
+    "description": "Tout d'abord, merci de vous être arrêté sur mon site ! Je suis un professionnel de la création, originaire du&nbsp;<strong>Bénin 🇧🇯</strong>, né et grandi en&nbsp;<strong>France 🇫🇷&nbsp;</strong>, avec une profonde passion pour le&nbsp;<strong>Design Graphique</strong>&nbsp;et&nbsp;<strong>Développement Web</strong>. Mon parcours a commencé en tant que designer graphique, explorant les possibilités infinies de l'expression visuelle. En chemin, j'ai plongé dans le monde captivant du développement web, où j'ai découvert une fusion parfaite entre créativité et expertise technique.<br><br>En&nbsp;<strong>2018</strong>, je suis arrivé au&nbsp;<strong>Canada 🇨🇦</strong>&nbsp;en tant que travailleur temporaire, animé par un esprit d'aventure. Avec le temps, je suis devenu un résident permanent, intégrant la scène technologique vibrante de la ville de <strong>Montréal</strong>.<br><br>Tout au long de ma carrière, j'ai collaboré avec diverses entreprises en tant que <strong>indépendant</strong>,&nbsp;<strong>contractant</strong>, et&nbsp;<strong>employé</strong>, en acquérant des informations inestimables sur les divers besoins des projets et les dynamiques organisationnelles. Cette expérience a affiné mon adaptabilité et mes compétences en collaboration, me permettant de m'intégrer parfaitement dans les équipes et de contribuer à leur succès.<br><br>Je serais vraiment ravi de collaborer avec vous et de donner vie à votre vision. Si vous êtes à la recherche d'un&nbsp;<strong>Développeur Front-End Senior</strong>&nbsp;polyvalent et expérimenté avec une touche de créativité, je suis là pour travailler en étroite collaboration avec vous et faire briller vos projets. N'hésitez pas à me contacter pour que nous puissions collaborer ensemble !<br><br><strong>– William</strong>",
+    "highlitedExperience": "Points forts de mon expérience",
+    "since": "depuis",
+    "present": "présent",
+    "seeMore": "Vous désirez en savoir plus sur mes expériences ?",
+    "downloadResume": "Télécharger mon CV",
+    "footer": {
+      "title": "Restons en contact !",
+      "description": "Restons en contact ! Si vous avez des questions, des propositions de collaboration ou simplement envie de discuter, n'hésitez pas à me contacter via le formulaire ci-dessous. J'ai hâte de recevoir de vos nouvelles et de maintenir les vibes créatives en mouvement !",
+      "contactForm": {
+        "name": "Nom",
+        "email": "E-mail",
+        "subject": {
+          "title": "Sujet",
+          "options": ["Prise de contact", "Demande d'estimation", "Autre"]
+        },
+        "message": "Message",
+        "send": "Envoyer le message"
+      }
+    }
   }
 }

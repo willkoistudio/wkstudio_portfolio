@@ -2,38 +2,41 @@
 /** @format */
 import { useTranslations, useLocale } from "next-intl";
 import styles from "./about.module.scss";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { sanity } from "@/lib/sanity.client";
 import { highlightedExperiencesQuery } from "@/lib/sanity.queries";
 import { HighlightedExperience } from "@/models/highlightedExperience";
-import Image from "next/image";
-import { ChevronsRight } from "lucide-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import * as z from "zod";
 
 import {
   Field,
-  FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
 } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupText,
-  InputGroupTextarea,
-} from "@/components/ui/input-group";
 import { Button } from "@/components/ui/button";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import HighlightedExperienceRow from "@/components/app/about/highlighted-experience-row";
 
 export default function About() {
   const t = useTranslations();
   const locale = useLocale();
+  const { executeRecaptcha } = useGoogleReCaptcha() || {};
   const [experiences, setExperiences] = useState<HighlightedExperience[]>([]);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const fetchExperiences = async () => {
@@ -59,6 +62,81 @@ export default function About() {
     return locale === "en"
       ? (experience.position?.en ?? experience.position?.fr ?? "")
       : (experience.position?.fr ?? experience.position?.en ?? "");
+  };
+
+  const formSchema = z.object({
+    name: z.string().min(1, t("about.footer.contactForm.formError.name")),
+    email: z.email(t("about.footer.contactForm.formError.email")),
+    company: z.string().optional(),
+    subject: z.string().min(1, t("about.footer.contactForm.formError.subject")),
+    message: z.string().min(1, t("about.footer.contactForm.formError.message")),
+  });
+
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
+    defaultValues: {
+      name: "",
+      company: "",
+      email: "",
+      subject: (
+        t.raw("about.footer.contactForm.subject.options") as string[]
+      )[0],
+      message: "",
+    },
+  });
+
+  const onSubmit = async (data: z.infer<typeof formSchema>) => {
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+
+    try {
+      // Get reCAPTCHA token
+      let recaptchaToken: string | undefined;
+      if (executeRecaptcha) {
+        recaptchaToken = await executeRecaptcha("contact_form");
+      }
+
+      // Send to API
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...data,
+          recaptchaToken,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || "Erreur lors de l'envoi");
+      }
+
+      // Success
+      toast.success(t.raw("about.footer.contactForm.success"), {
+        position: "top-center",
+        className: "!bg-green-500 !text-white !border-green-600",
+      });
+
+      // Reset form
+      form.reset();
+    } catch (error) {
+      console.error("Form submission error:", error);
+      toast.error(
+        error instanceof Error
+          ? error.message
+          : "Une erreur est survenue. Veuillez réessayer.",
+        {
+          position: "top-center",
+          className: "!bg-red-500 !text-white !border-red-600",
+        },
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -110,129 +188,180 @@ export default function About() {
         </Button>
       </section>
       {/* Form section */}
-      <section className="bg-muted p-18 grid grid-cols-2">
-        <div>{/* Form */}</div>
-        <div>
+      <section className={"bg-muted p-18 grid grid-cols-2 gap-18"}>
+        <form id="contact-form" onSubmit={form.handleSubmit(onSubmit)}>
+          <FieldGroup>
+            <div className="grid grid-cols-2 gap-6">
+              <Controller
+                name="name"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel
+                      htmlFor="contact-form-name"
+                      className="text-lg font-medium"
+                    >
+                      {t("about.footer.contactForm.name")}{" "}
+                      <span className="text-red-500">*</span>
+                    </FieldLabel>
+                    <Input
+                      {...field}
+                      id="contact-form-name"
+                      className="bg-white"
+                      aria-invalid={fieldState.invalid}
+                      placeholder={t(
+                        "about.footer.contactForm.namePlaceholder",
+                      )}
+                      autoComplete="off"
+                    />
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )}
+              />
+              <Controller
+                name="company"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel
+                      htmlFor="contact-form-company"
+                      className="text-lg font-medium"
+                    >
+                      {t("about.footer.contactForm.company")}
+                    </FieldLabel>
+                    <Input
+                      {...field}
+                      id="contact-form-company"
+                      className="bg-white"
+                      placeholder={t(
+                        "about.footer.contactForm.companyPlaceholder",
+                      )}
+                      aria-invalid={fieldState.invalid}
+                    />
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )}
+              />
+            </div>
+            <div className="grid grid-cols-2 gap-6">
+              <Controller
+                name="email"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel
+                      htmlFor="contact-form-email"
+                      className="text-lg font-medium"
+                    >
+                      {t("about.footer.contactForm.email")}{" "}
+                      <span className="text-red-500">*</span>
+                    </FieldLabel>
+                    <Input
+                      {...field}
+                      id="contact-form-email"
+                      className="bg-white"
+                      type="email"
+                      placeholder={t(
+                        "about.footer.contactForm.emailPlaceholder",
+                      )}
+                      aria-invalid={fieldState.invalid}
+                    />
+                    {fieldState.invalid && (
+                      <FieldError errors={[fieldState.error]} />
+                    )}
+                  </Field>
+                )}
+              />
+              <Controller
+                name="subject"
+                control={form.control}
+                render={({ field, fieldState }) => (
+                  <Field data-invalid={fieldState.invalid}>
+                    <FieldLabel
+                      htmlFor="contact-form-subject"
+                      className="text-lg font-medium"
+                    >
+                      {t("about.footer.contactForm.subject.title")}{" "}
+                      <span className="text-red-500">*</span>
+                    </FieldLabel>
+                    <Select
+                      {...field}
+                      onValueChange={field.onChange as (value: string) => void}
+                      value={field.value}
+                      aria-invalid={fieldState.invalid}
+                    >
+                      <SelectTrigger className="bg-white">
+                        <SelectValue
+                          placeholder={t(
+                            "about.footer.contactForm.subject.placeholder",
+                          )}
+                        />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {(
+                          t.raw(
+                            "about.footer.contactForm.subject.options",
+                          ) as string[]
+                        )?.map((option: string) => (
+                          <SelectItem key={option} value={option}>
+                            {option}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </Field>
+                )}
+              />
+            </div>
+            <Controller
+              name="message"
+              control={form.control}
+              render={({ field, fieldState }) => (
+                <Field data-invalid={fieldState.invalid}>
+                  <FieldLabel
+                    htmlFor="contact-form-message"
+                    className="text-lg font-medium"
+                  >
+                    {t("about.footer.contactForm.message")}{" "}
+                    <span className="text-red-500">*</span>
+                  </FieldLabel>
+                  <Textarea
+                    {...field}
+                    id="contact-form-message"
+                    className="bg-white"
+                    placeholder={t(
+                      "about.footer.contactForm.messagePlaceholder",
+                    )}
+                    aria-invalid={fieldState.invalid}
+                    rows={6}
+                  />
+                  {fieldState.invalid && (
+                    <FieldError errors={[fieldState.error]} />
+                  )}
+                </Field>
+              )}
+            />
+          </FieldGroup>
+          <Button
+            type="submit"
+            size="lg"
+            className="mt-8 !text-white rounded-3xl"
+            disabled={isSubmitting}
+          >
+            {isSubmitting
+              ? t("about.footer.contactForm.sending")
+              : t("about.footer.contactForm.send")}
+          </Button>
+        </form>
+        <div className="w-3/4">
           <h2 className="font-bold text-3xl mb-8">{t("about.footer.title")}</h2>
           <p className="text-lg">{t("about.footer.description")}</p>
-          <hr
-            className={cn(styles["about-highlited-experience-divider"], "mt-8")}
-          />
-          <p className="mt-8">📧 koi.william91@gmail.com</p>
         </div>
       </section>
     </main>
-  );
-}
-
-type HighlightedExperienceRowProps = {
-  experience: HighlightedExperience;
-  sinceLabel: string;
-  toLabel: string;
-  positionLabel: string;
-  isEven: boolean;
-};
-
-function HighlightedExperienceRow({
-  experience,
-  sinceLabel,
-  toLabel,
-  positionLabel,
-  isEven,
-}: HighlightedExperienceRowProps) {
-  const [isVisible, setIsVisible] = useState(false);
-  const rowRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const node = rowRef.current;
-    if (!node) return;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setIsVisible(true);
-            observer.unobserve(entry.target);
-          }
-        });
-      },
-      { threshold: 0.2 },
-    );
-
-    observer.observe(node);
-
-    return () => observer.disconnect();
-  }, []);
-
-  const directionClass = isEven
-    ? styles["about-highlited-experience-itemSlideLeft"]
-    : styles["about-highlited-experience-itemSlideRight"];
-
-  const visibilityClass = isVisible
-    ? styles["about-highlited-experience-itemVisible"]
-    : undefined;
-
-  return (
-    <div ref={rowRef}>
-      <div
-        className={cn(
-          styles["about-highlited-experience-item"],
-          directionClass,
-          visibilityClass,
-          "grid grid-cols-2 gap-6 justify-center pb-17",
-        )}
-      >
-        <div className="flex gap-6 justify-end">
-          {experience.logo && (
-            <Image
-              src={experience.logo}
-              alt={experience.company}
-              loading="lazy"
-              width={100}
-              height={100}
-              className="rounded-sm"
-            />
-          )}
-          <div>
-            <h4 className="text-2xl font-semibold mt-0">
-              {experience.company}
-            </h4>
-            <hr
-              className={cn(
-                styles["about-highlited-experience-divider"],
-                "my-4",
-              )}
-            />
-            <p className="mt-4 text-lg font-medium uppercase">
-              <span>{sinceLabel}</span>{" "}
-              <span className="font-bold">{experience.from}</span>
-              <ChevronsRight
-                className={cn("w-6 h-6 inline-block mx-3 relative bottom-0.5")}
-                color="grey"
-              />
-              <span className="font-bold">{toLabel}</span>
-            </p>
-          </div>
-        </div>
-        <div>
-          <p
-            className={cn(
-              styles["about-highlited-experience-job-position"],
-              "text-2xl",
-            )}
-          >
-            {positionLabel}
-          </p>
-          {experience.clients?.length ? (
-            <div>
-              <p className="font-medium !mb-0">Clients :</p>
-              <p className="text-muted-foreground">
-                {experience.clients.join(" • ")}
-              </p>
-            </div>
-          ) : null}
-        </div>
-      </div>
-    </div>
   );
 }

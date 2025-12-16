@@ -105,13 +105,27 @@
       "description": "Restons en contact ! Si vous avez des questions, des propositions de collaboration ou simplement envie de discuter, n'hésitez pas à me contacter via le formulaire ci-dessous. J'ai hâte de recevoir de vos nouvelles et de maintenir les vibes créatives en mouvement !",
       "contactForm": {
         "name": "Nom",
+        "namePlaceholder": "Entrez votre nom",
+        "company": "Entreprise",
+        "companyPlaceholder": "Entrez le nom de votre entreprise",
         "email": "E-mail",
+        "emailPlaceholder": "Entrez votre e-mail",
         "subject": {
           "title": "Sujet",
+          "placeholder": "Entrez votre sujet",
           "options": ["Prise de contact", "Demande d'estimation", "Autre"]
         },
         "message": "Message",
-        "send": "Envoyer le message"
+        "messagePlaceholder": "Entrez votre message",
+        "send": "Envoyer le message",
+        "sending": "Envoi en cours...",
+        "success": "Message envoyé avec succès",
+        "formError": {
+          "name": "Le nom est requis",
+          "email": "L'adresse e-mail est invalide",
+          "subject": "Le sujet est requis",
+          "message": "Le message est requis"
+        }
       }
     }
   }

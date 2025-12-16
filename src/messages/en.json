@@ -105,13 +105,28 @@
       "description": "Stay connected with me! If you have any inquiries, collaborations, or simply want to chat, don’t hesitate to reach out through the contact form below. Looking forward to hearing from you and keeping the creative vibes flowing!",
       "contactForm": {
         "name": "Name",
+        "namePlaceholder": "Enter your name",
+        "company": "Company",
+        "companyPlaceholder": "Enter your company",
         "email": "E-mail",
+        "emailPlaceholder": "Enter your email",
         "subject": {
           "title": "Subject",
+          "placeholder": "Enter your subject",
           "options": ["Gettinng in touch", "Estimate", "Other"]
         },
         "message": "Message",
-        "send": "Send message"
+        "messagePlaceholder": "Enter your message",
+        "send": "Send message",
+        "sending": "Sending...",
+        "success": "Message sent successfully",
+        "formError": {
+          "name": "Name is required",
+          "company": "Company is required",
+          "email": "Invalid email address",
+          "subject": "Subject is required",
+          "message": "Message is required"
+        }
       }
     }
   }

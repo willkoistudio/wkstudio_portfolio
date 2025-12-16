@@ -11,7 +11,7 @@ export default function Services() {
   const locale = useLocale();
 
   const scrollToMainContent = () => {
-    const servicesList = document.getElementById("services-list");
+    const servicesList = document.getElementById("services-container");
     if (servicesList) {
       servicesList.scrollIntoView({
         behavior: "smooth",
@@ -20,7 +20,7 @@ export default function Services() {
     }
   };
 
-  const openFillDevInquiryForm = () => {
+  const openDevInquiryForm = () => {
     switch (locale) {
       case "fr":
         window.open("https://forms.gle/2PLRuKwZcdzY1AtS8", "_blank");
@@ -31,7 +31,7 @@ export default function Services() {
     }
   };
 
-  const openFillDesignInquiryForm = () => {
+  const openDesignInquiryForm = () => {
     switch (locale) {
       case "fr":
         window.open("https://forms.gle/YnGtUrb9n76bFAN18", "_blank");
@@ -83,7 +83,7 @@ export default function Services() {
       </header>
 
       {/* Content */}
-      <section id="services-list">
+      <section id="services-container">
         {/* Web */}
         <div className="grid grid-cols-2">
           <div
@@ -114,7 +114,7 @@ export default function Services() {
             <p>{t("services.webDevelopment.feedbackDescription")}</p>
             <Button
               className="!text-white rounded-2xl mt-6"
-              onClick={openFillDevInquiryForm}
+              onClick={openDevInquiryForm}
             >
               <Pencil className="w-4 h-4" />
               {t("services.fillInquiryForm")}
@@ -146,7 +146,7 @@ export default function Services() {
             <p>{t("services.webDesign.feedbackDescription")}</p>
             <Button
               className="!text-white rounded-2xl mt-6"
-              onClick={openFillDesignInquiryForm}
+              onClick={openDesignInquiryForm}
             >
               <Pencil className="w-4 h-4" />
               {t("services.fillInquiryForm")}

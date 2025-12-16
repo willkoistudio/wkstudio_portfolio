@@ -7,6 +7,8 @@ import "@/lib/fontawesome";
 import { LocaleProvider } from "@/contexts/locale-context";
 import { FooterWrapper } from "@/components/app/footer/footer-wrapper";
 import { usePathname } from "next/navigation";
+import { Toaster } from "sonner";
+import { ReCaptchaProvider } from "@/components/recaptcha-provider";
 
 const workSans = Work_Sans({
   subsets: ["latin"],
@@ -25,11 +27,14 @@ export default function RootLayout({
   return (
     <html lang="fr" className={workSans.variable}>
       <body>
-        <LocaleProvider>
-          {!pathname.startsWith("/studio") && <HeaderWrapper />}
-          {children}
-          {!pathname.startsWith("/studio") && <FooterWrapper />}
-        </LocaleProvider>
+        <ReCaptchaProvider>
+          <LocaleProvider>
+            {!pathname.startsWith("/studio") && <HeaderWrapper />}
+            {children}
+            {!pathname.startsWith("/studio") && <FooterWrapper />}
+          </LocaleProvider>
+          <Toaster />
+        </ReCaptchaProvider>
       </body>
     </html>
   );

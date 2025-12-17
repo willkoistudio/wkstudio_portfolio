@@ -14,16 +14,15 @@ export function ReCaptchaProvider({ children }: { children: ReactNode }) {
   }
 
   return (
-    <>{children}</>
-    // <GoogleReCaptchaProvider
-    //   reCaptchaKey={siteKey}
-    //   scriptProps={{
-    //     async: false,
-    //     defer: false,
-    //     appendTo: "head",
-    //   }}
-    // >
-    //   {children}
-    // </GoogleReCaptchaProvider>
+    <GoogleReCaptchaProvider
+      reCaptchaKey={siteKey}
+      scriptProps={{
+        async: false,
+        defer: false,
+        appendTo: "head",
+      }}
+    >
+      {children}
+    </GoogleReCaptchaProvider>
   );
 }

@@ -189,9 +189,8 @@ export default function Projects() {
           <Masonry
             breakpointCols={{
               default: 3,
-              1024: 3,
-              768: 2,
-              767: 1,
+              1024: 2,
+              768: 1,
             }}
             className={cn(styles.projectsGrid, "md:mt-6 lg:mt-16")}
             columnClassName={styles.projectsGridColumn}

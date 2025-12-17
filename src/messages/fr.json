@@ -63,11 +63,11 @@
   },
   "services": {
     "title": "Mes services",
-    "description": "Je propose une large gamme de services de <strong>Développement Web</strong> et de <strong>Design Web</strong>, y compris <strong>sites web de présentation simples, solutions e-commerce, applications web, design web, UI, UX, icônes, illustrations,</strong> <strong>visuels pour les médias sociaux</strong> et <strong>design print</strong>. Voici un aperçu du processus :",
+    "description": "Je propose une large gamme de services de <strong>Développement Web</strong> et de <strong>Design Web</strong>, y compris <strong>sites web de présentation simples, solutions e-commerce, applications web, design web, UI, UX, icônes, illustrations,</strong> <strong>visuels pour les médias sociaux</strong> et <strong>design print</strong>. Voici un aperçu du processus&nbsp;:",
     "inquiry": "1. Renseignements",
     "inquiryDescription": "Veuillez remplir le formulaire ci-dessous et je répondrai rapidement par un questionnaire pour mieux comprendre votre projet.",
     "consultation": "2. Consultation",
-    "consultationDescription": "Si nous déterminons que nous sommes compatibles, nous pouvons planifier un appel pour discuter davantage de votre projet. Je vous fournirai un portail client contenant la facture, le contrat et un plan de développement détaillé.",
+    "consultationDescription": "Si nous sommes compatibles, nous planifierons un appel pour discuter de votre projet et je vous fournirai un portail client avec le contrat et le plan de développement.",
     "webDevelopment": {
       "title": "Développement Web",
       "contract": "Contrat et Avancement :",
@@ -128,5 +128,9 @@
         }
       }
     }
+  },
+  "footer": {
+    "title": "© 2025-2026 - WKOISTUDIO. Tous droits réservés.",
+    "description": "Développement web, UX/UI design, Webdesign."
   }
 }

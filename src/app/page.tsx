@@ -11,6 +11,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useTranslations } from "next-intl";
 import { socialMediaLinks } from "@/utils/social";
 import { useRouter } from "next/navigation";
+import { useBreakpoint } from "@/hooks/use-breakpoint";
 
 export default function Home() {
   const router = useRouter();
@@ -18,6 +19,7 @@ export default function Home() {
   const backgroundWrapperRef = useRef<HTMLDivElement | null>(null);
   const primaryLayerRef = useRef<HTMLDivElement | null>(null);
   const secondaryLayerRef = useRef<HTMLDivElement | null>(null);
+  const breakpoint = useBreakpoint();
 
   useEffect(() => {
     const wrapper = backgroundWrapperRef.current;
@@ -84,6 +86,7 @@ export default function Home() {
 
   return (
     <main className="grid grid-cols-2" id={styles["home-container"]}>
+      {/* Left section */}
       <section
         id={styles["left-section"]}
         className={"flex flex-col justify-space-between h-full"}
@@ -113,8 +116,10 @@ export default function Home() {
             ))}
           </ul>
         </div>
+
+        {/* Footer */}
         <div
-          className={`${styles["home-footer"]} grid grid-cols-2 gap-8 mt-auto text-white`}
+          className={`${styles["home-footer"]} grid grid-cols-2 lg:gap-2 xl:gap-8 mt-auto text-white`}
         >
           <div>
             <p
@@ -124,16 +129,20 @@ export default function Home() {
             <p className="font-bold">{t("home.footer.description")}</p>
             <Button
               className="text-white rounded-2xl"
+              size={breakpoint === "lg" ? "sm" : "default"}
               onClick={() => router.push("/projects")}
             >
               {t("home.footer.projects")}
             </Button>
-            <span className="px-3 font-bold">{t("home.footer.or")}</span>
+            <span className="lg:px-2 xl:px-3 font-bold">
+              {t("home.footer.or")}
+            </span>
             <Button
               className="text-white rounded-2xl"
+              size={breakpoint === "lg" ? "sm" : "default"}
               onClick={() => router.push("/services")}
             >
-              {t("home.footer.services")}
+              <span className="">{t("home.footer.services")}</span>
             </Button>
           </div>
           <div>
@@ -144,11 +153,13 @@ export default function Home() {
                   {link.icon ? (
                     <FontAwesomeIcon
                       icon={link.icon}
-                      size="2xl"
+                      size={breakpoint === "lg" ? "xl" : "2xl"}
                       color="white"
                     />
                   ) : (
-                    <span className="inline-flex items-center justify-center w-8 h-8">
+                    <span
+                      className={`inline-flex items-center justify-center ${breakpoint === "lg" ? "w-6 h-6" : "w-8 h-8"}`}
+                    >
                       <img src={link.customIcon || ""} alt={link.name} />
                     </span>
                   )}
@@ -158,6 +169,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Right section */}
       <section id={styles["right-section"]}>
         <div
           id={styles["background-layers"]}
@@ -171,8 +184,8 @@ export default function Home() {
           <Image
             src="/images/william_koi_avatar.svg"
             alt="William Koï Avatar"
-            width={408}
-            height={761}
+            width={breakpoint === "lg" ? 300 : 408}
+            height={breakpoint === "lg" ? 225 : 761}
             className={styles["wkoistudio-avatar"]}
           />
         </div>

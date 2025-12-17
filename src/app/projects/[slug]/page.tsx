@@ -169,12 +169,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Outils */}
         {project.tools && project.tools.length > 0 && (
-          <div className="mt-3 flex items-center gap-2">
-            <strong className="flex items-center gap-2">
+          <div className="mt-3 flex items-start gap-4">
+            <strong className="flex items-center gap-2 whitespace-nowrap">
               <BicepsFlexed className="w-4 h-4" color="var(--primary)" />
-              {t("projects.details.tools")} :{" "}
+              {t("projects.details.tools")} :
             </strong>
-            <div className="flex flex-wrap gap-2 mt-3 relative bottom-1.5">
+            <div className="flex flex-wrap gap-2 mt-1 relative bottom-1.5">
               {project.tools.map((tool) => (
                 <span
                   key={tool._id}

@@ -12,6 +12,7 @@ import { Controller, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import * as z from "zod";
+import { useBreakpoint } from "@/hooks/use-breakpoint";
 
 import {
   Field,
@@ -37,6 +38,7 @@ export default function About() {
   const { executeRecaptcha } = useGoogleReCaptcha() || {};
   const [experiences, setExperiences] = useState<HighlightedExperience[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const breakpoint = useBreakpoint();
 
   useEffect(() => {
     const fetchExperiences = async () => {
@@ -144,10 +146,12 @@ export default function About() {
       {/* Info section */}
       <section className="grid grid-cols-2">
         <div className={cn(styles["about-bg-content"])}></div>
-        <div className="p-14">
+        <div className="p-14 lg:p-10 xl:p-14">
           <h2 className="font-bold text-3xl mb-4">{t("about.title")}</h2>
           <p
-            className="text-lg"
+            className={
+              ["sm", "md", "lg"].includes(breakpoint) ? "text-md" : "text-lg"
+            }
             dangerouslySetInnerHTML={{ __html: t.raw("about.description") }}
           />
         </div>
@@ -191,7 +195,7 @@ export default function About() {
       <section
         className={cn(
           styles["about-form-section"],
-          "bg-muted p-18 grid grid-cols-2 gap-18",
+          "bg-muted xl:p-18 lg:p-10 grid grid-cols-2 xl:gap-18 lg:gap-10",
         )}
       >
         <form id="contact-form" onSubmit={form.handleSubmit(onSubmit)}>
@@ -362,9 +366,15 @@ export default function About() {
               : t("about.footer.contactForm.send")}
           </Button>
         </form>
-        <div className="w-3/4">
+        <div className="xl:w-3/4 lg:w-full">
           <h2 className="font-bold text-3xl mb-8">{t("about.footer.title")}</h2>
-          <p className="text-lg">{t("about.footer.description")}</p>
+          <p
+            className={
+              ["sm", "md", "lg"].includes(breakpoint) ? "text-md" : "text-lg"
+            }
+          >
+            {t("about.footer.description")}
+          </p>
         </div>
       </section>
     </main>

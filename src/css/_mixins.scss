@@ -4,28 +4,47 @@
 
 @use "./variables" as *;
 
-// Responsive breakpoints
+// Responsive breakpoints (mobile-first avec ranges)
+// sm: 0px à 767px (tout ce qui est en dessous de md)
+// md: 768px à 1023px
+// lg: 1024px à 1279px
+// xl: 1280px à 1535px
+// 2xl: 1536px et plus
 @mixin breakpoint($breakpoint) {
   @if $breakpoint == sm {
-    @media (min-width: $breakpoint-sm) and (max-width: $breakpoint-md) {
+    @media (max-width: #{$breakpoint-md - 1px}) {
       @content;
     }
   } @else if $breakpoint == md {
-    @media (min-width: $breakpoint-md) and (max-width: $breakpoint-lg) {
+    @media (min-width: $breakpoint-md) and (max-width: #{$breakpoint-lg - 1px}) {
       @content;
     }
   } @else if $breakpoint == lg {
-    @media (min-width: $breakpoint-lg) and (max-width: $breakpoint-xl) {
+    @media (min-width: $breakpoint-lg) and (max-width: #{$breakpoint-xl - 1px}) {
       @content;
     }
   } @else if $breakpoint == xl {
-    @media (min-width: $breakpoint-xl) and (max-width: $breakpoint-2xl) {
+    @media (min-width: $breakpoint-xl) and (max-width: #{$breakpoint-2xl - 1px}) {
       @content;
     }
   } @else if $breakpoint == 2xl {
     @media (min-width: $breakpoint-2xl) {
       @content;
     }
+  }
+}
+
+// Breakpoint spécifique pour iPad en portrait
+// Couvre toutes les résolutions iPad en portrait :
+// - iPad standard : 768px x 1024px
+// - iPad Air : 820px x 1180px
+// - iPad Pro 11" : 834px x 1194px
+// Range: 768px à 1023px (max-width: 1024px - 1px)
+@mixin breakpoint-ipad-portrait {
+  @media (min-width: $breakpoint-ipad-portrait-min)
+    and (max-width: #{$breakpoint-ipad-portrait-max - 1px})
+    and (orientation: portrait) {
+    @content;
   }
 }
 

@@ -58,12 +58,17 @@ export default function Services() {
             className={`${styles["services-description"]} text-white mx-auto font-medium`}
             dangerouslySetInnerHTML={{ __html: t.raw("services.description") }}
           />
-          <div className="flex flex-wrap gap-6 justify-center my-14">
+          <div className="flex flex-wrap gap-6 justify-center xl:my-14 lg:my-10">
             <Code className="w-12 h-12" color="white" />
             <PencilRuler className="w-12 h-12 " color="white" />
             <FilePen className="w-12 h-12 " color="white" />
           </div>
-          <div className="grid grid-cols-2 gap-14 text-white">
+          <div
+            className={cn(
+              "grid grid-cols-2 xl:gap-14 lg:gap-10 text-white",
+              styles["services-header-content"],
+            )}
+          >
             <div className="text-right">
               <h2 className="font-bold">{t("services.inquiry")}</h2>
               <p className="text-lg">{t("services.inquiryDescription")}</p>
@@ -92,7 +97,7 @@ export default function Services() {
               styles["dev-bg-content"],
             )}
           ></div>
-          <div className="2xl:p-14 xl:p-12">
+          <div className="2xl:p-14 p-12">
             <h2 className="text-primary font-bold text-3xl mb-8">
               {t("services.webDevelopment.title")}
             </h2>
@@ -124,7 +129,7 @@ export default function Services() {
 
         {/* Design */}
         <div className="grid grid-cols-2">
-          <div className="2xl:p-14 xl:p-12">
+          <div className="2xl:p-14 p-12">
             <h2 className="text-primary font-bold text-3xl mb-8">
               {t("services.webDesign.title")}
             </h2>

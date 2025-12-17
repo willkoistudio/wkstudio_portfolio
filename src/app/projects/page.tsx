@@ -2,7 +2,13 @@
 /** @format */
 import { useTranslations, useLocale } from "next-intl";
 import styles from "./projects.module.scss";
-import { ChevronsDown, AppWindow, Wallpaper, Code, ArrowUp } from "lucide-react";
+import {
+  ChevronsDown,
+  AppWindow,
+  Wallpaper,
+  Code,
+  ArrowUp,
+} from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import { sanity } from "@/lib/sanity.client";
 import { allProjectsQuery, projectFiltersQuery } from "@/lib/sanity.queries";
@@ -23,8 +29,6 @@ export default function Projects() {
   const filtersRef = useRef<HTMLDivElement>(null);
   const isSticky = useSticky(filtersRef);
   const { isVisible: showScrollToTop, scrollToTop } = useScrollToTop();
-
-  // TODO: creer les pages de details des projets
 
   useEffect(() => {
     const fetchFilters = async () => {
@@ -185,7 +189,7 @@ export default function Projects() {
           <Masonry
             breakpointCols={{
               default: 3,
-              1200: 2,
+              1024: 3,
               768: 1,
             }}
             className={cn(styles.projectsGrid, "mt-16")}

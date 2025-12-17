@@ -15,7 +15,6 @@ export function Footer() {
 
   // TODO: changer la couleur du texte des liens,
   // TODO: mettre les phrases en gris,
-  // TODO: traduire les phrases,
 
   return (
     <footer id={styles["wkoistudio-footer"]} className="py-12">
@@ -29,11 +28,9 @@ export function Footer() {
               height={200}
             />
             <p className="mt-6 text-sm text-center !mb-0">
-              © 2025-2026 - WKOISTUDIO. All rights reserved.
+              {t("footer.title")}
             </p>
-            <p className="text-sm !mb-6">
-              Développement web, UX/UI design, Webdesign, Graphisme.
-            </p>
+            <p className="text-sm !mb-6">{t("footer.description")}</p>
             <hr className="w-80 border-1 mb-6" />
             <ul className="flex flex-wrap gap-8 font-medium !ml-0">
               <li>
@@ -53,10 +50,25 @@ export function Footer() {
               {socialMediaLinks.map((link) => (
                 <Link key={link.name} href={link.url} target="_blank">
                   {link.icon ? (
-                    <FontAwesomeIcon icon={link.icon} size="xl" color="white" />
+                    <FontAwesomeIcon
+                      icon={link.icon}
+                      size="xl"
+                      color="var(--muted-foreground)"
+                    />
                   ) : (
-                    <span className="inline-flex items-center justify-center w-6 h-6">
-                      <img src={link.customIcon || ""} alt={link.name} />
+                    <span
+                      className={styles["social-icon-wrapper"]}
+                      style={
+                        {
+                          "--icon-url": `url(${link.customIcon || ""})`,
+                        } as React.CSSProperties
+                      }
+                    >
+                      <img
+                        src={link.customIcon || ""}
+                        alt={link.name}
+                        className={styles["social-icon-image"]}
+                      />
                     </span>
                   )}
                 </Link>

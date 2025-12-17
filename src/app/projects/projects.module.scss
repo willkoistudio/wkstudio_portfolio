@@ -1,3 +1,6 @@
+@use "../../css/mixins" as *;
+@use "../../css/variables" as *;
+
 .projects-header {
   background-image: radial-gradient(
     ellipse at center center,
@@ -26,6 +29,15 @@
 
   .projects-title {
     font-size: 6rem;
+    @include breakpoint(lg) {
+      font-size: 4rem;
+    }
+    @include breakpoint(xl) {
+      font-size: 5rem;
+    }
+    @include breakpoint(2xl) {
+      font-size: 6rem;
+    }
   }
   .projects-description {
     font-size: 1.2rem;

@@ -63,11 +63,11 @@
   },
   "services": {
     "title": "My services",
-    "description": "I offer a wide range of <strong>Web Development</strong> and <strong>Web Design</strong> services, including <strong>simple showcase websites, e-commerce solutions, web applications, web design, UI, UX, icons, illustrations,</strong> <strong>social media visuals</strong> and <strong>print design</strong>. Here is an overview of the process :",
+    "description": "I offer a wide range of <strong>Web Development</strong> and <strong>Web Design</strong> services, including <strong>simple showcase websites, e-commerce solutions, web applications, web design, UI, UX, icons, illustrations,</strong> <strong>social media visuals</strong> and <strong>print design</strong>. Here is an overview of the process&nbsp;:",
     "inquiry": "1. Inquiry",
     "inquiryDescription": "Please fill out the inquiry form just below. I will respond promptly with a questionnaire to better understand your project.",
     "consultation": "2. Consultation",
-    "consultationDescription": "If we determine that we are a good fit, we can schedule a call to discuss your project further ! I will provide you with a client portal containing the invoice, contract, and a detailed development plan.",
+    "consultationDescription": "If we’re a good fit, we’ll schedule a call to discuss your project and I’ll provide access to a client portal with the contract and development plan.",
     "webDevelopment": {
       "title": "Web Development",
       "contract": "Contract and Deposit :",
@@ -129,5 +129,9 @@
         }
       }
     }
+  },
+  "footer": {
+    "title": "© 2025-2026 - WKOISTUDIO. All rights reserved.",
+    "description": "Web Development, UX/UI design, Webdesign."
   }
 }

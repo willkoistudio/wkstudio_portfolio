@@ -1,3 +1,55 @@
 #wkoistudio-footer {
   background-color: var(--footer-background);
+  position: relative;
+  z-index: 1; // S'assurer que le contenu est au-dessus du background
+
+  &:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-image: url("/images/wkoistudio_bg-skills.webp");
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.1) saturate(0.1);
+    opacity: 0.5;
+    z-index: -1; // Mettre le background en arrière-plan
+    pointer-events: none; // Permettre les interactions avec le contenu
+  }
+
+  .social-icon-wrapper {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    z-index: 1; // S'assurer que les icônes sont au-dessus du background
+
+    .social-icon-image {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      opacity: 0; // Cacher l'image originale
+    }
+
+    // Utiliser l'image comme masque pour appliquer la couleur sans background
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: var(--muted-foreground);
+      -webkit-mask-image: var(--icon-url);
+      -webkit-mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      mask-image: var(--icon-url);
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      pointer-events: none;
+    }
+  }
 }

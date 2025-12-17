@@ -11,6 +11,9 @@
 
   .services-title {
     font-size: 4rem;
+    @include breakpoint(lg) {
+      font-size: 4rem;
+    }
     @include breakpoint(xl) {
       font-size: 5rem;
     }
@@ -21,6 +24,28 @@
   .services-description {
     font-size: 1.2rem;
     width: 80%;
+
+    @include breakpoint(lg) {
+      font-size: 1rem;
+    }
+    @include breakpoint(xl) {
+      font-size: 1.1rem;
+    }
+    @include breakpoint(2xl) {
+      font-size: 1.2rem;
+    }
+  }
+  .services-header-content {
+    @include breakpoint(lg) {
+      p {
+        font-size: 1rem;
+      }
+    }
+    // @include breakpoint(xl) {
+    //   p {
+    //     font-size: 1rem;
+    //   }
+    // }
   }
 }
 

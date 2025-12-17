@@ -9,11 +9,15 @@
   );
   height: calc(100vh - 78.82px);
 
+  @include breakpoint(sm) {
+    min-height: calc(100vh - 78.82px);
+    height: auto;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+
   .services-title {
     font-size: 4rem;
-    @include breakpoint(lg) {
-      font-size: 4rem;
-    }
     @include breakpoint(xl) {
       font-size: 5rem;
     }

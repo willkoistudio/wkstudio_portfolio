@@ -59,20 +59,6 @@
   }
 }
 
-// Breakpoint spécifique pour iPad en portrait
-// Couvre toutes les résolutions iPad en portrait :
-// - iPad standard : 768px x 1024px
-// - iPad Air : 820px x 1180px
-// - iPad Pro 11" : 834px x 1194px
-// Range: 768px à 1023px (max-width: 1024px - 1px)
-@mixin breakpoint-ipad-portrait {
-  @media (min-width: $breakpoint-ipad-portrait-min)
-    and (max-width: #{$breakpoint-ipad-portrait-max - 1px})
-    and (orientation: portrait) {
-    @content;
-  }
-}
-
 // Container responsive
 @mixin container {
   width: 100%;

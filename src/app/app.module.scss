@@ -3,6 +3,10 @@
 
 #home-container {
   width: 100%;
+  @include breakpoint(sm) {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
 
   @include breakpoint(md) {
     display: grid;
@@ -38,11 +42,23 @@
       font-size: 0.8rem;
     }
 
-    @include breakpoint(md) {
-      padding: 5rem;
+    @include breakpoint(sm) {
+      padding: 5rem 2rem;
     }
 
-    // Breakpoints - écrasent les styles de base
+    @include breakpoint(md) {
+      padding: 5rem;
+      .home-description {
+        font-size: 1.2rem;
+      }
+
+      .skills-list-item {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-size: 1rem;
+      }
+    }
+
     @include breakpoint(lg) {
       padding: 1.8rem;
       height: calc(100vh - 260px);
@@ -117,6 +133,10 @@
     }
   }
 
+  @include breakpoint(sm) {
+    order: 2;
+  }
+
   @include breakpoint(md) {
     order: 2;
   }
@@ -137,10 +157,19 @@
     z-index: 1;
   }
 
-  @include breakpoint(md) {
+  @include breakpoint(sm) {
+    flex-direction: column;
     height: calc(100vh - 78.82px);
     order: 1;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @include breakpoint(md) {
+    flex-direction: column;
+    height: calc(100vh - 78.82px);
+    order: 1;
+    justify-content: center;
     align-items: center;
   }
 
@@ -160,8 +189,13 @@
   .home-title {
     font-size: 3.5rem;
     z-index: 2;
-    padding-left: 4rem;
-    width: 65%;
+    text-align: center;
+
+    @include breakpoint(sm) {
+      text-align: center;
+      width: 80%;
+      margin-bottom: 3rem;
+    }
   }
 }
 
@@ -182,6 +216,7 @@
   background-position: center;
   will-change: transform;
   filter: saturate(1.1);
+  opacity: 0.5;
 }
 
 .wkoistudio-avatar-wrapper {
@@ -191,9 +226,14 @@
   padding-inline: clamp(12px, 3vw, 24px);
   overflow: visible;
 
-  @include breakpoint(md) {
+  @include breakpoint(sm) {
     justify-content: end;
     align-items: end;
+  }
+
+  @include breakpoint(md) {
+    justify-content: center;
+    align-items: center;
   }
 
   @include breakpoint(lg) {

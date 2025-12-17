@@ -33,6 +33,11 @@
     background-position: center;
     background-repeat: no-repeat;
 
+    @include breakpoint(sm) {
+      width: 150px;
+      height: 150px;
+    }
+
     @include breakpoint(md) {
       width: 150px;
       height: 150px;
@@ -54,6 +59,18 @@
 
 .about-footer-content {
   position: relative;
+  @include breakpoint(sm) {
+    &:after {
+      content: "";
+      height: 5px;
+      width: 15%;
+      background-color: var(--primary);
+      position: absolute;
+      left: 0;
+      margin-top: 15px;
+    }
+  }
+
   @include breakpoint(md) {
     &:after {
       content: "";

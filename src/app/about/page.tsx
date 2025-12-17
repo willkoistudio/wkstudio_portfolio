@@ -144,9 +144,9 @@ export default function About() {
   return (
     <main id="about">
       {/* Info section */}
-      <section className="sm:flex sm:flex-col lg:grid lg:grid-cols-2">
+      <section className="flex flex-col lg:grid lg:grid-cols-2">
         <div className={cn(styles["about-bg-content"])}></div>
-        <div className="p-14 lg:p-10 xl:p-14">
+        <div className="p-10 md:p-14 lg:p-10 xl:p-14">
           <h2 className="font-bold text-3xl mb-4">{t("about.title")}</h2>
           <p
             className={
@@ -157,12 +157,14 @@ export default function About() {
         </div>
       </section>
       {/* Highlighted experience section */}
-      <section className={cn(styles["about-highlited-experience"], "py-18")}>
-        <div className="container">
-          <h2 className="font-bold text-3xl mb-18 text-center">
+      <section
+        className={cn(styles["about-highlited-experience"], "py-10 md:py-18")}
+      >
+        <div className="container !px-10">
+          <h2 className="font-bold text-3xl mb-12 md:mb-18 text-left md:!text-center">
             {t("about.highlitedExperience")}
           </h2>
-          <div className="mt-10 flex flex-col gap-18">
+          <div className="mt-10 flex flex-col gap-8 md:gap-18">
             {experiences.map((experience, index) => (
               <HighlightedExperienceRow
                 key={experience._id}
@@ -175,11 +177,11 @@ export default function About() {
             ))}
           </div>
         </div>
-        <p className=" text-center text-white text-xl mt-18 font-medium">
+        <p className=" text-center text-white text-lg md:text-xl mt-12 md:mt-18 font-medium">
           {t("about.seeMore")}
         </p>
         <Button
-          className="!text-white rounded-3xl mt-6 block mx-auto text-lg"
+          className="!text-white rounded-3xl mt-6 block mx-auto text-lg mb-2 md:mb-0"
           size="lg"
           onClick={() =>
             window.open(
@@ -195,13 +197,13 @@ export default function About() {
       <section
         className={cn(
           styles["about-form-section"],
-          "bg-muted sm:p-10 xl:p-18 sm:flex sm:flex-col lg:grid lg:grid-cols-2 sm:gap-10 lg:gap-10 xl:gap-18",
+          "bg-muted p-10 md:p-10 xl:p-18 flex flex-col lg:grid lg:grid-cols-2 gap-10 lg:gap-10 xl:gap-18",
         )}
       >
         <form
           id="contact-form"
           onSubmit={form.handleSubmit(onSubmit)}
-          className="sm:order-2 lg:order-1 sm:pb-20 lg:pb-0"
+          className="order-2 lg:order-1 pb-20 lg:pb-0"
         >
           <FieldGroup>
             <div className="grid grid-cols-2 gap-6">
@@ -373,7 +375,7 @@ export default function About() {
         <div
           className={cn(
             styles["about-footer-content"],
-            "xl:w-3/4 lg:w-full sm:order-1 lg:order-2",
+            "xl:w-3/4 lg:w-full order-1 lg:order-2",
           )}
         >
           <h2 className="font-bold text-3xl mb-8">{t("about.footer.title")}</h2>

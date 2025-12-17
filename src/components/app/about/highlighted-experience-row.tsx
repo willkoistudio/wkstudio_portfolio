@@ -59,10 +59,10 @@ export default function HighlightedExperienceRow({
           styles["about-highlited-experience-item"],
           directionClass,
           visibilityClass,
-          "grid grid-cols-2 gap-6 justify-center pb-17",
+          "flex flex-col md:grid md:grid-cols-2 gap-6 justify-center pb-6 md:pb-17",
         )}
       >
-        <div className="flex gap-6 justify-end">
+        <div className="flex gap-6 justify-start md:justify-end">
           {experience.logo && (
             <Image
               src={experience.logo}
@@ -74,7 +74,7 @@ export default function HighlightedExperienceRow({
             />
           )}
           <div>
-            <h4 className="text-2xl font-semibold mt-0">
+            <h4 className="text-xl md:text-2xl font-semibold mt-0">
               {experience.company}
             </h4>
             <hr
@@ -83,7 +83,7 @@ export default function HighlightedExperienceRow({
                 "my-4",
               )}
             />
-            <p className="mt-4 text-lg font-medium uppercase">
+            <p className="mt-4 text-base md:text-lg font-medium uppercase">
               <span>{sinceLabel}</span>{" "}
               <span className="font-bold">{experience.from}</span>
               <ChevronsRight
@@ -98,7 +98,7 @@ export default function HighlightedExperienceRow({
           <p
             className={cn(
               styles["about-highlited-experience-job-position"],
-              "text-2xl",
+              "text-xl md:text-2xl",
             )}
           >
             {positionLabel}

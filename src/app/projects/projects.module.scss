@@ -28,12 +28,18 @@
   }
 
   .projects-title {
+    @include breakpoint(sm) {
+      font-size: 4rem;
+    }
+
     @include breakpoint(md) {
       font-size: 4rem;
     }
+
     @include breakpoint(lg) {
       font-size: 4rem;
     }
+
     @include breakpoint(xl) {
       font-size: 5rem;
     }
@@ -58,6 +64,11 @@
     var(--text-base) 65%,
     transparent
   ); // Hériter de la couleur par défaut
+
+  @include breakpoint(sm) {
+    font-size: 1rem;
+    padding: 1rem;
+  }
 
   @include breakpoint(md) {
     font-size: 0.8rem;

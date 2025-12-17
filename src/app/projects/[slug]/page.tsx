@@ -86,7 +86,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   // en mode md et en dessous, photo et gallerie en haut, contenu en bas. (voir page detail de dribbble),
   // Chaque image principal devrait etre un gif ou une video.
   return (
-    <main className="p-12 pt-16 grid grid-cols-2 gap-12">
+    <main className="p-10 pb-12 md:p-12  md:pt-16 flex flex-col md:grid md:grid-cols-2 gap-12">
       <ProjectGalleryLightbox
         featuredImage={project.featuredImage}
         gallery={project.gallery}
@@ -183,7 +183,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Outils */}
         {project.tools && project.tools.length > 0 && (
-          <div className="mt-3 flex items-start gap-4 sm:flex-col lg:flex-row">
+          <div className="mt-3 flex items-start gap-4 flex-col lg:flex-row">
             <strong className="flex items-center gap-2 whitespace-nowrap">
               <BicepsFlexed className="w-4 h-4" color="var(--primary)" />
               {t("projects.details.tools")} :

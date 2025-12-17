@@ -46,7 +46,7 @@ export function Footer() {
                 <Link href="/about">{t("nav.about")}</Link>
               </li>
             </ul>
-            <div className="flex flex-wrap gap-5 mt-3">
+            <div className="flex flex-wrap gap-5 mt-3 justify-center md:justify-start">
               {socialMediaLinks.map((link) => (
                 <Link key={link.name} href={link.url} target="_blank">
                   {link.icon ? (

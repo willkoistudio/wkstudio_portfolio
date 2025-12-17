@@ -89,9 +89,12 @@ export default function Home() {
   useEffect(() => {
     switch (breakpoint) {
       case "sm":
-      case "md":
         setAvatarWidth(250);
         setAvatarHeight(374);
+        break;
+      case "md":
+        setAvatarWidth(408);
+        setAvatarHeight(609);
         break;
       case "lg":
         setAvatarWidth(300);
@@ -121,7 +124,7 @@ export default function Home() {
       >
         <div className={styles["left-section-content"]}>
           <h1
-            className={`${styles["home-title"]} text-center font-black mb-8 sm:hidden md:hidden lg:block`}
+            className={`${styles["home-title"]} text-center font-black mb-8 hidden lg:block`}
             dangerouslySetInnerHTML={{ __html: t.raw("home.title") }}
           />
           <p
@@ -131,9 +134,9 @@ export default function Home() {
 
           <ArrowDown
             size={28}
-            className="animate-bounce stroke-primary mx-auto 2xl:my-8 xl:my-6 md:my-8"
+            className="animate-bounce stroke-primary mx-auto my-8 xl:my-6 2xl:my-8  "
           />
-          <ul className="list-disc flex flex-wrap gap-2 justify-center text-white">
+          <ul className="list-disc flex flex-wrap gap-2 justify-center text-white !ml-0">
             {t.raw("home.skills").map((skill: string, index: number) => (
               <li
                 key={index}
@@ -147,9 +150,9 @@ export default function Home() {
 
         {/* Footer */}
         <div
-          className={`${styles["home-footer"]} grid grid-cols-2 lg:gap-2 xl:gap-8 mt-auto text-white`}
+          className={`${styles["home-footer"]} flex flex-col md:grid md:grid-cols-2 gap-2 xl:gap-8 mt-auto text-white`}
         >
-          <div>
+          <div className="text-center md:!text-left">
             <p
               className="font-medium"
               dangerouslySetInnerHTML={{ __html: t.raw("home.footer.title") }}
@@ -162,7 +165,7 @@ export default function Home() {
             >
               {t("home.footer.projects")}
             </Button>
-            <span className="md:px-3 lg:px-2 xl:px-3 font-bold">
+            <span className="px-3 lg:px-2 xl:px-3 font-bold my-2 md:my-0">
               {t("home.footer.or")}
             </span>
             <Button
@@ -173,9 +176,9 @@ export default function Home() {
               <span className="">{t("home.footer.services")}</span>
             </Button>
           </div>
-          <div>
+          <div className="mt-4 md:mt-0 text-center md:!text-left">
             <p className="font-medium">{t("home.footer.socialMedia")}</p>
-            <div className="flex flex-wrap gap-5">
+            <div className="flex flex-wrap gap-5 justify-center md:justify-start">
               {socialMediaLinks.map((link) => (
                 <Link key={link.name} href={link.url} target="_blank">
                   {link.icon ? (

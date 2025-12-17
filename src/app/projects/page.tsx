@@ -105,8 +105,8 @@ export default function Projects() {
           />
         </div>
       </header>
-      <section id="projects-list" className="md:pt-6 lg:pt-16 pb-12">
-        <div className="container">
+      <section id="projects-list" className="pt-10 lg:pt-16 pb-12">
+        <div className="container !px-10">
           {/* Filters */}
           <div
             ref={filtersRef}
@@ -177,7 +177,9 @@ export default function Projects() {
                             className="mr-2 inline-block relative bottom-[2px]"
                           />
                         ) : null}
-                        {locale === "en" ? filter.title.en : filter.title.fr}
+                        <span className="hidden md:inline">
+                          {locale === "en" ? filter.title.en : filter.title.fr}
+                        </span>
                       </span>
                     </button>
                   </li>

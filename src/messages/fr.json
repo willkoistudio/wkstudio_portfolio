@@ -4,7 +4,7 @@
     "projects": "Projets",
     "services": "Services",
     "about": "À propos",
-    "downloadResume": "Télécharger le CV"
+    "downloadResume": "Télécharger mon CV"
   },
   "home": {
     "title": "Bonjour !<br/>Je suis William KOÏ.",
@@ -106,8 +106,8 @@
     "seeMore": "Vous désirez en savoir plus sur mes expériences ?",
     "downloadResume": "Télécharger mon CV",
     "footer": {
-      "title": "Restons en contact !",
-      "description": "Restons en contact ! Si vous avez des questions, des propositions de collaboration ou simplement envie de discuter, n'hésitez pas à me contacter via le formulaire ci-dessous. J'ai hâte de recevoir de vos nouvelles et de maintenir les vibes créatives en mouvement !",
+      "title": "Restons en contact&nbsp;!",
+      "description": "Restons en contact&nbsp;! Si vous avez des questions, des propositions de collaboration ou simplement envie de discuter, n'hésitez pas à me contacter via le formulaire ci-dessous. J'ai hâte de recevoir de vos nouvelles et de maintenir les vibes créatives en mouvement !",
       "contactForm": {
         "name": "Nom",
         "namePlaceholder": "Entrez votre nom",

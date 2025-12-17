@@ -378,14 +378,16 @@ export default function About() {
             "xl:w-3/4 lg:w-full order-1 lg:order-2",
           )}
         >
-          <h2 className="font-bold text-3xl mb-8">{t("about.footer.title")}</h2>
+          <h2
+            className="font-bold text-3xl mb-8"
+            dangerouslySetInnerHTML={{ __html: t("about.footer.title") }}
+          />
           <p
             className={
               ["sm", "md", "lg"].includes(breakpoint) ? "text-md" : "text-lg"
             }
-          >
-            {t("about.footer.description")}
-          </p>
+            dangerouslySetInnerHTML={{ __html: t("about.footer.description") }}
+          />
         </div>
       </section>
     </main>

@@ -3,9 +3,9 @@
 // SCSS Modules
 @use "./variables" as *;
 @use "./mixins" as *;
-@use "./base/reset";
 @use "./base/typography";
 @use "tailwindcss" as *;
+@use "./base/reset";
 
 @plugin "tailwindcss-animate";
 

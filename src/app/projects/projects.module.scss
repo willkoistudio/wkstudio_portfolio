@@ -28,7 +28,9 @@
   }
 
   .projects-title {
-    font-size: 6rem;
+    @include breakpoint(md) {
+      font-size: 4rem;
+    }
     @include breakpoint(lg) {
       font-size: 4rem;
     }
@@ -56,6 +58,11 @@
     var(--text-base) 65%,
     transparent
   ); // Hériter de la couleur par défaut
+
+  @include breakpoint(md) {
+    font-size: 0.8rem;
+    padding: 1rem 1.5rem;
+  }
 
   // Pseudo-élément pour l'animation de remplissage
   &::before {

@@ -144,7 +144,7 @@ export default function About() {
   return (
     <main id="about">
       {/* Info section */}
-      <section className="grid grid-cols-2">
+      <section className="sm:flex sm:flex-col lg:grid lg:grid-cols-2">
         <div className={cn(styles["about-bg-content"])}></div>
         <div className="p-14 lg:p-10 xl:p-14">
           <h2 className="font-bold text-3xl mb-4">{t("about.title")}</h2>
@@ -195,10 +195,14 @@ export default function About() {
       <section
         className={cn(
           styles["about-form-section"],
-          "bg-muted xl:p-18 lg:p-10 grid grid-cols-2 xl:gap-18 lg:gap-10",
+          "bg-muted sm:p-10 xl:p-18 sm:flex sm:flex-col lg:grid lg:grid-cols-2 sm:gap-10 lg:gap-10 xl:gap-18",
         )}
       >
-        <form id="contact-form" onSubmit={form.handleSubmit(onSubmit)}>
+        <form
+          id="contact-form"
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="sm:order-2 lg:order-1 sm:pb-20 lg:pb-0"
+        >
           <FieldGroup>
             <div className="grid grid-cols-2 gap-6">
               <Controller
@@ -366,7 +370,12 @@ export default function About() {
               : t("about.footer.contactForm.send")}
           </Button>
         </form>
-        <div className="xl:w-3/4 lg:w-full">
+        <div
+          className={cn(
+            styles["about-footer-content"],
+            "xl:w-3/4 lg:w-full sm:order-1 lg:order-2",
+          )}
+        >
           <h2 className="font-bold text-3xl mb-8">{t("about.footer.title")}</h2>
           <p
             className={

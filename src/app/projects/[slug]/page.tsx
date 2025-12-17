@@ -167,9 +167,23 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           )}
         </div>
 
+        {/* Lien vers le site web */}
+        {project.website && (
+          <div className="mt-4">
+            <a
+              href={project.website}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline"
+            >
+              {t("projects.details.visitWebsite")} →
+            </a>
+          </div>
+        )}
+
         {/* Outils */}
         {project.tools && project.tools.length > 0 && (
-          <div className="mt-3 flex items-start gap-4">
+          <div className="mt-3 flex items-start gap-4 sm:flex-col lg:flex-row">
             <strong className="flex items-center gap-2 whitespace-nowrap">
               <BicepsFlexed className="w-4 h-4" color="var(--primary)" />
               {t("projects.details.tools")} :
@@ -184,20 +198,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 </span>
               ))}
             </div>
-          </div>
-        )}
-
-        {/* Lien vers le site web */}
-        {project.website && (
-          <div className="mt-4">
-            <a
-              href={project.website}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-primary hover:underline"
-            >
-              {t("projects.details.visitWebsite")} →
-            </a>
           </div>
         )}
       </article>

@@ -105,7 +105,7 @@ export default function Projects() {
           />
         </div>
       </header>
-      <section id="projects-list" className="pt-16 pb-12">
+      <section id="projects-list" className="md:pt-6 lg:pt-16 pb-12">
         <div className="container">
           {/* Filters */}
           <div
@@ -117,7 +117,7 @@ export default function Projects() {
             )}
           >
             <ul
-              id="projects-list-header-filters"
+              id={styles["projects-list-header-filters"]}
               className="flex !mx-auto w-full"
             >
               <li className="flex-1">
@@ -190,9 +190,10 @@ export default function Projects() {
             breakpointCols={{
               default: 3,
               1024: 3,
-              768: 1,
+              768: 2,
+              767: 1,
             }}
-            className={cn(styles.projectsGrid, "mt-16")}
+            className={cn(styles.projectsGrid, "md:mt-6 lg:mt-16")}
             columnClassName={styles.projectsGridColumn}
           >
             {filteredProjects.map((project) => (

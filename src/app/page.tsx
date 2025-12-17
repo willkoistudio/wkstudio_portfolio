@@ -4,7 +4,7 @@
 import Link from "next/link";
 import styles from "./app.module.scss";
 import Image from "next/image";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -20,6 +20,8 @@ export default function Home() {
   const primaryLayerRef = useRef<HTMLDivElement | null>(null);
   const secondaryLayerRef = useRef<HTMLDivElement | null>(null);
   const breakpoint = useBreakpoint();
+  const [avatarWidth, setAvatarWidth] = useState<number>(0);
+  const [avatarHeight, setAvatarHeight] = useState<number>(0);
 
   useEffect(() => {
     const wrapper = backgroundWrapperRef.current;
@@ -84,6 +86,32 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    switch (breakpoint) {
+      case "sm":
+      case "md":
+        setAvatarWidth(250);
+        setAvatarHeight(374);
+        break;
+      case "lg":
+        setAvatarWidth(300);
+        setAvatarHeight(448);
+        break;
+      case "xl":
+        setAvatarWidth(408);
+        setAvatarHeight(609);
+        break;
+      case "2xl":
+        setAvatarWidth(408);
+        setAvatarHeight(609);
+        break;
+      default:
+        setAvatarWidth(408);
+        setAvatarHeight(609);
+        break;
+    }
+  }, [breakpoint]);
+
   return (
     <main className="grid grid-cols-2" id={styles["home-container"]}>
       {/* Left section */}
@@ -93,7 +121,7 @@ export default function Home() {
       >
         <div className={styles["left-section-content"]}>
           <h1
-            className={`${styles["home-title"]} text-center font-black mb-8`}
+            className={`${styles["home-title"]} text-center font-black mb-8 sm:hidden md:hidden lg:block`}
             dangerouslySetInnerHTML={{ __html: t.raw("home.title") }}
           />
           <p
@@ -103,7 +131,7 @@ export default function Home() {
 
           <ArrowDown
             size={28}
-            className="animate-bounce stroke-primary mx-auto 2xl:my-8 xl:my-6 md:my-4"
+            className="animate-bounce stroke-primary mx-auto 2xl:my-8 xl:my-6 md:my-8"
           />
           <ul className="list-disc flex flex-wrap gap-2 justify-center text-white">
             {t.raw("home.skills").map((skill: string, index: number) => (
@@ -134,7 +162,7 @@ export default function Home() {
             >
               {t("home.footer.projects")}
             </Button>
-            <span className="lg:px-2 xl:px-3 font-bold">
+            <span className="md:px-3 lg:px-2 xl:px-3 font-bold">
               {t("home.footer.or")}
             </span>
             <Button
@@ -172,6 +200,10 @@ export default function Home() {
 
       {/* Right section */}
       <section id={styles["right-section"]}>
+        <h1
+          className={`${styles["home-title"]} text-white font-black lg:hidden`}
+          dangerouslySetInnerHTML={{ __html: t.raw("home.title") }}
+        />
         <div
           id={styles["background-layers"]}
           ref={backgroundWrapperRef}
@@ -184,8 +216,8 @@ export default function Home() {
           <Image
             src="/images/william_koi_avatar.svg"
             alt="William Koï Avatar"
-            width={breakpoint === "lg" ? 300 : 408}
-            height={breakpoint === "lg" ? 225 : 761}
+            width={avatarWidth}
+            height={avatarHeight}
             className={styles["wkoistudio-avatar"]}
           />
         </div>

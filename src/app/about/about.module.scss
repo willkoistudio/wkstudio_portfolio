@@ -1,3 +1,5 @@
+@use "@/css/mixins" as *;
+
 .about-bg-content {
   min-height: 100vh;
   height: 100%;
@@ -26,11 +28,41 @@
     position: absolute;
     bottom: 0;
     right: -30px;
-    width: 250px;
-    height: 250px;
     background-image: url("/images/william_koi_avatar_contact.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+
+    @include breakpoint(md) {
+      width: 150px;
+      height: 150px;
+    }
+    @include breakpoint(lg) {
+      width: 250px;
+      height: 250px;
+    }
+    @include breakpoint(xl) {
+      width: 250px;
+      height: 250px;
+    }
+    @include breakpoint(2xl) {
+      width: 250px;
+      height: 250px;
+    }
+  }
+}
+
+.about-footer-content {
+  position: relative;
+  @include breakpoint(md) {
+    &:after {
+      content: "";
+      height: 5px;
+      width: 15%;
+      background-color: var(--primary);
+      position: absolute;
+      left: 0;
+      margin-top: 15px;
+    }
   }
 }

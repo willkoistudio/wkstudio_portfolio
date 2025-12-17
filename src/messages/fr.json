@@ -7,7 +7,7 @@
     "downloadResume": "Télécharger le CV"
   },
   "home": {
-    "title": "Bonjour ! Je suis <br/>William KOÏ.",
+    "title": "Bonjour !<br/>Je suis William KOÏ.",
     "description": "<strong>Développeur Front-End Senior</strong> spécialisé en <strong>Javascript, HTML et CSS</strong>, avec une maîtrise avancée de <strong>Vue.js et React</strong>. Fort de <strong>plus de 10 ans</strong> d’expérience en <strong>développement web</strong> et <strong>design graphique</strong>, je conçois des projets web sur-mesure alliant <strong>technique et créativité</strong>.",
     "skills": [
       "Nuxt.js / Next.js",

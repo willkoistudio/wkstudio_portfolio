@@ -58,14 +58,14 @@ export default function Services() {
             className={`${styles["services-description"]} text-white mx-auto font-medium`}
             dangerouslySetInnerHTML={{ __html: t.raw("services.description") }}
           />
-          <div className="flex flex-wrap gap-6 justify-center xl:my-14 lg:my-10">
+          <div className="flex flex-wrap gap-6 justify-center sm:my-10 xl:my-14">
             <Code className="w-12 h-12" color="white" />
             <PencilRuler className="w-12 h-12 " color="white" />
             <FilePen className="w-12 h-12 " color="white" />
           </div>
           <div
             className={cn(
-              "grid grid-cols-2 xl:gap-14 lg:gap-10 text-white",
+              "grid grid-cols-2 sm:gap-10 lg:gap-10 xl:gap-14 text-white",
               styles["services-header-content"],
             )}
           >
@@ -90,7 +90,7 @@ export default function Services() {
       {/* Content */}
       <section id="services-container">
         {/* Web */}
-        <div className="grid grid-cols-2">
+        <div className="sm:flex sm:flex-col lg:grid lg:grid-cols-2">
           <div
             className={cn(
               styles["services-bg-content"],
@@ -128,8 +128,8 @@ export default function Services() {
         </div>
 
         {/* Design */}
-        <div className="grid grid-cols-2">
-          <div className="2xl:p-14 p-12">
+        <div className="sm:flex sm:flex-col lg:grid lg:grid-cols-2">
+          <div className="2xl:p-14 p-12 sm:order-2">
             <h2 className="text-primary font-bold text-3xl mb-8">
               {t("services.webDesign.title")}
             </h2>
@@ -161,6 +161,7 @@ export default function Services() {
             className={cn(
               styles["services-bg-content"],
               styles["design-bg-content"],
+              "sm:order-1",
             )}
           ></div>
         </div>

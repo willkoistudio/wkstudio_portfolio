@@ -22,9 +22,11 @@
     }
   }
   .services-description {
-    font-size: 1.2rem;
     width: 80%;
 
+    @include breakpoint(md) {
+      font-size: 1rem;
+    }
     @include breakpoint(lg) {
       font-size: 1rem;
     }
@@ -36,6 +38,11 @@
     }
   }
   .services-header-content {
+    @include breakpoint(md) {
+      p {
+        font-size: 1rem;
+      }
+    }
     @include breakpoint(lg) {
       p {
         font-size: 1rem;

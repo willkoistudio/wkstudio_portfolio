@@ -270,3 +270,12 @@
       drop-shadow(0 0 36px rgba(255, 167, 64, 0.72));
   }
 }
+
+// 404
+.not-found-container {
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  background: url("/images/wkoistudio_not_found.png") no-repeat center center;
+  background-size: cover;
+}

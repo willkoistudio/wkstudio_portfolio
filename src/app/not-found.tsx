@@ -2,11 +2,10 @@
 
 import Link from "next/link";
 import { getTranslations } from "next-intl/server";
-import Image from "next/image";
-import styles from "../../app.module.scss";
+import styles from "./app.module.scss";
 import { cn } from "@/lib/utils";
 
-export default async function ProjectNotFound() {
+export default async function NotFound() {
   const t = await getTranslations();
 
   return (
@@ -16,17 +15,13 @@ export default async function ProjectNotFound() {
           className={cn(styles["not-found-container"], "w-full flex flex-col")}
         >
           <div className="py-12 text-white text-center mb-0 mt-auto">
-            <h1 className="text-4xl font-black mb-4">
-              {t("projects.notFound.title")}
-            </h1>
-            <p className="text-white font-medium">
-              {t("projects.notFound.description")}
-            </p>
+            <h1 className="text-4xl font-black mb-4">{t("404.title")}</h1>
+            <p className="text-white font-medium">{t("404.description")}</p>
             <Link
               href="/"
               className="inline-block px-6 py-3 bg-primary text-white rounded-3xl hover:bg-primary-foreground transition-colors !text-white !no-underline"
             >
-              {t("projects.notFound.button")}
+              {t("404.button")}
             </Link>
           </div>
         </div>

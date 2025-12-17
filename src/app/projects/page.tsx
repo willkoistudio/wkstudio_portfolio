@@ -17,7 +17,6 @@ import { Project, ProjectFilter } from "@/models/projects";
 import Masonry from "react-masonry-css";
 import { ProjectCard } from "@/components/app/projects/project-card";
 import { useSticky } from "@/hooks/use-sticky";
-import { useScrollToTop } from "@/hooks/use-scroll-to-top";
 
 export default function Projects() {
   const t = useTranslations();
@@ -28,7 +27,6 @@ export default function Projects() {
   const [loading, setLoading] = useState<boolean>(true);
   const filtersRef = useRef<HTMLDivElement>(null);
   const isSticky = useSticky(filtersRef);
-  const { isVisible: showScrollToTop, scrollToTop } = useScrollToTop();
 
   useEffect(() => {
     const fetchFilters = async () => {
@@ -204,18 +202,6 @@ export default function Projects() {
           </Masonry>
         </div>
       </section>
-      <button
-        onClick={scrollToTop}
-        className={cn(
-          "fixed bottom-4 right-4 px-4 py-4 rounded-full bg-primary hover:bg-primary-foreground transition-opacity duration-400 ease-in-out",
-          showScrollToTop
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none",
-        )}
-        aria-label="Scroll to top"
-      >
-        <ArrowUp size={24} color="white" />
-      </button>
     </main>
   );
 }

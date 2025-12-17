@@ -59,6 +59,11 @@
       "visitWebsite": "Visiter le site web",
       "gallery": "Galerie",
       "image": "Image"
+    },
+    "notFound": {
+      "title": "Oops ! Projet non trouvé !",
+      "description": "Désolé, le projet que vous recherchez n'existe pas ou a été supprimé.",
+      "button": "Retour aux projets"
     }
   },
   "services": {
@@ -132,5 +137,10 @@
   "footer": {
     "title": "© 2025-2026 - WKOISTUDIO. Tous droits réservés.",
     "description": "Développement web, UX/UI design, Webdesign."
+  },
+  "404": {
+    "title": "Oops ! Page non trouvée...",
+    "description": "Désolé, la page que vous recherchez n'existe pas ou a été supprimée.",
+    "button": "Retour à l'accueil"
   }
 }

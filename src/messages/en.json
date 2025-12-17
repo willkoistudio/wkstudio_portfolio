@@ -59,6 +59,11 @@
       "visitWebsite": "Visit website",
       "gallery": "Gallery",
       "image": "Image"
+    },
+    "notFound": {
+      "title": "Oh no! Project not found",
+      "description": "Sorry, the project you are looking for does not exist or has been deleted.",
+      "button": "Return to projects"
     }
   },
   "services": {
@@ -133,5 +138,10 @@
   "footer": {
     "title": "© 2025-2026 - WKOISTUDIO. All rights reserved.",
     "description": "Web Development, UX/UI design, Webdesign."
+  },
+  "404": {
+    "title": "Oh no! Page not found...",
+    "description": "Sorry, the page you are looking for does not exist or has been deleted.",
+    "button": "Return to home"
   }
 }

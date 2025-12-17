@@ -98,13 +98,15 @@ export function Header() {
   return (
     <>
       <NavigationMenu isMobile={isMobile}>
-        <Image
-          src="/images/logo-horizontal.svg"
-          alt="WILLIAM KOI STUDIO"
-          width={282}
-          height={57.42}
-          id="wkoistudio-logo"
-        />
+        <Link href="/">
+          <Image
+            src="/images/logo-horizontal.svg"
+            alt="WILLIAM KOI STUDIO"
+            width={282}
+            height={57.42}
+            id="wkoistudio-logo"
+          />
+        </Link>
         {isTabletOrMobile ? (
           <button
             onClick={toggleDrawer}
@@ -142,7 +144,10 @@ export function Header() {
                     <Link
                       href={item.href}
                       target={item.isExternal ? "_blank" : "_self"}
-                      className={cn(styles.navLink, active && styles.active)}
+                      className={
+                        (cn(styles.navLink, active && styles.active),
+                        "!no-underline")
+                      }
                     >
                       {t(item.label)}
                     </Link>

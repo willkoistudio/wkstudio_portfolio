@@ -4,6 +4,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { Resend } from "resend";
 import { rateLimit } from "@/lib/rate-limit";
 import { verifyRecaptcha } from "@/lib/recaptcha";
+import { isValidEmailDomain } from "@/lib/email-validation";
+import { detectPhishing } from "@/lib/phishing-detection";
+import { stripHtml, containsHtml, escapeHtml } from "@/lib/html-sanitizer";
 import { z } from "zod";
 import { getTranslations } from "next-intl/server";
 
@@ -16,6 +19,7 @@ const contactSchema = z.object({
   subject: z.string().min(1),
   message: z.string().min(1),
   recaptchaToken: z.string().min(1, "Token reCAPTCHA requis"),
+  honeypot: z.string().optional(), // Champ honeypot
 });
 
 // Simple tracking (in production, use a database)
@@ -53,7 +57,78 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const validatedData = contactSchema.parse(body);
 
-    // Verify reCAPTCHA - OBLIGATOIRE
+    // 1. Vérifier le honeypot (si rempli, c'est un bot)
+    if (validatedData.honeypot && validatedData.honeypot.trim() !== "") {
+      emailStats.totalBlocked++;
+      console.warn("Bot détecté via honeypot:", ip);
+      return NextResponse.json(
+        { error: "Requête suspecte détectée" },
+        { status: 400 },
+      );
+    }
+
+    // 2. Vérifier le domaine email (bloquer les domaines jetables)
+    const emailValidation = isValidEmailDomain(validatedData.email);
+    if (!emailValidation.valid) {
+      emailStats.totalBlocked++;
+      console.warn(
+        "Email invalide:",
+        validatedData.email,
+        emailValidation.reason,
+      );
+      return NextResponse.json(
+        { error: emailValidation.reason || "Adresse email non autorisée" },
+        { status: 400 },
+      );
+    }
+
+    // 3. Vérifier et bloquer le HTML dans le message
+    if (containsHtml(validatedData.message)) {
+      emailStats.totalBlocked++;
+      console.warn("HTML détecté dans le message:", ip);
+      return NextResponse.json(
+        { error: "Le HTML n'est pas autorisé dans les messages" },
+        { status: 400 },
+      );
+    }
+
+    // 4. Nettoyer le message (supprimer tout HTML résiduel)
+    const cleanMessage = stripHtml(validatedData.message);
+    const cleanName = stripHtml(validatedData.name);
+    const cleanSubject = stripHtml(validatedData.subject);
+    const cleanCompany = validatedData.company
+      ? stripHtml(validatedData.company)
+      : undefined;
+
+    // 5. Détecter le phishing dans le message
+    const phishingCheck = detectPhishing(cleanMessage);
+    if (phishingCheck.isPhishing) {
+      emailStats.totalBlocked++;
+      console.warn("Phishing détecté:", {
+        ip,
+        reasons: phishingCheck.reasons,
+        links: phishingCheck.suspiciousLinks,
+      });
+      return NextResponse.json(
+        {
+          error: "Contenu suspect détecté. Veuillez reformuler votre message.",
+        },
+        { status: 400 },
+      );
+    }
+
+    // 6. Vérifier aussi le sujet pour le phishing
+    const subjectPhishingCheck = detectPhishing(cleanSubject);
+    if (subjectPhishingCheck.isPhishing) {
+      emailStats.totalBlocked++;
+      console.warn("Phishing détecté dans le sujet:", ip);
+      return NextResponse.json(
+        { error: "Sujet suspect détecté" },
+        { status: 400 },
+      );
+    }
+
+    // 7. Verify reCAPTCHA - OBLIGATOIRE
     const isValidRecaptcha = await verifyRecaptcha(
       validatedData.recaptchaToken,
     );
@@ -66,31 +141,36 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send email using Resend
+    // Send email using Resend (avec contenu nettoyé et échappé)
+    const escapedMessage = escapeHtml(cleanMessage).replace(/\n/g, "<br>");
+    const escapedName = escapeHtml(cleanName);
+    const escapedSubject = escapeHtml(cleanSubject);
+    const escapedCompany = cleanCompany ? escapeHtml(cleanCompany) : undefined;
+
     const { data, error } = await resend.emails.send({
       from: "WKOISTUDIO Portfolio Contact <onboarding@resend.dev>", // Change this to your verified domain
       to: ["koi.william91@gmail.com"],
       replyTo: validatedData.email,
-      subject: `[WKOISTUDIO Portfolio] ${validatedData.subject} - ${validatedData.name}`,
+      subject: `[WKOISTUDIO Portfolio] ${escapedSubject} - ${escapedName}`,
       html: `
         <h2>Nouveau message depuis le portfolio</h2>
-        <p><strong>Nom:</strong> ${validatedData.name}</p>
+        <p><strong>Nom:</strong> ${escapedName}</p>
         <p><strong>Email:</strong> ${validatedData.email}</p>
-        ${validatedData.company ? `<p><strong>Entreprise:</strong> ${validatedData.company}</p>` : ""}
-        <p><strong>Sujet:</strong> ${validatedData.subject}</p>
+        ${escapedCompany ? `<p><strong>Entreprise:</strong> ${escapedCompany}</p>` : ""}
+        <p><strong>Sujet:</strong> ${escapedSubject}</p>
         <hr>
         <p><strong>Message:</strong></p>
-        <p>${validatedData.message.replace(/\n/g, "<br>")}</p>
+        <p>${escapedMessage}</p>
       `,
       text: `
 Nouveau message depuis le portfolio
 
-Nom: ${validatedData.name}
+Nom: ${cleanName}
 Email: ${validatedData.email}
-${validatedData.company ? `Entreprise: ${validatedData.company}\n` : ""}Sujet: ${validatedData.subject}
+${escapedCompany ? `Entreprise: ${escapedCompany}\n` : ""}Sujet: ${cleanSubject}
 
 Message:
-${validatedData.message}
+${cleanMessage}
       `,
     });
 

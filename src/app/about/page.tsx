@@ -104,6 +104,11 @@ export default function About() {
         throw new Error(t.raw("about.recaptcha.errorToken"));
       }
 
+      // Get honeypot value (should be empty)
+      const honeypotValue =
+        (document.querySelector('input[name="website"]') as HTMLInputElement)
+          ?.value || "";
+
       // Send to API
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -113,6 +118,7 @@ export default function About() {
         body: JSON.stringify({
           ...data,
           recaptchaToken,
+          honeypot: honeypotValue, // Envoyer le honeypot
         }),
       });
 
@@ -365,6 +371,20 @@ export default function About() {
                   )}
                 </Field>
               )}
+            />
+            {/* Honeypot field - invisible pour les humains, visible pour les bots */}
+            <input
+              type="text"
+              name="website"
+              tabIndex={-1}
+              autoComplete="off"
+              style={{
+                position: "absolute",
+                left: "-9999px",
+                opacity: 0,
+                pointerEvents: "none",
+              }}
+              aria-hidden="true"
             />
           </FieldGroup>
           <Button

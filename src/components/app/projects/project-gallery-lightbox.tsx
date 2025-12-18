@@ -83,8 +83,3 @@ export function ProjectGalleryLightbox({
     </>
   );
 }
-
-// Export par défaut pour Next.js (cette route n'est pas utilisée directement)
-export default function ProjectGalleryLightboxPage() {
-  return null;
-}

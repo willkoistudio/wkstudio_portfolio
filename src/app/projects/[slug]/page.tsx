@@ -5,7 +5,7 @@ import { projectBySlugQuery } from "@/lib/sanity.queries";
 import { Project } from "@/models/projects";
 import { getActiveLocale } from "@/lib/locale";
 import { notFound } from "next/navigation";
-import { ProjectGalleryLightbox } from "../project-gallery-lightbox/page";
+import { ProjectGalleryLightbox } from "@/components/app/projects/project-gallery-lightbox";
 import { PortableText } from "@portabletext/react";
 import { getTranslations } from "next-intl/server";
 import type { Metadata } from "next";

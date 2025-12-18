@@ -18,7 +18,7 @@ const contactSchema = z.object({
 });
 
 // Simple tracking (in production, use a database)
-let emailStats = {
+const emailStats = {
   totalSent: 0,
   totalBlocked: 0,
   lastReset: Date.now(),
@@ -118,7 +118,7 @@ ${validatedData.message}
   } catch (error) {
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: "Données invalides", details: error.errors },
+        { error: "Données invalides", details: error.issues },
         { status: 400 },
       );
     }

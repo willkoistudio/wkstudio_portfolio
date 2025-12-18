@@ -25,7 +25,8 @@ export const projectBySlugQuery = `
   website,
   "client": client->{
     _id,
-    title
+    title,
+    name
   },
   "slugFr": slugFr.current,
   "slugEn": slugEn.current,

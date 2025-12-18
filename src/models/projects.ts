@@ -56,10 +56,11 @@ export interface Project {
   website: string;
   client: {
     _id: string;
-    title: {
+    title?: {
       fr?: string;
       en?: string;
-    };
+    } | null;
+    name?: string;
   };
   slugFr?: string;
   slugEn?: string;

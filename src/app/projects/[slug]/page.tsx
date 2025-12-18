@@ -16,6 +16,8 @@ import {
   SquareChartGantt,
   SquareCheckBig,
   BicepsFlexed,
+  Building2,
+  Link as LinkIcon,
 } from "lucide-react";
 import styles from "./project-detail.module.scss";
 import { cn } from "@/lib/utils";
@@ -159,24 +161,31 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           )}
           {project.client && (
             <span className="flex items-center gap-2">
-              <strong>{t("projects.details.client")}:</strong>{" "}
-              {locale === "en"
-                ? project.client.title.en
-                : project.client.title.fr}
+              <Building2 className="w-4 h-4" color="var(--primary)" />
+              <strong>{t("projects.details.client")} :</strong>{" "}
+              <span className="text-gray-600 dark:text-gray-400">
+                {project.client.title
+                  ? locale === "en"
+                    ? project.client.title.en || project.client.title.fr
+                    : project.client.title.fr || project.client.title.en
+                  : project.client.name || ""}
+              </span>
             </span>
           )}
         </div>
 
         {/* Lien vers le site web */}
         {project.website && (
-          <div className="mt-4">
+          <div className="mt-4 flex items-center gap-2">
+            <LinkIcon className="w-4 h-4" color="var(--primary)" />
+            <strong>{t("projects.details.visitWebsite")} :</strong>{" "}
             <a
               href={project.website}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-primary hover:underline"
+              className="!text-gray-600 dark:text-gray-400 hover:underline"
             >
-              {t("projects.details.visitWebsite")} →
+              {project.website}
             </a>
           </div>
         )}

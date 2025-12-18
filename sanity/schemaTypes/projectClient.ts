@@ -8,9 +8,9 @@ export default defineType({
   type: "document",
   fields: [
     defineField({
-      name: "name",
+      name: "title",
       title: "Name",
-      type: "string",
+      type: "localeString",
       validation: (rule) => rule.required(),
     }),
     defineField({
@@ -21,7 +21,7 @@ export default defineType({
   ],
   preview: {
     select: {
-      title: "name",
+      title: "title.fr",
     },
   },
 });

@@ -7,9 +7,9 @@ import {
   AppWindow,
   Wallpaper,
   Code,
-  ArrowUp,
+  Loader2,
 } from "lucide-react";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { sanity } from "@/lib/sanity.client";
 import { allProjectsQuery, projectFiltersQuery } from "@/lib/sanity.queries";
 import { cn } from "@/lib/utils";
@@ -25,7 +25,10 @@ export default function Projects() {
   const [projects, setProjects] = useState<Project[]>([]);
   const [activeFilter, setActiveFilter] = useState<string>("all");
   const [loading, setLoading] = useState<boolean>(true);
+  const [displayedCount, setDisplayedCount] = useState<number>(6);
+  const [loadingMore, setLoadingMore] = useState<boolean>(false);
   const filtersRef = useRef<HTMLDivElement>(null);
+  const loadMoreRef = useRef<HTMLDivElement>(null);
   const isSticky = useSticky(filtersRef);
 
   useEffect(() => {
@@ -62,6 +65,55 @@ export default function Projects() {
       : projects.filter(
           (project) => project.projectFilterType?._id === activeFilter,
         );
+
+  // Projets visibles (lazy loading)
+  const visibleProjects = filteredProjects.slice(0, displayedCount);
+  const hasMoreProjects = displayedCount < filteredProjects.length;
+
+  // Réinitialiser le compteur quand le filtre change
+  useEffect(() => {
+    setDisplayedCount(6);
+  }, [activeFilter]);
+
+  // Fonction pour charger plus de projets
+  const loadMoreProjects = useCallback(async () => {
+    if (loadingMore) return;
+
+    setLoadingMore(true);
+    // Simuler un délai de chargement pour l'UX
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    setDisplayedCount((prev) => prev + 6);
+    setLoadingMore(false);
+  }, [loadingMore]);
+
+  // Intersection Observer pour le scroll infini
+  useEffect(() => {
+    if (!hasMoreProjects) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const [entry] = entries;
+        if (entry.isIntersecting && !loadingMore) {
+          loadMoreProjects();
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: "100px",
+      },
+    );
+
+    const currentRef = loadMoreRef.current;
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
+
+    return () => {
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
+    };
+  }, [hasMoreProjects, loadingMore, loadMoreProjects]);
 
   const scrollToMainContent = () => {
     const projectsList = document.getElementById("projects-list");
@@ -195,10 +247,19 @@ export default function Projects() {
             className={cn(styles.projectsGrid, "md:mt-6 lg:mt-16")}
             columnClassName={styles.projectsGridColumn}
           >
-            {filteredProjects.map((project) => (
+            {visibleProjects.map((project) => (
               <ProjectCard key={project._id} project={project} />
             ))}
           </Masonry>
+
+          {/* Loading indicator / Sentinel */}
+          {hasMoreProjects && (
+            <div ref={loadMoreRef} className="flex justify-center mt-8 py-4">
+              {loadingMore && (
+                <Loader2 className="animate-spin text-primary" size={32} />
+              )}
+            </div>
+          )}
         </div>
       </section>
     </main>

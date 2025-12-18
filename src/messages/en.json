@@ -154,9 +154,15 @@
           "company": "Company is required",
           "email": "Invalid email address",
           "subject": "Subject is required",
-          "message": "Message is required"
+          "message": "Message is required",
+          "recaptcha": "reCAPTCHA is required"
         }
       }
+    },
+    "recaptcha": {
+      "error": "reCAPTCHA is not available. Please refresh the page.",
+      "errorToken": "Unable to generate reCAPTCHA token. Please try again.",
+      "notAvailable": "reCAPTCHA is not available. Please refresh the page."
     }
   },
   "footer": {

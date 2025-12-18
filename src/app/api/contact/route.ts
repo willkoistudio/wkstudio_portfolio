@@ -5,16 +5,18 @@ import { Resend } from "resend";
 import { rateLimit } from "@/lib/rate-limit";
 import { verifyRecaptcha } from "@/lib/recaptcha";
 import { z } from "zod";
+import { getTranslations } from "next-intl/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const t = await getTranslations();
 const contactSchema = z.object({
   name: z.string().min(1),
-  email: z.string().email(),
+  email: z.email(),
   company: z.string().optional(),
   subject: z.string().min(1),
   message: z.string().min(1),
-  recaptchaToken: z.string().optional(),
+  recaptchaToken: z.string().min(1, t.raw("about.recaptcha.required")),
 });
 
 // Simple tracking (in production, use a database)
@@ -50,27 +52,25 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const validatedData = contactSchema.parse(body);
 
-    // Verify reCAPTCHA if token is provided
-    if (validatedData.recaptchaToken) {
-      const isValidRecaptcha = await verifyRecaptcha(
-        validatedData.recaptchaToken,
-      );
+    // Verify reCAPTCHA - OBLIGATOIRE
+    const isValidRecaptcha = await verifyRecaptcha(
+      validatedData.recaptchaToken,
+    );
 
-      if (!isValidRecaptcha) {
-        emailStats.totalBlocked++;
-        return NextResponse.json(
-          { error: "Vérification reCAPTCHA échouée" },
-          { status: 400 },
-        );
-      }
+    if (!isValidRecaptcha) {
+      emailStats.totalBlocked++;
+      return NextResponse.json(
+        { error: "Vérification reCAPTCHA échouée. Veuillez réessayer." },
+        { status: 400 },
+      );
     }
 
     // Send email using Resend
     const { data, error } = await resend.emails.send({
-      from: "Portfolio Contact <onboarding@resend.dev>", // Change this to your verified domain
+      from: "WKOISTUDIO Portfolio Contact <onboarding@resend.dev>", // Change this to your verified domain
       to: ["koi.william91@gmail.com"],
       replyTo: validatedData.email,
-      subject: `[Portfolio] ${validatedData.subject} - ${validatedData.name}`,
+      subject: `[WKOISTUDIO Portfolio] ${validatedData.subject} - ${validatedData.name}`,
       html: `
         <h2>Nouveau message depuis le portfolio</h2>
         <p><strong>Nom:</strong> ${validatedData.name}</p>

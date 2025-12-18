@@ -93,10 +93,15 @@ export default function About() {
     setIsSubmitting(true);
 
     try {
-      // Get reCAPTCHA token
-      let recaptchaToken: string | undefined;
-      if (executeRecaptcha) {
-        recaptchaToken = await executeRecaptcha("contact_form");
+      // Get reCAPTCHA token - OBLIGATOIRE
+      if (!executeRecaptcha) {
+        throw new Error(t.raw("about.recaptcha.notAvailable"));
+      }
+
+      const recaptchaToken = await executeRecaptcha("contact_form");
+
+      if (!recaptchaToken) {
+        throw new Error(t.raw("about.recaptcha.errorToken"));
       }
 
       // Send to API

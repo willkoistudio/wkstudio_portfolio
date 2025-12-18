@@ -153,9 +153,15 @@
           "name": "Le nom est requis",
           "email": "L'adresse e-mail est invalide",
           "subject": "Le sujet est requis",
-          "message": "Le message est requis"
+          "message": "Le message est requis",
+          "recaptcha": "Le reCAPTCHA est requis"
         }
       }
+    },
+    "recaptcha": {
+      "error": "Le reCAPTCHA n'est pas disponible. Veuillez rafraîchir la page.",
+      "errorToken": "Impossible de générer le token reCAPTCHA. Veuillez réessayer.",
+      "notAvailable": "Le reCAPTCHA n'est pas disponible. Veuillez rafraîchir la page."
     }
   },
   "footer": {

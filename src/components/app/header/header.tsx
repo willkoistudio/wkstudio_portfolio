@@ -3,7 +3,7 @@
 "use client";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useIsMobile } from "@/hooks/use-mobile";
 import { useBreakpoint } from "@/hooks/use-breakpoint";
 import {
@@ -49,6 +49,7 @@ export function Header() {
   const t = useTranslations();
   const locale = useLocale();
   const pathname = usePathname();
+  const router = useRouter();
   const isMobile = useIsMobile();
   const breakpoint = useBreakpoint();
   const { setLocale } = useLocaleContext();
@@ -61,13 +62,21 @@ export function Header() {
   const handleLangChange = () => {
     const newLocale = locale === "en" ? "fr" : "en";
     setLocale(newLocale);
+    router.push(localizePathname(pathname, newLocale));
+  };
+
+  const localizeHref = (href: string) => {
+    if (locale === "fr") return href;
+    if (href === "/") return `/${locale}`;
+    return `/${locale}${href}`;
   };
 
   const isActive = (href: string) => {
+    const normalizedPathname = removeLocalePrefix(pathname);
     if (href === "/") {
-      return pathname === "/";
+      return normalizedPathname === "/";
     }
-    return pathname.startsWith(href);
+    return normalizedPathname.startsWith(href);
   };
 
   const toggleDrawer = () => {
@@ -98,7 +107,7 @@ export function Header() {
   return (
     <>
       <NavigationMenu isMobile={isMobile}>
-        <Link href="/">
+        <Link href={localizeHref("/")}>
           <Image
             src="/images/logo-horizontal.svg"
             alt="WILLIAM KOI STUDIO"
@@ -131,6 +140,7 @@ export function Header() {
             </span>
             {headerMenuItems.map((item, index) => {
               const active = !item.isExternal && isActive(item.href);
+              const href = item.isExternal ? item.href : localizeHref(item.href);
               return (
                 <NavigationMenuItem key={index}>
                   <NavigationMenuLink
@@ -142,7 +152,7 @@ export function Header() {
                     )}
                   >
                     <Link
-                      href={item.href}
+                      href={href}
                       target={item.isExternal ? "_blank" : "_self"}
                       className={
                         (cn(styles.navLink, active && styles.active),
@@ -196,10 +206,11 @@ export function Header() {
             </div>
             {headerMenuItems.map((item, index) => {
               const active = !item.isExternal && isActive(item.href);
+              const href = item.isExternal ? item.href : localizeHref(item.href);
               return (
                 <Link
                   key={index}
-                  href={item.href}
+                  href={href}
                   target={item.isExternal ? "_blank" : "_self"}
                   className={cn(
                     styles.drawerNavItem,
@@ -217,4 +228,15 @@ export function Header() {
       )}
     </>
   );
+}
+
+function removeLocalePrefix(pathname: string) {
+  return pathname.replace(/^\/(fr|en)(?=\/|$)/, "") || "/";
+}
+
+function localizePathname(pathname: string, locale: string) {
+  const rest = removeLocalePrefix(pathname);
+  if (locale === "fr") return rest;
+  if (rest === "/") return `/${locale}`;
+  return `/${locale}${rest}`;
 }

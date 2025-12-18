@@ -19,6 +19,13 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   const locale = useLocale();
 
+  const slug =
+    locale === "en"
+      ? project.slugEn || project.slugFr
+      : project.slugFr || project.slugEn;
+
+  const href = locale === "en" ? `/en/projects/${slug}` : `/projects/${slug}`;
+
   /**
    * Gère les événements d'intersection pour les images de section
    */
@@ -52,7 +59,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <article ref={elementRef} className={cn(styles.projectCard, "relative")}>
-      <Link href={`/projects/${project.slugFr || project.slugEn}`}>
+      <Link href={href}>
         <div className={styles.imageWrapper}>
           <Image
             src={project.featuredImage}

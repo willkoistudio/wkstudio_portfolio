@@ -3,10 +3,21 @@
 import { getRequestConfig } from "next-intl/server";
 import { headers } from "next/headers";
 
-export default getRequestConfig(async () => {
-  // Récupérer la locale depuis les headers ou utiliser la locale par défaut
+const SUPPORTED_LOCALES = ["fr", "en"] as const;
+
+export default getRequestConfig(async ({ requestLocale }) => {
+  const candidate = await requestLocale;
   const headersList = await headers();
-  const locale = headersList.get("x-locale") || "fr";
+  const headerLocale =
+    headersList.get("x-next-intl-locale") ||
+    headersList.get("x-locale") ||
+    headersList.get("X-NEXT-INTL-LOCALE");
+
+  const locale = SUPPORTED_LOCALES.includes(
+    (candidate ?? headerLocale) as (typeof SUPPORTED_LOCALES)[number],
+  )
+    ? ((candidate ?? headerLocale) as (typeof SUPPORTED_LOCALES)[number])
+    : "fr";
 
   return {
     locale,

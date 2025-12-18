@@ -1,13 +1,15 @@
 /** @format */
 
 import Link from "next/link";
-import { getTranslations } from "next-intl/server";
+import { getLocale, getTranslations } from "next-intl/server";
 import Image from "next/image";
 import styles from "../../app.module.scss";
 import { cn } from "@/lib/utils";
 
 export default async function ProjectNotFound() {
   const t = await getTranslations();
+  const locale = await getLocale();
+  const homeHref = locale === "fr" ? "/" : `/${locale}`;
 
   return (
     <main>
@@ -23,7 +25,7 @@ export default async function ProjectNotFound() {
               {t("projects.notFound.description")}
             </p>
             <Link
-              href="/"
+              href={homeHref}
               className="inline-block px-6 py-3 bg-primary text-white rounded-3xl hover:bg-primary-foreground transition-colors !text-white !no-underline"
             >
               {t("projects.notFound.button")}

@@ -8,7 +8,7 @@ import { useEffect, useRef, useState } from "react";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { socialMediaLinks } from "@/utils/social";
 import { useRouter } from "next/navigation";
 import { useBreakpoint } from "@/hooks/use-breakpoint";
@@ -16,6 +16,7 @@ import { useBreakpoint } from "@/hooks/use-breakpoint";
 export default function Home() {
   const router = useRouter();
   const t = useTranslations();
+  const locale = useLocale();
   const backgroundWrapperRef = useRef<HTMLDivElement | null>(null);
   const primaryLayerRef = useRef<HTMLDivElement | null>(null);
   const secondaryLayerRef = useRef<HTMLDivElement | null>(null);
@@ -161,7 +162,11 @@ export default function Home() {
             <Button
               className="text-white rounded-2xl"
               size={breakpoint === "lg" ? "sm" : "default"}
-              onClick={() => router.push("/projects")}
+              onClick={() =>
+                router.push(
+                  locale === "fr" ? "/projects" : `/${locale}/projects`,
+                )
+              }
             >
               {t("home.footer.projects")}
             </Button>
@@ -171,7 +176,11 @@ export default function Home() {
             <Button
               className="text-white rounded-2xl"
               size={breakpoint === "lg" ? "sm" : "default"}
-              onClick={() => router.push("/services")}
+              onClick={() =>
+                router.push(
+                  locale === "fr" ? "/services" : `/${locale}/services`,
+                )
+              }
             >
               <span className="">{t("home.footer.services")}</span>
             </Button>

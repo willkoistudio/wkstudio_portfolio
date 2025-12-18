@@ -1,7 +1,7 @@
 /** @format */
 
 "use client";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Link from "next/link";
 // import { useIsMobile } from "@/hooks/use-mobile";
 import Image from "next/image";
@@ -11,6 +11,7 @@ import { socialMediaLinks } from "@/utils/social";
 
 export function Footer() {
   const t = useTranslations();
+  const locale = useLocale();
   // const isMobile = useIsMobile();
 
   // TODO: changer la couleur du texte des liens,
@@ -34,16 +35,26 @@ export function Footer() {
             <hr className="w-80 border-1 mb-6" />
             <ul className="flex flex-wrap gap-8 font-medium !ml-0">
               <li>
-                <Link href="/">{t("nav.home")}</Link>
+                <Link href={locale === "fr" ? "/" : `/${locale}`}>{t("nav.home")}</Link>
               </li>
               <li>
-                <Link href="/projects">{t("nav.projects")}</Link>
+                <Link
+                  href={locale === "fr" ? "/projects" : `/${locale}/projects`}
+                >
+                  {t("nav.projects")}
+                </Link>
               </li>
               <li>
-                <Link href="/services">{t("nav.services")}</Link>
+                <Link
+                  href={locale === "fr" ? "/services" : `/${locale}/services`}
+                >
+                  {t("nav.services")}
+                </Link>
               </li>
               <li>
-                <Link href="/about">{t("nav.about")}</Link>
+                <Link href={locale === "fr" ? "/about" : `/${locale}/about`}>
+                  {t("nav.about")}
+                </Link>
               </li>
             </ul>
             <div className="flex flex-wrap gap-5 mt-3 justify-center md:justify-start">

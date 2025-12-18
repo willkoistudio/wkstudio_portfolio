@@ -34,6 +34,8 @@ export async function generateMetadata({
   const { slug } = await params;
   const locale = await getActiveLocale();
 
+  console.log("slug", slug, locale);
+
   const project = await sanity.fetch<Project>(projectBySlugQuery, {
     slug,
   });

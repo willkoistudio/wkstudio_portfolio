@@ -1,11 +1,17 @@
 "use client";
 
-import { createContext, useContext, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
 import { NextIntlClientProvider } from "next-intl";
 import frMessages from "@/messages/fr.json";
 import enMessages from "@/messages/en.json";
 
-type Locale = "fr" | "en";
+export type Locale = "fr" | "en";
 
 interface LocaleContextType {
   locale: Locale;
@@ -14,13 +20,25 @@ interface LocaleContextType {
 
 const LocaleContext = createContext<LocaleContextType | undefined>(undefined);
 
+interface LocaleProviderProps {
+  children: ReactNode;
+  initialLocale?: Locale;
+}
+
 const messages = {
   fr: frMessages,
   en: enMessages,
 };
 
-export function LocaleProvider({ children }: { children: ReactNode }) {
-  const [locale, setLocale] = useState<Locale>("fr");
+export function LocaleProvider({
+  children,
+  initialLocale = "fr",
+}: LocaleProviderProps) {
+  const [locale, setLocale] = useState<Locale>(initialLocale);
+
+  useEffect(() => {
+    setLocale((previous) => (previous === initialLocale ? previous : initialLocale));
+  }, [initialLocale]);
 
   return (
     <LocaleContext.Provider value={{ locale, setLocale }}>

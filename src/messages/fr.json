@@ -155,13 +155,18 @@
           "subject": "Le sujet est requis",
           "message": "Le message est requis",
           "recaptcha": "Le reCAPTCHA est requis"
+        },
+        "errors": {
+          "rateLimit": "Trop de requêtes. Veuillez réessayer plus tard."
         }
       }
     },
     "recaptcha": {
       "error": "Le reCAPTCHA n'est pas disponible. Veuillez rafraîchir la page.",
       "errorToken": "Impossible de générer le token reCAPTCHA. Veuillez réessayer.",
-      "notAvailable": "Le reCAPTCHA n'est pas disponible. Veuillez rafraîchir la page."
+      "notAvailable": "Le reCAPTCHA n'est pas disponible. Veuillez rafraîchir la page.",
+      "failed": "Vérification reCAPTCHA échouée. Veuillez réessayer.",
+      "required": "Token reCAPTCHA requis"
     }
   },
   "footer": {

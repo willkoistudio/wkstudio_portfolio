@@ -9,14 +9,13 @@ import { getTranslations } from "next-intl/server";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const t = await getTranslations();
 const contactSchema = z.object({
   name: z.string().min(1),
   email: z.email(),
   company: z.string().optional(),
   subject: z.string().min(1),
   message: z.string().min(1),
-  recaptchaToken: z.string().min(1, t.raw("about.recaptcha.required")),
+  recaptchaToken: z.string().min(1, "Token reCAPTCHA requis"),
 });
 
 // Simple tracking (in production, use a database)
@@ -28,6 +27,8 @@ const emailStats = {
 
 export async function POST(request: NextRequest) {
   try {
+    const t = await getTranslations();
+
     // Get client IP for rate limiting
     const ip =
       request.headers.get("x-forwarded-for")?.split(",")[0] ||
@@ -41,7 +42,7 @@ export async function POST(request: NextRequest) {
       emailStats.totalBlocked++;
       return NextResponse.json(
         {
-          error: "Trop de requêtes. Veuillez réessayer plus tard.",
+          error: t("about.footer.contactForm.errors.rateLimit"),
           resetTime: rateLimitResult.resetTime,
         },
         { status: 429 },
@@ -60,7 +61,7 @@ export async function POST(request: NextRequest) {
     if (!isValidRecaptcha) {
       emailStats.totalBlocked++;
       return NextResponse.json(
-        { error: "Vérification reCAPTCHA échouée. Veuillez réessayer." },
+        { error: t("about.recaptcha.failed") },
         { status: 400 },
       );
     }

@@ -167,6 +167,7 @@ export default function About() {
           <div className="mt-10 flex flex-col gap-8 md:gap-18">
             {experiences.map((experience, index) => (
               <HighlightedExperienceRow
+                index={index}
                 key={experience._id}
                 experience={experience}
                 sinceLabel={t("about.since")}

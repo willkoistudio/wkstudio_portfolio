@@ -8,7 +8,7 @@
   },
   "home": {
     "title": "Hi! I am <br/>William KOÏ.",
-    "description": "<strong>Senior Front-End Developer</strong> specialized in <strong>Javascript, HTML and CSS</strong>, with advanced expertise in <strong>Vue.js and React</strong>. With <strong>10+ years</strong> in <strong>web development</strong> and <strong>graphic design</strong>, I craft bespoke web projects that blend technical skill and creativity.",
+    "description": "<strong>Front-End Developer Senior</strong> with over <strong>10 years of experience</strong>, I help brands and teams turn ideas into <strong>high-performing, accessible, and elegant web products</strong>. Specialized in <strong>JavaScript, Vue.js, and React</strong>, I combine technical excellence with a strong design sensibility to craft high-value, tailor-made digital experiences.",
     "skills": [
       "Nuxt.js / Next.js",
       "UI Frameworks (Vuetify, Tailwind CSS, etc.)",
@@ -36,17 +36,17 @@
       "AI Tools (Claude, Gemini, ChatGPT, etc.)"
     ],
     "footer": {
-      "title": "Let's transform your vision<br /> into a unique web experience!",
+      "title": "Let's transform your vision<br /> into a unique web experience !",
       "description": "Don't hesitate to explore :",
       "projects": "My projects",
       "or": "or",
       "services": "My services",
-      "socialMedia": "Find also my work here :"
+      "socialMedia": "You can also follow my work here :"
     }
   },
   "projects": {
-    "title": "Check out a few recently projects !",
-    "description": "Here are a selection of personnal projects I’ve worked on in recent years. Feel free to filter projects by category with the selector below.",
+    "title": "Take a look at some recent projects !",
+    "description": "A curated selection of projects showcasing my work in web development, UX/UI design, and digital experiences.",
     "filters": {
       "all": "All"
     },
@@ -68,60 +68,84 @@
   },
   "services": {
     "title": "My services",
-    "description": "I offer a wide range of <strong>Web Development</strong> and <strong>Web Design</strong> services, including <strong>simple showcase websites, e-commerce solutions, web applications, web design, UI, UX, icons, illustrations,</strong> <strong>social media visuals</strong> and <strong>print design</strong>. Here is an overview of the process&nbsp;:",
+    "description": "I offer a wide range of <strong>Web Development</strong> and <strong>Web Design</strong> services, including <strong>showcase websites, e-commerce solutions, web applications, UI/UX design, illustrations and </strong> <strong>social media visuals</strong>. Below is an overview of my process&nbsp;:",
     "inquiry": "1. Inquiry",
-    "inquiryDescription": "Please fill out the inquiry form just below. I will respond promptly with a questionnaire to better understand your project.",
+    "inquiryDescription": "Please fill out the inquiry form below. I will get back to you promptly with a questionnaire to better understand your project and needs.",
     "consultation": "2. Consultation",
-    "consultationDescription": "If we’re a good fit, we’ll schedule a call to discuss your project and I’ll provide access to a client portal with the contract and development plan.",
+    "consultationDescription": "If the project aligns with your needs and my expertise, we’ll schedule a call to discuss it in more detail. You’ll then be given access to a client portal containing the contract and development plan.",
+    "process": {
+      "title": "A clear & collaborative process",
+      "description": "A dedicated client portal is provided to centralize communication, project tracking, contractual documents, invoices, and approvals at every stage.",
+      "cards": {
+        "portal": {
+          "title": "Client portal",
+          "description": "Contracts, invoices, deliverables, and key project links, all grouped in a single client portal."
+        },
+        "tracking": {
+          "title": "Transparent tracking",
+          "description": "Clear milestones, regular updates, and centralized feedback to avoid back-and-forth."
+        },
+        "validation": {
+          "title": "Timelines & milestones",
+          "description": "Validation checkpoints at every stage, along with a quality review before launch."
+        }
+      }
+    },
     "webDevelopment": {
       "title": "Web Development",
-      "contract": "Contract and Deposit :",
-      "contractDescription": "After signing the contract and submitting a 50% deposit, I will begin coding the website based on the agreed vision and details, including fonts, colors, and more.",
+      "contract": "Contract and deposit :",
+      "contractDescription": "After signing the contract and submitting a 50% deposit, I initiate the development of the website based on the agreed vision and defined elements, including typography, colors, and visual identity.",
       "development": "Development :",
-      "developmentDescription": "I will start coding the website according to the specifications and scope defined. The client portal will be regularly updated so that you can track the progress of the project. After delivering the first version, you can provide feedback as quality assurance (QA).",
-      "finalApproval": "Final Approval :",
-      "finalApprovalDescription": "Once you give your final approval and the website is ready to go live, I will send a reminder/invoice for the final payment. When the payment is received, I will deploy the website to the production server.",
-      "feedback": "Feedback and Continued Work :",
-      "feedbackDescription": "I will send you a final Google form to provide feedback on your experience. As a gesture of appreciation, I offer a discount for any future work and referrals."
+      "developmentDescription": "Development is carried out according to the validated specifications and project scope. The client portal is updated regularly to allow you to track progress. A first version is then delivered for review and quality assurance (QA).",
+      "finalApproval": "Final validation and launch :",
+      "finalApprovalDescription": "Once final approval is given and the website is ready to go live, I will send the remaining invoice. Upon receipt of payment, the website is deployed to the production environment.",
+      "feedback": "Feedback, follow-up, and continued collaboration:",
+      "feedbackDescription": "A feedback form will be sent to gather your thoughts on the experience. As a token of appreciation, I offer a discount on future projects as well as for any referrals."
     },
     "webDesign": {
       "title": "Web Design",
-      "contract": "Contract and Deposit :",
-      "contractDescription": "After signing the contract and submitting a 50% deposit, we will begin the creative process by creating mood boards. It will allow us to explore and discuss the vision and details of your brand / project. This collaborative process sets the foundation for the design phase.",
+      "contract": "Contract and deposit :",
+      "contractDescription": "After signing the contract and submitting a 50% deposit, we begin the creative process with the creation of mood boards. These help define and align the visual direction of your brand or project, including typography, colors, and overall aesthetic.",
       "design": "Design :",
-      "designDescription": "I will start creating design variations, icons, mockups, and other elements. The client portal will be regularly updated so you can provide feedback and track the project timeline. You will have two revisions included in the process, with additional revisions or directions incurring an extra cost.",
-      "finalApproval": "Final Approval :",
-      "finalApprovalDescription": "After receiving your final approval, I will send a reminder/invoice for the final payment. Once payment is received, I will organize all files into a Google Drive folder. File formats provided include PNG, JPG, and SVG. If you require additional file formats, feel free to let me know.",
-      "feedback": "Feedback and Continued Work :",
-      "feedbackDescription": "I will send you a final Google form to provide feedback on your experience. As a gesture of appreciation, I offer a discount for any future work and referrals."
+      "designDescription": "I then create design variations, mockups, icons, and supporting visual elements. The client portal is updated regularly so you can follow progress and share feedback. Two rounds of revisions are included, with additional changes subject to an extra fee.",
+      "finalApproval": "Final validation and delivery :",
+      "finalApprovalDescription": "After final approval, I will send the remaining invoice. Once payment is received, all files are organized and delivered via a Google Drive folder. Deliverables include PNG, JPG, and SVG formats, with additional formats available upon request.",
+      "feedback": "Feedback, follow-up, and continued collaboration:",
+      "feedbackDescription": "A feedback form will be shared to collect your experience and insights. As a gesture of appreciation, I offer a discount for future projects and referrals."
     },
     "fillInquiryForm": "Fill inquiry form"
   },
   "about": {
     "title": "About me.",
-    "description": "Hey there ! First of all, thanks for stopping by my website ! I’m a <strong>web developer</strong> specialized in high-performance, responsive interfaces, born and raised in <strong>France 🇫🇷</strong> with roots in <strong>Benin 🇧🇯</strong>. My journey began as a <strong>graphic designer</strong>, exploring the limitless possibilities of visual expression. Along the way, I dove into the world of web development, where I found the perfect blend of creativity and technical expertise.<br><br>In <strong>2018</strong>, I moved to <strong>Canada 🇨🇦</strong> as a temporary worker, driven by a sense of adventure. Over time, I became a permanent resident and fully embraced the vibrant tech scene of <strong>Montreal</strong>.<br><br>Throughout my career, I’ve worked with a variety of companies as a <strong>freelancer</strong>, <strong>contractor</strong>, and <strong>employee</strong>, gaining invaluable insight into different project needs and team structures. This experience has sharpened my adaptability and collaboration skills, helping me integrate seamlessly into teams and contribute to their success.<br><br>Looking for a versatile and experienced <strong>Senior Front-End Developer</strong>? Feel free to reach out so we can build something great together!<br><br><strong>– William</strong>",
-    "highlitedExperience": "Highlited Experience",
+    "description": "Hey there! First of all, thanks for stopping by my website. I’m a <strong>web developer</strong> specialized in building high-performance, responsive interfaces, born and raised in <strong>France 🇫🇷</strong> with roots in <strong>Benin 🇧🇯</strong>.<br><br>My journey began as a <strong>graphic designer</strong>, where I explored the limitless possibilities of visual expression. Over time, I naturally transitioned into <strong>web development</strong>, discovering the perfect balance between creativity and technical expertise.<br><br>In <strong>2018</strong>, I moved to <strong>Canada 🇨🇦</strong> as a temporary worker, driven by a strong sense of adventure. With time, I became a permanent resident and fully embraced the vibrant tech ecosystem of <strong>Montreal</strong>.<br><br>Throughout my career, I’ve worked with a wide range of companies as a <strong>freelancer</strong>, <strong>contractor</strong>, and <strong>employee</strong>, gaining valuable insight into diverse project requirements and team dynamics. These experiences have strengthened my adaptability and collaboration skills, allowing me to integrate seamlessly into teams and contribute meaningfully to their success.<br><br>Looking for a versatile and experienced <strong>Senior Front-End Developer</strong> ? Feel free to reach out, I’d be happy to build something great together.<br><br><strong>– William</strong>",
+    "highlitedExperience": "Highlighted Experience",
     "since": "since",
     "present": "present",
     "seeMore": "Want to see more about my experience ?",
     "downloadResume": "Download my resume",
     "footer": {
       "title": "Let's keep in touch&nbsp;!",
-      "description": "Stay connected with me&nbsp;! If you have any inquiries, collaborations, or simply want to chat, don’t hesitate to reach out through the contact form below. Looking forward to hearing from you and keeping the creative vibes flowing!",
+      "description": "Have a question, a project idea, or a collaboration in mind ? Feel free to reach out using the form below. I’d be happy to connect and learn more about your project.",
       "contactForm": {
         "name": "Name",
         "namePlaceholder": "Enter your name",
         "company": "Company",
-        "companyPlaceholder": "Enter your company",
+        "companyPlaceholder": "Enter your company (optional)",
         "email": "E-mail",
         "emailPlaceholder": "Enter your email",
         "subject": {
           "title": "Subject",
           "placeholder": "Enter your subject",
-          "options": ["Gettinng in touch", "Estimate", "Other"]
+          "options": [
+            "Gettinng in touch",
+            "Project / Estimate",
+            "Collaboration",
+            "Recruitment",
+            "Other"
+          ]
         },
         "message": "Message",
-        "messagePlaceholder": "Enter your message",
+        "messagePlaceholder": "Describe your project, your needs, or your idea.",
         "send": "Send message",
         "sending": "Sending...",
         "success": "Message sent successfully",

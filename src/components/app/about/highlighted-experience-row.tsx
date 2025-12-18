@@ -11,6 +11,7 @@ type HighlightedExperienceRowProps = {
   toLabel: string;
   positionLabel: string;
   isEven: boolean;
+  index: number;
 };
 
 export default function HighlightedExperienceRow({
@@ -19,6 +20,7 @@ export default function HighlightedExperienceRow({
   toLabel,
   positionLabel,
   isEven,
+  index,
 }: HighlightedExperienceRowProps) {
   const [isVisible, setIsVisible] = useState(false);
   const rowRef = useRef<HTMLDivElement>(null);
@@ -84,7 +86,7 @@ export default function HighlightedExperienceRow({
               )}
             />
             <p className="mt-4 text-base md:text-lg font-medium uppercase">
-              <span>{sinceLabel}</span>{" "}
+              {index === 0 && <span>{sinceLabel}</span>}{" "}
               <span className="font-bold">{experience.from}</span>
               <ChevronsRight
                 className={cn("w-6 h-6 inline-block mx-3 relative bottom-0.5")}
@@ -106,7 +108,7 @@ export default function HighlightedExperienceRow({
           {experience.clients?.length ? (
             <div>
               <p className="font-medium !mb-0">Clients :</p>
-              <p className="text-muted-foreground">
+              <p className="text-muted-foreground font-medium">
                 {experience.clients.join(" • ")}
               </p>
             </div>

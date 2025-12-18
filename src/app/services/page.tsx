@@ -55,7 +55,7 @@ export default function Services() {
             {t("services.title")}
           </h1>
           <p
-            className={`${styles["services-description"]} text-white mx-auto font-medium`}
+            className={`${styles["services-description"]} text-white mx-auto font-medium text-lg md:text-base`}
             dangerouslySetInnerHTML={{ __html: t.raw("services.description") }}
           />
           <div className="flex flex-wrap gap-6 justify-center my-10 xl:my-14">
@@ -86,7 +86,48 @@ export default function Services() {
           />
         </div>
       </header>
+      {/* Process / Client Portal strip */}
+      <section className={cn(styles["services-process"])}>
+        <div className="container pt-14 pb-16 !px-10">
+          <div className="text-center max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-extrabold text-white">
+              {t("services.process.title")}
+            </h2>
+            <p className="mt-3 text-base md:text-lg text-white">
+              {t("services.process.description")}
+            </p>
+          </div>
 
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="rounded-lg border border-muted-foreground p-6 shadow-sm bg-white/5">
+              <div className="text-xl font-bold flex items-center gap-2 text-white">
+                <span>🗂️</span> {t("services.process.cards.portal.title")}
+              </div>
+              <p className="mt-2 text-white">
+                {t("services.process.cards.portal.description")}
+              </p>
+            </div>
+
+            <div className="rounded-lg border border-muted-foreground p-6 shadow-sm bg-white/5">
+              <div className="text-xl font-bold flex items-center gap-2 text-white">
+                <span>🔎</span> {t("services.process.cards.tracking.title")}
+              </div>
+              <p className="mt-2 text-white">
+                {t("services.process.cards.tracking.description")}
+              </p>
+            </div>
+
+            <div className="rounded-lg border border-muted-foreground p-6 shadow-sm bg-white/5">
+              <div className="text-xl font-bold flex items-center gap-2 text-white">
+                <span>⏱️</span> {t("services.process.cards.validation.title")}
+              </div>
+              <p className="mt-2 text-white">
+                {t("services.process.cards.validation.description")}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* Content */}
       <section id="services-container">
         {/* Web */}

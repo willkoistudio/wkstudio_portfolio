@@ -8,7 +8,7 @@
   },
   "home": {
     "title": "Bonjour !<br/>Je suis William KOÏ.",
-    "description": "<strong>Développeur Front-End Senior</strong> spécialisé en <strong>Javascript, HTML et CSS</strong>, avec une maîtrise avancée de <strong>Vue.js et React</strong>. Fort de <strong>plus de 10 ans</strong> d’expérience en <strong>développement web</strong> et <strong>design graphique</strong>, je conçois des projets web sur-mesure alliant <strong>technique et créativité</strong>.",
+    "description": "<strong>Développeur Front-End Senior</strong> avec plus de <strong>10 ans d’expérience</strong>, j’aide les marques et équipes à transformer leurs idées en <strong>produits web performants, accessibles et élégants</strong>. Spécialisé en <strong>JavaScript, Vue.js et React</strong>, je combine exigence technique et sens du design pour créer des expériences sur-mesure à forte valeur ajoutée.",
     "skills": [
       "Nuxt.js / Next.js",
       "Frameworks UI (Vuetify, Tailwind CSS, etc.)",
@@ -46,7 +46,7 @@
   },
   "projects": {
     "title": "Découvrez quelques projets récents !",
-    "description": "Voici une sélection de projets sur lesquels j'ai travaillé ces dernières années. N'hésitez pas à filtrer les projets par catégorie avec le sélecteur ci-dessous.",
+    "description": "Découvrez une sélection de projets récents illustrant mon expertise en développement web, UX/UI et design digital. Utilisez le sélecteur ci-dessous pour filtrer les projets par catégorie.",
     "filters": {
       "all": "Tous"
     },
@@ -68,38 +68,56 @@
   },
   "services": {
     "title": "Mes services",
-    "description": "Je propose une large gamme de services de <strong>Développement Web</strong> et de <strong>Design Web</strong>, y compris <strong>sites web de présentation simples, solutions e-commerce, applications web, design web, UI, UX, icônes, illustrations,</strong> <strong>visuels pour les médias sociaux</strong> et <strong>design print</strong>. Voici un aperçu du processus&nbsp;:",
-    "inquiry": "1. Renseignements",
-    "inquiryDescription": "Veuillez remplir le formulaire ci-dessous et je répondrai rapidement par un questionnaire pour mieux comprendre votre projet.",
+    "description": "Je propose une large gamme de services en <strong>développement web</strong> et <strong>design web</strong>, incluant <strong>sites vitrines, solutions e-commerce, applications web, UI/UX, illustrations, visuels pour les médias sociaux</strong>. Voici un aperçu de mon processus&nbsp;:",
+    "inquiry": "1. Prise de contact",
+    "inquiryDescription": "Remplissez le formulaire ci-dessous. Je vous répondrai rapidement avec un questionnaire afin de mieux comprendre votre projet et vos besoins.",
     "consultation": "2. Consultation",
-    "consultationDescription": "Si nous sommes compatibles, nous planifierons un appel pour discuter de votre projet et je vous fournirai un portail client avec le contrat et le plan de développement.",
+    "consultationDescription": "Si le projet correspond à vos besoins et à mon expertise, nous planifierons un appel pour en discuter plus en détail. Je vous donnerai ensuite accès à un portail client contenant le contrat et le plan de développement.",
+    "process": {
+      "title": "Un processus clair & collaboratif",
+      "description": "Un portail client dédié est mis à votre disposition afin de centraliser les échanges, le suivi du projet, les documents contractuels, les factures et les validations à chaque étape.",
+      "cards": {
+        "portal": {
+          "title": "Portail client",
+          "description": "Contrat, factures, livrables et liens clés du projet, regroupés dans un portail client unique."
+        },
+        "tracking": {
+          "title": "Suivi transparent",
+          "description": "Jalons clairs, mises à jour régulières et retours centralisés pour éviter les allers-retours."
+        },
+        "validation": {
+          "title": "Délais & jalons",
+          "description": "Points de validation à chaque étape + revue qualité avant la mise en ligne."
+        }
+      }
+    },
     "webDevelopment": {
       "title": "Développement Web",
-      "contract": "Contrat et Avancement :",
-      "contractDescription": "Après la signature du contrat et le paiement d'un acompte de 50%, je commencerai le codage du site web en fonction de la vision et des détails convenus, y compris les polices de caractères, les couleurs et plus encore.",
+      "contract": "Contrat et acompte :",
+      "contractDescription": "Après la signature du contrat et le paiement d’un acompte de 50%, je lance le développement du site web selon la vision et les éléments définis ensemble, incluant la typographie, les couleurs et l’identité visuelle.",
       "development": "Développement :",
-      "developmentDescription": "Je commencerai le codage du site web en fonction des spécifications et de la portée définies. Le portail client sera mis à jour régulièrement afin que vous puissiez suivre l'avancement du projet. Après la livraison de la première version, vous pouvez fournir des commentaires comme contrôle de qualité (QA).",
-      "finalApproval": "Approbation finale :",
-      "finalApprovalDescription": "Une fois que vous aurez donné votre approbation finale et que le site web est prêt à être mis en ligne, je vous enverrai un rappel/facture pour le paiement final. Une fois le paiement reçu, je déploierai le site web sur le serveur de production.",
-      "feedback": "Retours / Commentaires et Travail continu :",
-      "feedbackDescription": "Je vous enverrai un formulaire Google final pour vous permettre de fournir des commentaires sur votre expérience. En guise de gratitude, je vous offre un rabais pour tout travail futur et pour toute recommandation."
+      "developmentDescription": "Le développement est réalisé conformément aux spécifications et au périmètre validés. Le portail client est mis à jour régulièrement afin de vous permettre de suivre l’avancement du projet. Une première version est ensuite livrée pour revue et contrôle qualité (QA).",
+      "finalApproval": "Validation finale et mise en ligne :",
+      "finalApprovalDescription": "Après votre validation finale et lorsque le site est prêt à être mis en ligne, je vous transmets la facture de solde. Une fois le paiement reçu, le site est déployé sur l’environnement de production.",
+      "feedback": "Retours, suivi et collaboration continue :",
+      "feedbackDescription": "Un formulaire de retour vous sera envoyé afin de recueillir votre avis sur l’expérience. En remerciement, je propose un rabais pour tout projet futur ainsi que pour toute recommandation."
     },
     "webDesign": {
       "title": "Design Web",
-      "contract": "Contrat et Avancement :",
-      "contractDescription": "Après la signature du contrat et le versement d'un dépôt de 50%, nous entamerons le processus créatif en créant des \"mood boards\" (tableaux d'ambiance). Ces tableaux nous permettent d'explorer et de discuter de la vision et des détails de votre marque/projet, notamment les polices, les couleurs et d'autres éléments. Les \"mood boards\" servent de point de référence pour notre direction de conception, garantissant ainsi que nous capturons avec précision l'essence de votre marque. Ce processus collaboratif pose les bases de la phase de conception.",
+      "contract": "Contrat et acompte :",
+      "contractDescription": "Après la signature du contrat et le versement d’un acompte de 50%, nous lançons le processus créatif par la création de mood boards (tableaux d’ambiance). Ceux-ci permettent d’explorer et d’aligner la vision du projet, notamment la typographie, les couleurs et l’univers visuel. Ils servent de référence tout au long de la conception afin de garantir une direction cohérente et fidèle à l’identité de votre marque.",
       "design": "Design :",
-      "designDescription": "Je commencerai à créer des variations de design, des icônes, des maquettes et d'autres éléments. Le portail client sera mis à jour régulièrement afin que vous puissiez fournir des commentaires et suivre l'avancement du projet. Vous aurez deux révisions incluses dans le processus, avec des révisions ou des directions supplémentaires entraînant un coût supplémentaire.",
-      "finalApproval": "Approbation finale :",
-      "finalApprovalDescription": "Après avoir reçu votre approbation finale, je vous enverrai un rappel de facture pour le paiement final. Une fois le paiement reçu, je vais organiser tous les fichiers dans un dossier Google Drive. Les formats de fichiers fournis incluent PNG, JPG et SVG. Si vous avez besoin de formats de fichier supplémentaires, n'hésitez pas à me le faire savoir.",
-      "feedback": "Retours / Commentaires et Travail continu :",
-      "feedbackDescription": "Je vous enverrai un dernier formulaire Google pour vous faire part de vos commentaires sur votre expérience. En guise de geste d'appréciation, j'offre une réduction pour tout travail futur et toute recommandation."
+      "designDescription": "Je conçois ensuite des variations de design, des maquettes, des icônes et les différents éléments graphiques nécessaires. Le portail client est mis à jour régulièrement afin que vous puissiez suivre l’avancement du projet et partager vos retours. Deux séries de révisions sont incluses, les ajustements supplémentaires pouvant faire l’objet d’un coût additionnel.",
+      "finalApproval": "Validation finale et livraison :",
+      "finalApprovalDescription": "Après validation finale, je vous transmets la facture de solde. Une fois le paiement reçu, l’ensemble des fichiers est organisé dans un dossier Google Drive. Les livrables incluent les formats PNG, JPG et SVG. D’autres formats peuvent être fournis sur demande.",
+      "feedback": "Retours, suivi et collaboration continue :",
+      "feedbackDescription": "Un formulaire de retour vous sera envoyé afin de recueillir votre avis sur l’expérience. En remerciement, je propose une réduction pour tout projet futur ainsi que pour toute recommandation."
     },
     "fillInquiryForm": "Remplir le formulaire"
   },
   "about": {
     "title": "À propos de moi.",
-    "description": "Tout d'abord, merci de vous être arrêté sur mon site ! Je suis un <strong>développeur web</strong>, spécialisé en interfaces web performantes et responsives, né et grandi en&nbsp;<strong>France 🇫🇷&nbsp;</strong>, originaire du&nbsp;<strong>Bénin 🇧🇯</strong>. Mon parcours a commencé en tant que <strong>designer graphique</strong>, explorant les possibilités infinies de l'expression visuelle. En chemin, j'ai plongé dans le monde captivant du développement web, où j'ai découvert une fusion parfaite entre créativité et expertise technique.<br><br>En&nbsp;<strong>2018</strong>, je suis arrivé au&nbsp;<strong>Canada 🇨🇦</strong>&nbsp;en tant que travailleur temporaire, animé par un esprit d'aventure. Avec le temps, je suis devenu un résident permanent, intégrant la scène technologique vibrante de la ville de <strong>Montréal</strong>.<br><br>Tout au long de ma carrière, j'ai collaboré avec diverses entreprises en tant que <strong>indépendant</strong>,&nbsp;<strong>contractant</strong>, et&nbsp;<strong>employé</strong>, en acquérant des informations inestimables sur les divers besoins des projets et les dynamiques organisationnelles. Cette expérience a affiné mon adaptabilité et mes compétences en collaboration, me permettant de m'intégrer parfaitement dans les équipes et de contribuer à leur succès. <br/><br/>Vous etes en recherche d'un développeur experimenté et polyvalent&nbsp;? N'hésitez pas à me contacter pour que nous puissions collaborer ensemble !<br><br><strong>– William</strong>",
+    "description": "Tout d'abord, merci de vous être arrêté sur mon site ! Je suis un <strong>développeur web</strong>, spécialisé dans la création d’interfaces performantes et responsives, né et grandi en <strong>France 🇫🇷</strong>, avec des origines au <strong>Bénin 🇧🇯</strong>.<br><br>Mon parcours a débuté en tant que <strong>designer graphique</strong>, où j’ai exploré les multiples formes de l’expression visuelle. Cette sensibilité créative m’a naturellement conduit vers le <strong>développement web</strong>, un domaine dans lequel j’ai trouvé l’équilibre parfait entre créativité et expertise technique.<br><br>En <strong>2018</strong>, je me suis installé au <strong>Canada 🇨🇦</strong> en tant que travailleur temporaire, animé par un esprit d’aventure. Avec le temps, je suis devenu résident permanent et j’ai pleinement intégré l’écosystème technologique dynamique de <strong>Montréal</strong>.<br><br>Au fil de ma carrière, j’ai collaboré avec de nombreuses entreprises en tant que <strong>indépendant</strong>, <strong>contractant</strong> et <strong>employé</strong>, développant une compréhension approfondie des besoins projets et des dynamiques d’équipe. Ces expériences ont renforcé mon adaptabilité et ma capacité à collaborer efficacement, me permettant de m’intégrer rapidement et de contribuer concrètement au succès des équipes.<br><br>Vous êtes à la recherche d’un développeur expérimenté, polyvalent et engagé ? N’hésitez pas à me contacter afin que nous puissions collaborer ensemble.<br><br><strong>– William</strong>",
     "highlitedExperience": "Points forts de mon expérience",
     "since": "depuis",
     "present": "présent",
@@ -107,21 +125,27 @@
     "downloadResume": "Télécharger mon CV",
     "footer": {
       "title": "Restons en contact&nbsp;!",
-      "description": "Restons en contact&nbsp;! Si vous avez des questions, des propositions de collaboration ou simplement envie de discuter, n'hésitez pas à me contacter via le formulaire ci-dessous. J'ai hâte de recevoir de vos nouvelles et de maintenir les vibes créatives en mouvement !",
+      "description": "Une question, une idée de projet ou une proposition de collaboration ? N’hésitez pas à me contacter via le formulaire ci-dessous. Je serai ravi d’échanger avec vous et de découvrir votre projet.",
       "contactForm": {
         "name": "Nom",
         "namePlaceholder": "Entrez votre nom",
         "company": "Entreprise",
-        "companyPlaceholder": "Entrez le nom de votre entreprise",
+        "companyPlaceholder": "Entrez le nom de votre entreprise (optionnel)",
         "email": "E-mail",
         "emailPlaceholder": "Entrez votre e-mail",
         "subject": {
           "title": "Sujet",
           "placeholder": "Entrez votre sujet",
-          "options": ["Prise de contact", "Demande d'estimation", "Autre"]
+          "options": [
+            "Prise de contact",
+            "Projet / Devis",
+            "Collaboration",
+            "Recrutement",
+            "Autre"
+          ]
         },
         "message": "Message",
-        "messagePlaceholder": "Entrez votre message",
+        "messagePlaceholder": "Décrivez votre projet, vos besoins ou votre idée.",
         "send": "Envoyer le message",
         "sending": "Envoi en cours...",
         "success": "Message envoyé avec succès",

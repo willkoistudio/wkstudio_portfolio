@@ -44,7 +44,8 @@ export function RootShell({ children }: RootShellProps) {
         <LocaleProvider initialLocale={resolvedLocale}>
           {!pathname.startsWith("/studio") && <HeaderWrapper />}
           {children}
-          {!pathname.startsWith("/studio") && <FooterWrapper />}
+          {!pathname.startsWith("/studio") &&
+            !["/", "/en", "/fr"].includes(pathname) && <FooterWrapper />}
         </LocaleProvider>
         <Toaster />
       </ReCaptchaProvider>

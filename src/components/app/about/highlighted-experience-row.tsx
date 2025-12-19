@@ -72,7 +72,7 @@ export default function HighlightedExperienceRow({
               loading="lazy"
               width={100}
               height={100}
-              className="rounded-sm"
+              className="rounded-sm !h-fit"
             />
           )}
           <div>

@@ -29,7 +29,7 @@
 
   .projects-title {
     @include breakpoint(sm) {
-      font-size: 4rem;
+      font-size: 2.5rem;
     }
 
     @include breakpoint(md) {
@@ -304,5 +304,33 @@
     box-shadow:
       0 4px 6px -1px rgba(0, 0, 0, 0.1),
       0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+}
+
+// Styles pour le bouton de filtre mobile
+#active-filter-button {
+  // Par défaut (all) : rouge (primary)
+  background-color: var(--primary);
+
+  // Couleurs selon la catégorie
+  &:global(.ux) {
+    background-color: var(--ux);
+    &:hover {
+      background-color: color-mix(in srgb, var(--ux) 90%, black);
+    }
+  }
+
+  &:global(.web) {
+    background-color: var(--web);
+    &:hover {
+      background-color: color-mix(in srgb, var(--web) 90%, black);
+    }
+  }
+
+  &:global(.design) {
+    background-color: var(--design);
+    &:hover {
+      background-color: color-mix(in srgb, var(--design) 90%, black);
+    }
   }
 }

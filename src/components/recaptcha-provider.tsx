@@ -21,6 +21,11 @@ export function ReCaptchaProvider({ children }: { children: ReactNode }) {
         defer: false,
         appendTo: "head",
       }}
+      container={{
+        parameters: {
+          badge: "bottomleft",
+        },
+      }}
     >
       {children}
     </GoogleReCaptchaProvider>

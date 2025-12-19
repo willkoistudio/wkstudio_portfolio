@@ -17,6 +17,7 @@ import { Project, ProjectFilter } from "@/models/projects";
 import Masonry from "react-masonry-css";
 import { ProjectCard } from "@/components/app/projects/project-card";
 import { useSticky } from "@/hooks/use-sticky";
+import { Button } from "@/components/ui/button";
 
 export default function Projects() {
   const t = useTranslations();
@@ -27,6 +28,7 @@ export default function Projects() {
   const [loading, setLoading] = useState<boolean>(true);
   const [displayedCount, setDisplayedCount] = useState<number>(6);
   const [loadingMore, setLoadingMore] = useState<boolean>(false);
+  const [isFiltersOpen, setIsFiltersOpen] = useState<boolean>(false);
   const filtersRef = useRef<HTMLDivElement>(null);
   const loadMoreRef = useRef<HTMLDivElement>(null);
   const isSticky = useSticky(filtersRef);
@@ -129,7 +131,14 @@ export default function Projects() {
     scrollToMainContent();
 
     setActiveFilter(filterId);
+    // Fermer le menu mobile après sélection
+    setIsFiltersOpen(false);
   };
+
+  // Obtenir le filtre actif pour déterminer la couleur du bouton
+  const activeFilterData = filters.find(
+    (filter) => filter._id === activeFilter,
+  );
 
   return (
     <main id="projects">
@@ -155,20 +164,63 @@ export default function Projects() {
           />
         </div>
       </header>
-      <section id="projects-list" className="pt-10 lg:pt-16 pb-12">
+      <section id="projects-list" className="pt-6 lg:pt-16 pb-12">
         <div className="container !px-10">
           {/* Filters */}
           <div
             ref={filtersRef}
             className={cn(
-              "flex mb-6 rounded-lg overflow-hidden sticky top-25 z-10",
+              "flex flex-col mb-6 rounded-lg overflow-hidden sticky top-25 z-10",
               styles.filtersSticky,
               isSticky && styles.isSticky,
             )}
           >
+            <Button
+              id="active-filter-button"
+              onClick={() => setIsFiltersOpen(!isFiltersOpen)}
+              className={cn(
+                "rounded-md uppercase mt-6 md:hidden py-8 !font-medium",
+                activeFilterData?.className === "design"
+                  ? "text-black"
+                  : "!text-white",
+              )}
+              style={{
+                backgroundColor:
+                  activeFilter === "all"
+                    ? "var(--primary)"
+                    : activeFilterData?.color || "var(--primary)",
+              }}
+              size="lg"
+            >
+              {activeFilterData?.className === "ux" ? (
+                <AppWindow
+                  size={34}
+                  color="white"
+                  className="mr-2 inline-block"
+                />
+              ) : activeFilterData?.className === "web" ? (
+                <Code size={34} color="white" className="mr-2 inline-block" />
+              ) : activeFilterData?.className === "design" ? (
+                <Wallpaper
+                  size={34}
+                  color="black"
+                  className="mr-2 inline-block"
+                />
+              ) : null}
+              <span>
+                {locale === "en"
+                  ? filters.find((filter) => filter._id === activeFilter)?.title
+                      .en
+                  : filters.find((filter) => filter._id === activeFilter)?.title
+                      .fr || t("projects.filters.all")}
+              </span>
+            </Button>
             <ul
               id={styles["projects-list-header-filters"]}
-              className="flex !mx-auto w-full"
+              className={cn(
+                "flex flex-col md:flex-row !mx-auto w-full",
+                !isFiltersOpen && "hidden md:flex",
+              )}
             >
               <li className="flex-1">
                 <button
@@ -227,7 +279,7 @@ export default function Projects() {
                             className="mr-2 inline-block relative bottom-[2px]"
                           />
                         ) : null}
-                        <span className="hidden md:inline">
+                        <span>
                           {locale === "en" ? filter.title.en : filter.title.fr}
                         </span>
                       </span>

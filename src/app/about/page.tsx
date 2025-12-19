@@ -218,7 +218,7 @@ export default function About() {
           className="order-2 lg:order-1 pb-20 lg:pb-0"
         >
           <FieldGroup>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
               <Controller
                 name="name"
                 control={form.control}
@@ -274,7 +274,7 @@ export default function About() {
                 )}
               />
             </div>
-            <div className="grid grid-cols-2 gap-6">
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
               <Controller
                 name="email"
                 control={form.control}

@@ -199,8 +199,6 @@
   }
 }
 
-// Repositionner le badge reCAPTCHA en bas à gauche
 .grecaptcha-badge {
-  left: 0 !important;
-  right: auto !important;
+  display: none !important;
 }

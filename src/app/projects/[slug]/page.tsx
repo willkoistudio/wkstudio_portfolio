@@ -86,9 +86,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   const title = project.title[locale];
   const content = project.content[locale] as unknown as PortableTextBlock[];
 
-  // UI : en mode lg et plus, photo et gallerie a gauche, contenu a droite avec un scroll que sur le contenu de droite.
-  // en mode md et en dessous, photo et gallerie en haut, contenu en bas. (voir page detail de dribbble),
-  // Chaque image principal devrait etre un gif ou une video.
   return (
     <main className="p-10 pb-12 md:p-12  md:pt-16 flex flex-col md:grid md:grid-cols-2 gap-12">
       <ProjectGalleryLightbox

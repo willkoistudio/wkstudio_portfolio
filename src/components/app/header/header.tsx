@@ -40,7 +40,7 @@ const headerMenuItems = [
 
   {
     label: "nav.downloadResume",
-    href: "",
+    href: "https://drive.google.com/file/d/1R8IA6b233GFVSjGzwx3HHb2v-QmWChZq/view",
     isExternal: true,
   },
 ];
@@ -56,13 +56,6 @@ export function Header() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   // 1023px et moins = md et sm
-  const getResumeHref = (currentLocale: string) => {
-    if (currentLocale === "fr") {
-      return "https://drive.google.com/file/d/1R8IA6b233GFVSjGzwx3HHb2v-QmWChZq/view?usp=sharing";
-    }
-    return "https://drive.google.com/file/d/1IEUwLVXq_kYcAxn7a_6xmHkqXK4af_NK/view?usp=drive_link";
-  };
-
   const isTabletOrMobile = breakpoint === "sm" || breakpoint === "md";
   const isMobileOnly = breakpoint === "sm";
 
@@ -137,12 +130,17 @@ export function Header() {
           </button>
         ) : (
           <NavigationMenuList className="flex-wrap">
+            <span
+              id="lang-selector"
+              className="font-bold cursor-pointer pr-3 flex gap-1 text-primary hover:text-primary-foreground transition-colors"
+              onClick={handleLangChange}
+            >
+              <Globe size={16} className="relative top-1 " />
+              {locale === "fr" ? "EN" : "FR"}
+            </span>
             {headerMenuItems.map((item, index) => {
-              const itemHref = item.label === "nav.downloadResume"
-                ? getResumeHref(locale)
-                : item.href;
-              const active = !item.isExternal && isActive(itemHref);
-              const href = item.isExternal ? itemHref : localizeHref(itemHref);
+              const active = !item.isExternal && isActive(item.href);
+              const href = item.isExternal ? item.href : localizeHref(item.href);
               return (
                 <NavigationMenuItem key={index}>
                   <NavigationMenuLink
@@ -207,11 +205,8 @@ export function Header() {
               {locale === "fr" ? "EN" : "FR"}
             </div>
             {headerMenuItems.map((item, index) => {
-              const itemHref = item.label === "nav.downloadResume"
-                ? getResumeHref(locale)
-                : item.href;
-              const active = !item.isExternal && isActive(itemHref);
-              const href = item.isExternal ? itemHref : localizeHref(itemHref);
+              const active = !item.isExternal && isActive(item.href);
+              const href = item.isExternal ? item.href : localizeHref(item.href);
               return (
                 <Link
                   key={index}

@@ -12,6 +12,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { socialMediaLinks } from "@/utils/social";
 import { useRouter } from "next/navigation";
 import { useBreakpoint } from "@/hooks/use-breakpoint";
+import { SERVICES_PAGE_ENABLED } from "@/config/features";
 
 export default function Home() {
   const router = useRouter();
@@ -170,20 +171,24 @@ export default function Home() {
             >
               {t("home.footer.projects")}
             </Button>
-            <span className="px-3 lg:px-2 xl:px-3 font-bold my-2 md:my-0">
-              {t("home.footer.or")}
-            </span>
-            <Button
-              className="text-white rounded-2xl"
-              size={breakpoint === "lg" ? "sm" : "default"}
-              onClick={() =>
-                router.push(
-                  locale === "fr" ? "/services" : `/${locale}/services`,
-                )
-              }
-            >
-              <span className="">{t("home.footer.services")}</span>
-            </Button>
+            {SERVICES_PAGE_ENABLED && (
+              <>
+                <span className="px-3 lg:px-2 xl:px-3 font-bold my-2 md:my-0">
+                  {t("home.footer.or")}
+                </span>
+                <Button
+                  className="text-white rounded-2xl"
+                  size={breakpoint === "lg" ? "sm" : "default"}
+                  onClick={() =>
+                    router.push(
+                      locale === "fr" ? "/services" : `/${locale}/services`,
+                    )
+                  }
+                >
+                  <span className="">{t("home.footer.services")}</span>
+                </Button>
+              </>
+            )}
           </div>
           <div className="mt-4 md:mt-0 text-center md:!text-left">
             <p className="font-medium">{t("home.footer.socialMedia")}</p>

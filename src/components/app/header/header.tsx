@@ -19,6 +19,7 @@ import { cn } from "@/lib/utils";
 import { useLocaleContext } from "@/contexts/locale-context";
 import { Globe, Menu, X } from "lucide-react";
 import { useState, useEffect } from "react";
+import { SERVICES_PAGE_ENABLED } from "@/config/features";
 
 const headerMenuItems = [
   {
@@ -145,7 +146,11 @@ export function Header() {
               <Globe size={16} className="relative top-1 " />
               {locale === "fr" ? "EN" : "FR"}
             </span>
-            {headerMenuItems.map((item, index) => {
+            {headerMenuItems
+              .filter(
+                (item) => SERVICES_PAGE_ENABLED || item.href !== "/services",
+              )
+              .map((item, index) => {
               const itemHref = item.label === "nav.downloadResume"
                 ? getResumeHref(locale)
                 : item.href;
@@ -214,7 +219,11 @@ export function Header() {
               <Globe size={16} />
               {locale === "fr" ? "EN" : "FR"}
             </div>
-            {headerMenuItems.map((item, index) => {
+            {headerMenuItems
+              .filter(
+                (item) => SERVICES_PAGE_ENABLED || item.href !== "/services",
+              )
+              .map((item, index) => {
               const itemHref = item.label === "nav.downloadResume"
                 ? getResumeHref(locale)
                 : item.href;

@@ -8,6 +8,7 @@ import Image from "next/image";
 import styles from "./footer.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { socialMediaLinks } from "@/utils/social";
+import { SERVICES_PAGE_ENABLED } from "@/config/features";
 
 export function Footer() {
   const t = useTranslations();
@@ -44,13 +45,15 @@ export function Footer() {
                   {t("nav.projects")}
                 </Link>
               </li>
-              <li>
-                <Link
-                  href={locale === "fr" ? "/services" : `/${locale}/services`}
-                >
-                  {t("nav.services")}
-                </Link>
-              </li>
+              {SERVICES_PAGE_ENABLED && (
+                <li>
+                  <Link
+                    href={locale === "fr" ? "/services" : `/${locale}/services`}
+                  >
+                    {t("nav.services")}
+                  </Link>
+                </li>
+              )}
               <li>
                 <Link href={locale === "fr" ? "/about" : `/${locale}/about`}>
                   {t("nav.about")}
